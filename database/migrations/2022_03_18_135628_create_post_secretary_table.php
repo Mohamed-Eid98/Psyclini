@@ -16,14 +16,14 @@ return new class extends Migration
         Schema::create('post_secretary', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('post_id')->unsigned();
-            $table->integer('secretary_id')->unsigned();
+            $table->bigInteger('secretary_ssn')->unsigned();
             $table->foreign('post_id')
                   ->references('id')
                   ->on('posts')
                   ->onDelete('cascade')
                   ->onUpdate('cascade');
-            $table->foreign('secretary_id')
-                  ->references('id')
+            $table->foreign('secretary_ssn')
+                  ->references('ssn')
                   ->on('secretaries')
                   ->onDelete('cascade')
                   ->onUpdate('cascade');

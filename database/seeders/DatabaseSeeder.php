@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Doctor;
+use App\Models\Secretary;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -14,6 +16,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+
+        $this->call([
+            DoctorSeeder::class,
+            SecretarySeeder::class,
+            PatientSeeder::class,        
+        ]);
+
+        // $this->call(PostSeeder::class);
+        // $this->call(ArticleSeeder::class);
+        // $this->call(TestSeeder::class);
     }
 }

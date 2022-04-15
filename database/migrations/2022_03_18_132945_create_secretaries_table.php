@@ -14,14 +14,13 @@ return new class extends Migration
     public function up()
     {
         Schema::create('secretaries', function (Blueprint $table) {
-            $table->increments('id');
+            $table->bigIncrements('ssn');
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->integer('phone');
-            $table->string('sex');
+            $table->integer('phone')->unique();
+            $table->string('img')->nullable();
             $table->date('birth_date');
-            $table->timestamps();
 
         });
     }

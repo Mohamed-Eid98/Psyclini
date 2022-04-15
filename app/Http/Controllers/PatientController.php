@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Patient;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\StorePatientRequest;
 use App\Http\Requests\UpdatePatientRequest;
 
@@ -17,7 +20,36 @@ class PatientController extends Controller
     {
         //
     }
+    public function postLogin(Request $request)
+    {
+        $request->validate([
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+   
+        // $credentials = $request->only('email', 'password');
+        if(Auth::guard('patient')->attempt(['email' => $request->email, 'password' => $request->password])){
+            return view('home');
+        }
+  
+        return ' nooooo' ;
+    }
+    public function PostRegisteration(Request $request)
+    {
+        $request->validate([
+            'email' => 'required|unique:patients,email',
+            'name' => 'required',
+            'phone' => 'unique:patients,phone'
+        ]);
 
+        $check = Patient::create([
+            'name' => $request->input('name'),
+            'email' => $request->input('email'),
+            'phone' => $request->input('phone'),
+            'password' => Hash::make($request->input('password')),
+        ]);
+        return view('home');
+    }
     /**
      * Show the form for creating a new resource.
      *
