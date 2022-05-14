@@ -61,18 +61,18 @@ submitBtn.addEventListener('click' , () => {
                 quiz.innerHTML = `
                 <h4>نتيجتك ${score} من اصل ${quizData.length} :</h4>
                 <p>تهانينا انت شخص نشيط وغير كسول ولا تعاني الخمول ,استمر علي نمط حياتك هذا مع زياده التمارين الرياضيه وجعلها بشكل منتظم</p>
-                <button class="btn btn-primary rounded-pill" onclick="location.reload()">إعاده الاختبار</button><a href="../html/tests.html"><button class="btn btn-primary rounded-pill">الخروج</button></a>`;
+                <button class="btn btn-primary rounded-pill" onclick="location.reload()">إعاده الاختبار</button><a href="../resources/html/tests.blade.php"><button class="btn btn-primary rounded-pill">الخروج</button></a>`;
             }else if(score <= 9 && score >= 5 ){
                 quiz.innerHTML = `
                 <h4>نتيجتك ${score} من اصل ${quizData.length} :</h4>
                 <p>أنت احيانا نشيط و احيانا اخري كسول ننصحك بأن تقرأ أكثر وتعرف أسباب عدم نشاطك</p>
-                <button class="btn btn-primary rounded-pill" onclick="location.reload()">إعاده الاختبار</button><a href="../html/tests.html"><button class="btn btn-primary rounded-pill">الخروج</button></a>`;
+                <button class="btn btn-primary rounded-pill" onclick="location.reload()">إعاده الاختبار</button><a href="../resources/html/tests.blade.php"><button class="btn btn-primary rounded-pill">الخروج</button></a>`;
             }
             else if(score < 4 ){
                 quiz.innerHTML = `
                 <h4>نتيجتك ${score} من اصل ${quizData.length} :</h4>
                 <p>أنت شخص كسول تعاني من الخمول في حياتك ننصحك بتغيير نشاطاتك اليوميه و ممارسه القليل من التمارين الرياضيه</p>
-                <button class="btn btn-primary rounded-pill" onclick="location.reload()">إعاده الاختبار</button><a href="../html/tests.html"><button class="btn btn-primary rounded-pill">الخروج</button></a>`;
+                <button class="btn btn-primary rounded-pill" onclick="location.reload()">إعاده الاختبار</button><a href="../resources/html/tests.blade.php"><button class="btn btn-primary rounded-pill">الخروج</button></a>`;
             }
         }
     }

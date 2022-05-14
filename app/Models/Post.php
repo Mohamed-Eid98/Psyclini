@@ -25,9 +25,9 @@ class Post extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function patients()
+    public function patient()
     {
-        return $this->belongsToMany(Patient::class, 'post_patient');
+        return $this->belongsTo(Patient::class);
     }
     public function doctors()
     {

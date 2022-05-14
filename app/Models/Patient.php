@@ -47,6 +47,10 @@ class Patient extends Authenticatable
     {
         return $this->hasMany(Comment::class);
     }
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 
 
 }

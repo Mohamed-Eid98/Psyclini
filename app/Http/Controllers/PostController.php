@@ -8,6 +8,9 @@ use App\Models\Doctor;
 use App\Models\Article;
 use App\Models\Patient;
 use App\Models\Secretary;
+use App\Models\postPatient;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
 
@@ -20,11 +23,12 @@ class PostController extends  Controller
      */
     public function index()
     {
-        $posts = Post::latest()->with('patients')->simplePaginate(2);
+        $posts = Post::latest()->with('patient')->Paginate(2);
         foreach($posts as $post){
             $post->setAttribute('added_at',$post->created_at->diffForHumans());
             $post->setAttribute('comments_count',$post->comments->count());
         }
+     
         return view('html.blog', compact('posts'));
         // return response()->json($posts);
     }
@@ -34,10 +38,16 @@ class PostController extends  Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
-    }
+    public function search(Request $request)
+{
+    $text = $request->input('posts');
+        $posts = Post::where(function ($q) use ($text){
+            
+            $q->where('body' , 'LIKE' , '%'.$text.'%');
+        })->paginate(2);
+        // $doctors = Doctor::where('rating' , "LIKE" , '%'.$rating.'%')->paginate(6);
+        return view('html.blog', compact('posts'));    
+}
 
     /**
      * Store a newly created resource in storage.
@@ -47,20 +57,23 @@ class PostController extends  Controller
      */
     public function store(StorePostRequest $request)
     {
- 
+        $post = new Post();
         if ($image = $request->file('post-pic')){
             $path = 'images/';
             $ext = $image->getClientOriginalExtension();
             $imageName = time(). '.' .$ext;
             $image->move($path , $imageName);
+            $post->image = $imageName; 
         }
      
-     $post = new Post();
-     $post->body = $request->input('comment');   
-     $post->image = $imageName; 
-     $post->speciality = $request->input('cate');   
-     $post->save();
-     return redirect()->route('home');
+        
+        $post->body = $request->input('comment');   
+        $post->speciality = $request->input('cate');   
+        $patientId = Auth::guard('patient')->user()->id ;
+        $post->patient_id = $patientId;
+        $post->save();
+     return redirect()->route('blog');
+
     }   
     /**
      * Display the specified resource.

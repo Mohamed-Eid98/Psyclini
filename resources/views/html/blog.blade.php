@@ -1,61 +1,15 @@
+@extends('layouts.app')
+@section('content')
+
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../css/home_style.css">
-    <link rel="stylesheet" href="../css/icofont.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/slick-theme.css">
-    <link rel="stylesheet" href="../css/slick.css">
-    <link rel="icon" href="../img/icon.png">
+
     <title>Psyclini</title>
     
 </head>
 <body id="bootstrap-overrides">
   
-  <!--nav bar begin-->
-  <header>
-    <nav class="navbar navbar-expand-lg navigation" id="navbar">
-      <div class="container">
-        <a class="navbar-brand" href="index.html">
-            <img src="../img/logo.png" alt="" class="img-fluid" >
-        </a>
-
-        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarmain" aria-controls="navbarmain" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="icofont-navigation-menu"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarmain">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Home</a></li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="department.html" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Departments</a>
-                <ul class="dropdown-menu" aria-labelledby="dropdown02">
-                  <li><a class="dropdown-item" href="department.html">All Departments</a></li>
-                  <li><a class="dropdown-item" href="department.html#child_adol">Child and Adolescence Disorders</a></li>
-                  <li><a class="dropdown-item" href="department.html#general">General Psychiatry</a></li>
-                  <li><a class="dropdown-item" href="department.html#geriatric">Geriatric Psychiatry</a></li>
-                  <li><a class="dropdown-item" href="department.html#pid">Psychiatry of Intellectual Disability (PID)</a></li>
-                  <li><a class="dropdown-item" href="department.html#marital">Marital and Family Relations</a></li>
-                  <li><a class="dropdown-item" href="department.html#forensic">Forensic Psychiatry</a></li>
-                  <li><a class="dropdown-item" href="department.html#addiction">Addiction</a></li>
-                  <li><a class="dropdown-item" href="department.html#life_coach">Life Coach</a></li>
-                </ul>
-            </li>
-            <li class="nav-item"><a class="nav-link" href="{{ url('doctors/') }}">Doctors</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ url('articles/') }}">Articles</a></li>    
-            <li class="nav-item"><a class="nav-link" href="{{ url('test/') }}">Tests</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ url('blog/') }}">Blog</a></li>    
-            <li class="nav-item"><a class="nav-link" href="{{ url('') }}">Games</a></li>      
-            <li class="nav-item"><a class="nav-link" href="#contact-us">Contact Us</a></li>
-            <a class="btn btn-outline-primary rounded-pill order-1 order-lg-0 ms-lg-4" href="{{ url('sign in/') }}">Sign In</a>
-          </ul>
-
-        </div>
-      </div>
-    </nav>
-  </header>
-  <!--nav bar End-->
 
   <section class="section blog-wrap">
     <div class="container">
@@ -103,7 +57,8 @@
                       <img alt="" src="../img/Testimonial 5 pic.jpg" class="img-fluid">
                     </div>
                     <div class="comment-info ">
-                      <h4 class="mb-1 ">{{ $post->patients->first()->name }}</h4>
+                      <h4 class="mb-1 ">{{ $post->patient->name}}</h4>
+                      {{-- $post->patients->first()->name --}}
                     </div>
                   </div>
                 </div>
@@ -120,12 +75,13 @@
                   <p class="article-parag">
                       {{ $post->body }}
                   </p>
-                  <a href="{{ url('/blog page', $post->id) }}" target="_blank" class="btn btn-primary rounded-pill">Read More <i class="icofont-simple-right ml-2  "></i></a>
+                  
+                  <a href="{{ url('/blogPage', $post->id) }}" target="_blank" class="btn btn-primary rounded-pill">Read More <i class="icofont-simple-right ml-2  "></i></a>
                 </div>
+                
             </div>
         </div>
         @endforeach
-
 
                   
           </div>
@@ -135,9 +91,12 @@
           <div class="sidebar-wrap pl-lg-4 mt-5 mt-lg-0">
             <div class="sidebar-widget search  mb-3 "><!--Search-->
               <h4>Search Here</h4>
-              <form action="#" class="search-form">
-                <input type="text" class="form-control" placeholder="search">
+              <form action="{{ route('post.search') }}"  method="GET" class="search-form">
+                <input type="text" class="form-control" name= 'posts' placeholder="search">
                 <i class="ti-search"></i>
+               
+                  {{-- <button class="btn btn-primary rounded-pill px-3 ">Post</button> --}}
+              
               </form>
             </div>
 
@@ -240,13 +199,7 @@
     </footer>
   </div>
 
-
-
-  <script src="../js/jquery.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-  <script src="../js/slick.min.js"></script>
-  <script src="../js/script.js"></script>
 </body>
 </html>
-
+@endsection
 

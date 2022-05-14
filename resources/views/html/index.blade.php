@@ -43,7 +43,7 @@
           <div class=" pl-4 mt-4 mt-lg-0">
             <h2 class="title-color">Easy, Fast<br>& Efficient</h2>
             <p class="mt-4 mb-5 font-large-p">Choose your therapist and book an appointment from the comfort of your home.</p>
-            <a href="doctors.html" class="btn btn-sm btn-outline-primary rounded-pill order-1 order-lg-0 ms-lg-4">Book an Appointment<i class="icofont-simple-right ml-3"></i></a>
+            <a href="{{ route('doctors.index') }}" class="btn btn-sm btn-outline-primary rounded-pill order-1 order-lg-0 ms-lg-4">Book an Appointment<i class="icofont-simple-right ml-3"></i></a>
           </div>
         </div>
       </div>

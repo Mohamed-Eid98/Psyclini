@@ -8,6 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
     use HasFactory;
+    public $table =  'comments';
+    public $fillable = [
+        'body',
+        'post_id',
+        'patient_id'
+    ];
     /**
      * Get the user that owns the Comment
      *

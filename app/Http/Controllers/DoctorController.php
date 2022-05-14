@@ -1,12 +1,12 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Doctor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Validator;
 use App\Http\Requests\StoreDoctorRequest;
 use App\Http\Requests\UpdateDoctorRequest;
-use Illuminate\Validation\Validator;
 use Symfony\Component\Console\Input\Input;
 
 class DoctorController extends Controller
@@ -23,19 +23,16 @@ class DoctorController extends Controller
     }
     public function search(Request $request)
 {
-                $specialization = $request->input('speciality');
-                $rating = $request->input('rating');
+    $specialization = $request->input('speciality');
+    $rating = $request->input('rating');
 
-                    $doctors = Doctor::where(function ($q) use ($rating, $specialization){
-                        
-                        $q->where('speciality' , 'LIKE' , '%'.$specialization.'%')
-                          ->Where('rating' , "LIKE" , $rating.'%');
-                    })->paginate(6);
-                    // $doctors = Doctor::where('rating' , "LIKE" , '%'.$rating.'%')->paginate(6);
-                    return view('html.doctors', compact('doctors'));
-
- 
-      
+        $doctors = Doctor::where(function ($q) use ($rating, $specialization){
+            
+            $q->where('speciality' , 'LIKE' , '%'.$specialization.'%')
+                ->Where('rating' , "LIKE" , $rating.'%');
+        })->paginate(6);
+        // $doctors = Doctor::where('rating' , "LIKE" , '%'.$rating.'%')->paginate(6);
+        return view('html.doctors', compact('doctors'));    
 }
 
     /**
@@ -43,9 +40,22 @@ class DoctorController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+
+    public function postLogin(Request $request)
     {
-        //
+        $request->validate([
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+   
+        if(Auth::guard('doctor')->attempt(['email' => $request->email, 'password' => $request->password])){
+           return view('doctor-dashboard.index');        
+        }
+  
+        return ' nooooo' ;
+    }
+    public function show_profile(){
+        return view('html.doctor page');
     }
 
     /**
@@ -65,10 +75,14 @@ class DoctorController extends Controller
      * @param  \App\Models\Doctor  $doctor
      * @return \Illuminate\Http\Response
      */
-    public function show(Doctor $doctor)
-    {
-        //
-    }
+public function doctor_index()
+{
+    return view('doctor-dashboard.index');
+}
+public function create_post()
+{
+    return view('doctor-dashboard.create post');
+}
 
     /**
      * Show the form for editing the specified resource.

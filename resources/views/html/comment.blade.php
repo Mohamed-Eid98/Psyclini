@@ -23,7 +23,7 @@
                       <img alt="" src="../img/people pic 5.jpg" class="img-fluid">
                     </div>
                     <div class="comment-info ">
-                      <h4 class="mb-1 ">{{ $post->patient->name }}</h4>
+                      <h4 class="mb-1 ">moh</h4>
                     </div>
                   </div>
                 </div>
@@ -82,24 +82,6 @@
                       </div>
                     </div>
                   </li>
-
-                  {{-- <li>
-                    <div class="comment-area-box">
-                      <div class="comment-thumb float-left">
-                        <img alt="" src="../img/people pic 5.jpg" class="img-fluid">
-                      </div>
-                      <div class="comment-info">
-                        <h5 class="mb-1">Mostafa Ezz</h5>
-                        <span class="date-comm"> Posted June 7, 2019</span>
-                      </div>
-                      <div class="comment-meta mt-2">
-                        <a href="#"><i class="icofont-reply mr-2 text-muted"></i>Reply </a>
-                      </div>
-                      <div class="comment-content mt-3">
-                        <p>Some consultants are employed indirectly by the client via a consultancy staffing company, a company that provides consultants on an agency basis. </p>
-                      </div>
-                    </div>
-                  </li> --}}
                 </ul>
               </div>
             </div>
@@ -111,9 +93,9 @@
                 <input class="btn btn-primary rounded-pill" type="submit" name="submit-contact" id="submit_contact" value="Submit Comment">
               </form>
             </div>
-            @endforeach
           </div>
         </div>
+        @endforeach
 
               <div class="col-lg-4"><!--Side Bar-->
                 <div class="sidebar-wrap pl-lg-4 mt-5 mt-lg-0">

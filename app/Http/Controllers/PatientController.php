@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\StorePatientRequest;
 use App\Http\Requests\UpdatePatientRequest;
+use Illuminate\Support\Facades\Redirect;
 
 class PatientController extends Controller
 {
@@ -20,10 +21,16 @@ class PatientController extends Controller
     {
         //
     }
+    private function loginFailed(){
+        return redirect()
+                ->back()
+                ->withInput()
+                ->with('error', 'Logain Failed, Please try again!');
+    }
     public function postLogin(Request $request)
     {
         $request->validate([
-            'email' => 'required',
+            'email' => 'required|email|',
             'password' => 'required',
         ]);
    
@@ -32,24 +39,53 @@ class PatientController extends Controller
             return view('home');
         }
   
-        return ' nooooo' ;
+        return $this->loginFailed();
     }
     public function PostRegisteration(Request $request)
     {
         $request->validate([
             'email' => 'required|unique:patients,email',
             'name' => 'required',
-            'phone' => 'unique:patients,phone'
+            'phone' => 'unique:patients,phone',
         ]);
+        
+        // $input = $request->all();
+        // if ($image = $request->file('patient-pic')){
+        //     $path = 'images/patients/';
+        //     $ext = $image->getClientOriginalExtension();
+        //     $imageName = time(). '.' .$ext;
+        //     $image->move($path , $imageName);
+        //     $input['img'] = $imageName;
+        // }
+        // $check = Patient::create([
+        //     'name' => $request->input('name'),
+        //     'email' => $request->input('email'),
+        //     'phone' => $request->input('phone'),
+        //     'birth_date' => $request->input('dob'),
+        //     'password' => Hash::make($request->input('password')),
+        // ]);
+        // return redirect()->route('home');
+    
 
-        $check = Patient::create([
-            'name' => $request->input('name'),
-            'email' => $request->input('email'),
-            'phone' => $request->input('phone'),
-            'password' => Hash::make($request->input('password')),
-        ]);
-        return view('home');
+    $patient = new Patient();
+    if ($image = $request->file('patient-pic')){
+        $path = 'images/patients';
+        $ext = $image->getClientOriginalExtension();
+        $imageName = time(). '.' .$ext;
+        $image->move($path , $imageName);
+        $patient->img = $imageName; 
     }
+ 
+    
+    $patient->name = $request->input('name');   
+    $patient->email = $request->input('email');   
+    $patient->phone = $request->input('phone');   
+    $patient->birth_date = $request->input('dob');
+    $patient->password = Hash::make($request->input('password'));
+    $patient->save();
+ return redirect()->route('home');
+    }
+
     /**
      * Show the form for creating a new resource.
      *
