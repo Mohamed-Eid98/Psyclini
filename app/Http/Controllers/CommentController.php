@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Models\Comment;
 use App\Http\Requests\StoreCommentRequest;
 use App\Http\Requests\UpdateCommentRequest;
+use Illuminate\Support\Facades\Auth;
 
 class CommentController extends Controller
 {
@@ -37,7 +38,12 @@ class CommentController extends Controller
      */
     public function store(StoreCommentRequest $request)
     {
-        //
+        $comment = new Comment();
+        $comment->body = $request->input('comment');
+        $user = Auth::guard('patient')->user()->id;
+        $comment->patient_id = $user;
+        $comment->save();
+        return redirect()->route('blog.page');
     }
 
     /**
@@ -48,12 +54,16 @@ class CommentController extends Controller
      */
     public function show($post_id)
     {
-        $posts = Post::with('comments')->find($post_id);
-        // return  response()->json($posts);
+        $posts = Post::with('comments', 'patient')->find($post_id);
+        // foreach($posts as $post){
+        //     $post->setAttribute('added_at',$post->created_at->diffForHumans());
+        //     $post->setAttribute('comments_count',$post->comments->count());
+        // }
+            //return  response()->json($posts);
  
-         return view('html.blog page', compact('posts'));
-    }
+         return view('html.comment', compact('posts'));
 
+    }
     /**
      * Show the form for editing the specified resource.
      *
