@@ -25,14 +25,14 @@
                 <textarea class="form-control mb-4" name="comment" id="comment" cols="30" rows="5" placeholder="What are you thinking??"></textarea>
                 <label >Department
                   <select class="form-select post-dep-dropdown" name="cate" >
-                    <option class="op" value="child_adol">Child and Adolescence Disorders</option>
-                    <option class="op" value="general">General Psychiatry</option>
-                    <option class="op" value="geriatric">Geriatric Psychiatry</option>
-                    <option class="op" value="pid">Psychiatry of Intellectual Disability (PID)</option>
-                    <option class="op" value="marital">Marital and Family Relations</option>
-                    <option class="op" value="forensic">Forensic Psychiatry</option>
-                    <option class="op" value="addiction">Addiction</option>
-                    <option class="op" value="life_coach">Life Coach</option>
+                    <option class="op" value="Child and Adolescence Disorders">Child and Adolescence Disorders</option>
+                    <option class="op" value="General Psychiatry">General Psychiatry</option>
+                    <option class="op" value="Geriatric Psychiatry">Geriatric Psychiatry</option>
+                    <option class="op" value="Psychiatry of Intellectual Disability (PID)">Psychiatry of Intellectual Disability (PID)</option>
+                    <option class="op" value="Marital and Family Relations">Marital and Family Relations</option>
+                    <option class="op" value="Forensic Psychiatry">Forensic Psychiatry</option>
+                    <option class="op" value="Addiction<">Addiction</option>
+                    <option class="op" value="Life Coach">Life Coach</option>
                   </select>
                 </label>
                 <label class="text-muted add-img">
@@ -53,9 +53,15 @@
               <div class="single-blog-item feature-item"><!--Post content begin-->
                 <div class="comment-area"><!--Post Owner-->
                   <div class="comment-area-box post-owner">
-                    <div class="comment-thumb float-left">
-                      <img alt="" src="../img/Testimonial 5 pic.jpg" class="img-fluid">
-                    </div>
+                    @if ( $post->patient->img != NULL)
+                      <div class="comment-thumb float-left">
+                        <img alt="" src="{{ asset('images/patients/'. $post->patient->img) }}" class="img-fluid">
+                      </div>    
+                      @else
+                      <div class="comment-thumb float-left">
+                        <img alt="" src="{{ asset('images/patients/123.jpg') }}" class="img-fluid">
+                      </div>
+                    @endif
                     <div class="comment-info ">
                       <h4 class="mb-1 ">{{ $post->patient->name}}</h4>
                       {{-- $post->patients->first()->name --}}
@@ -63,20 +69,20 @@
                   </div>
                 </div>
 
-                <a href="blog page.html"><img src="{{ asset('images/'. $post->image) }}" alt="" class="img-fluid"></a>
+                <a href="{{ route('blog.page', $post->id) }}"><img src="{{ asset('images/'. $post->image) }}" alt="" class="img-fluid"></a>
                 <div class="blog-item-content mt-5">
 
                   <div class="blog-item-meta mb-3"><!--Post headers-->
-                    <span class="text-color-2 text-capitalize mr-3"><i class="icofont-book-mark mr-2"></i> Child Disorders</span>
+                    <span class="text-color-2 text-capitalize mr-3"><i class="icofont-book-mark mr-2"></i> {{ $post->speciality }}</span>
                     <span class="text-muted text-capitalize mr-3"><i class="icofont-comment mr-2"></i>{{ $post->comments_count }} Comments</span>
                     <span class="text-black text-muted text-capitalize mr-3"><i class="icofont-calendar mr-2"></i> {{ $post->added_at }}</span>
                   </div> 
 
                   <p class="article-parag">
-                      {{ $post->body }}
+                      {!! nl2br($post->body) !!} 
                   </p>
                   
-                  <a href="{{ url('/blogPage', $post->id) }}" target="_blank" class="btn btn-primary rounded-pill">Read More <i class="icofont-simple-right ml-2  "></i></a>
+                  <a href="{{ route('blog.page', $post->id) }}" target="_blank" class="btn btn-primary rounded-pill">Read More <i class="icofont-simple-right ml-2  "></i></a>
                 </div>
                 
             </div>
@@ -92,6 +98,7 @@
             <div class="sidebar-widget search  mb-3 "><!--Search-->
               <h4>Search Here</h4>
               <form action="{{ route('post.search') }}"  method="GET" class="search-form">
+               
                 <input type="text" class="form-control" name= 'posts' placeholder="search">
                 <i class="ti-search"></i>
                
@@ -122,52 +129,40 @@
               <h4>Departments</h4>
               <ul class="list-unstyled">
                 <li class="align-items-center">
-                  <a href="#">Child and Adolescence Disorders</a>
-                  <span>(0)</span>
+                  <a href="{{ route('child.posts') }}">Child and Adolescence Disorders</a>
+                  <span>({{ $post->child }})</span>
                 </li>
                 <li class="align-items-center">
-                  <a href="#">Geriatric Psychiatry</a>
-                  <span>(0)</span>
+                  <a href="{{ route('geriatric.posts') }}">Geriatric Psychiatry</a>
+                  <span>({{ $post->geriatric }})</span>
                 </li>
                 <li class="align-items-center">
-                  <a href="#">General Psychiatry</a>
-                  <span>(2)</span>
+                  <a href="{{ route('general.posts') }}">General Psychiatry</a>
+                  <span>({{ $post->general }})</span>
                 </li>
                 <li class="align-items-center">
-                  <a href="#">Psychiatry of Intellectual Disability (PID)</a>
-                  <span>(0)</span>
+                  <a href="{{ route('disability.posts') }}">Psychiatry of Intellectual Disability </a>
+                  <span>({{ $post->pid }})</span>
                 </li>
                 <li class="align-items-center">
-                  <a href="#">Marital and Family Relations</a>
-                  <span>(0)</span>
+                  <a href="{{ route('family.posts') }}">Marital and Family Relations</a>
+                  <span>({{ $post->marital }})</span>
                 </li>
                 <li class="align-items-center">
-                  <a href="#">Forensic Psychiatry</a>
-                  <span>(0)</span>
+                  <a type="button" href="{{ route('forensic.posts') }}">Forensic Psychiatry</a>
+                  <span>({{ $post->forensic }})</span>
                 </li>
                 <li class="align-items-center">
-                  <a href="#">Addiction</a>
-                  <span>(0)</span>
+                  <a href="{{ route('addiction.posts') }}">Addiction</a>
+                  <span>({{ $post->addiction }})</span>
                 </li>
                 <li class="align-items-center">
-                  <a href="#">Life Coach</a>
-                  <span>(0)</span>
+                  <a href="{{ route('life.posts') }}">Life Coach</a>
+                    <span>({{ $post->life_coach }})</span>
                 </li>                
               </ul>
             </div>
-            
-            <div class="sidebar-widget tags mb-3"><!--Tags -->
-              <h4 class="mb-4">Tags</h4>
-              <a href="#">Doctors</a>
-              <a href="#">Counseling</a>
-              <a href="#">Autism</a>
-              <a href="#">Medicine</a>
-              <a href="#">Neurodivergent</a>
-              <a href="#">Eating Disorders</a>
-              <a href="#">Anxiety</a>
-              <a href="#">Depression</a>
-              <a href="#">OCD</a>
-            </div>
+        
           </div>
         </div>
       </div><!--end row-->
@@ -175,7 +170,7 @@
         <div class="col-lg-8">
           <nav class="pagination py-2 d-inline-block">
             <div class="nav-links">
-                {{ $posts->links() }}
+                {!!  $posts->withQueryString()->links('vendor.pagination.custom') !!} 
             </div>
           </nav>
         </div>

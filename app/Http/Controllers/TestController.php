@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Test;
+use App\Models\Comment;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreTestRequest;
 use App\Http\Requests\UpdateTestRequest;
 
@@ -17,6 +19,15 @@ class TestController extends Controller
     {
         //
     }
+public function comm(Request $request){
+
+  $post = new Comment();
+  $post->body = $request->input('mm');
+  $post->body = $request->input('mm');
+  $post->body = $request->input('mm');
+  $post->save();
+      return redirect()->route('blog');
+}
 
     /**
      * Show the form for creating a new resource.

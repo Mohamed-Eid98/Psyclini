@@ -14,7 +14,7 @@
       <div class="row">
         <div class="col-lg-8">
           <div class="row">
-            @foreach ($posts as $post)
+            {{-- @foreach ($posts as $post) --}}
             <div class="col-lg-12 mb-5">
               <div class="single-blog-item feature-item"><!--Post content begin-->
                 <div class="comment-area"><!--Post Owner-->
@@ -23,12 +23,12 @@
                       <img alt="" src="../img/people pic 5.jpg" class="img-fluid">
                     </div>
                     <div class="comment-info ">
-                      <h4 class="mb-1 ">{{ $post->patient->name }}</h4>
+                      <h4 class="mb-1 ">mohamed</h4>
                     </div>
                   </div>
                 </div>
 
-                <img src="{{ asset('images/'. $post->image) }}" alt="" class="img-fluid">
+                {{-- <img src="{{ asset('images/'. $post->image) }}" alt="" class="img-fluid"> --}}
                 <div class="blog-item-content mt-5">
 
                   <div class="blog-item-meta mb-3"><!--Post headers-->
@@ -38,26 +38,10 @@
                   </div> 
 
                   <p class="article-parag"><!--Post Body-->
-                        {{ $post->body }}
+                        this is post
                   </p>
                
                   
-
-                  <div class="mt-5 clearfix"><!--tags-->
-                    <ul class="float-left list-inline tag-option"> 
-                      <li class="list-inline-item"><a href="#">Advancher</a></li>
-                      <li class="list-inline-item"><a href="#">Landscape</a></li>
-                      <li class="list-inline-item"><a href="#">Travel</a></li>
-                    </ul> 
-
-                    <ul class="float-right list-inline"><!--share-->
-                      <li class="list-inline-item"> Share: </li>
-                      <li class="list-inline-item"><a href="#" target="_blank"><i class="icofont-facebook" aria-hidden="true"></i></a></li>
-                      <li class="list-inline-item"><a href="#" target="_blank"><i class="icofont-twitter" aria-hidden="true"></i></a></li>
-                      <li class="list-inline-item"><a href="#" target="_blank"><i class="icofont-pinterest" aria-hidden="true"></i></a></li>
-                      <li class="list-inline-item"><a href="#" target="_blank"><i class="icofont-linkedin" aria-hidden="true"></i></a></li>
-                    </ul>
-                  </div>
                 </div>
               </div>
             </div>
@@ -71,7 +55,7 @@
                         <img alt="" src="../img/people pic 2.jpg" class="img-fluid">
                       </div>
                       <div class="comment-info">
-                        <h5 class="mb-1">{{ $post->comments->patient_id }}</h5>
+                        <h5 class="mb-1">name</h5>
                         <span class="date-comm"> Posted April 7, 2019</span>
                       </div>
                       <div class="comment-meta mt-2">
@@ -105,13 +89,14 @@
             </div>
 
             <div class="col-lg-12"><!--Write a Comment-->
-              <form action="{{ url('/comment post', $post->id) }}" class="comment-form my-5" id="comment-form">
+              <form action="{{ route('test', $post->id) }}" class="comment-form my-5" id="comment-form" method="POST">
+                @csrf
                 <h4 class="mb-4">Write a Comment</h4>
                 <textarea class="form-control mb-4" name="comment" id="comment" cols="30" rows="5" placeholder="Comment"></textarea>
                 <input class="btn btn-primary rounded-pill" type="submit" name="submit-contact" id="submit_contact" value="Submit Comment">
               </form>
             </div>
-            @endforeach
+            {{-- @endforeach --}}
           </div>
         </div>
 

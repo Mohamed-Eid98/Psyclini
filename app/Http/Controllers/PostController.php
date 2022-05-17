@@ -23,10 +23,18 @@ class PostController extends  Controller
      */
     public function index()
     {
-        $posts = Post::latest()->with('patient')->Paginate(2);
+        $posts = Post::latest()->with('patient')->Paginate(3);
         foreach($posts as $post){
             $post->setAttribute('added_at',$post->created_at->diffForHumans());
             $post->setAttribute('comments_count',$post->comments->count());
+            $post->setAttribute('life_coach', Post::where('speciality' , 'Life Coach')->count()); 
+            $post->setAttribute('pid', Post::where('speciality' , 'Psychiatry of Intellectual Disability (PID)')->count());
+            $post->setAttribute('marital', Post::where('speciality' , 'Marital and Family Relations')->count()); 
+            $post->setAttribute('forensic', Post::where('speciality' , 'Forensic Psychiatry')->count()); 
+            $post->setAttribute('addiction', Post::where('speciality' , 'Addiction')->count()); 
+            $post->setAttribute('general', Post::where('speciality' , 'General Psychiatry')->count()); 
+            $post->setAttribute('geriatric', Post::where('speciality' , 'Geriatric Psychiatry')->count()); 
+            $post->setAttribute('child', Post::where('speciality' , 'Child and Adolescence Disorders')->count()); 
         }
      
         return view('html.blog', compact('posts'));
@@ -44,20 +52,248 @@ class PostController extends  Controller
         $posts = Post::where(function ($q) use ($text){
             
             $q->where('body' , 'LIKE' , '%'.$text.'%');
-        })->paginate(2);
-        // $doctors = Doctor::where('rating' , "LIKE" , '%'.$rating.'%')->paginate(6);
-        return view('html.blog', compact('posts'));    
+        })->paginate(3);
+                foreach($posts as $post){
+            $post->setAttribute('added_at',$post->created_at->diffForHumans());
+            $post->setAttribute('comments_count',$post->comments->count());
+            $post->setAttribute('life_coach', Post::where('speciality' , 'Life Coach')->count()); 
+            $post->setAttribute('pid', Post::where('speciality' , 'Psychiatry of Intellectual Disability (PID)')->count());
+            $post->setAttribute('marital', Post::where('speciality' , 'Marital and Family Relations')->count()); 
+            $post->setAttribute('forensic', Post::where('speciality' , 'Forensic Psychiatry')->count()); 
+            $post->setAttribute('addiction', Post::where('speciality' , 'Addiction')->count()); 
+            $post->setAttribute('general', Post::where('speciality' , 'General Psychiatry')->count()); 
+            $post->setAttribute('geriatric', Post::where('speciality' , 'Geriatric Psychiatry')->count()); 
+            $post->setAttribute('child', Post::where('speciality' , 'Child and Adolescence Disorders')->count()); 
+        }
+        if ($posts->count() == 0)
+        {
+            return $this->index();
+            return redirect()->route('blog')->with('status2', 'Your Post Was Sent');
+        }
+        return view('html.blog', compact('posts'))->with('status2', 'Your Post Was Sent');    
+
 }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StorePostRequest  $request
-     * @return \Illuminate\Http\Response
-     */
+
+public function addiction_posts(Request $request)
+{
+    $posts = Post::with('patient')->where(function($q){
+        $q->where('speciality', 'Addiction');
+    })->paginate(3);
+    foreach($posts as $post){
+        $post->setAttribute('added_at',$post->created_at->diffForHumans());
+        $post->setAttribute('comments_count',$post->comments->count());
+        $post->setAttribute('life_coach', Post::where('speciality' , 'Life Coach')->count()); 
+        $post->setAttribute('pid', Post::where('speciality' , 'Psychiatry of Intellectual Disability (PID)')->count());
+        $post->setAttribute('marital', Post::where('speciality' , 'Marital and Family Relations')->count()); 
+        $post->setAttribute('forensic', Post::where('speciality' , 'Forensic Psychiatry')->count()); 
+        $post->setAttribute('addiction', Post::where('speciality' , 'Addiction')->count()); 
+        $post->setAttribute('general', Post::where('speciality' , 'General Psychiatry')->count()); 
+        $post->setAttribute('geriatric', Post::where('speciality' , 'Geriatric Psychiatry')->count()); 
+        $post->setAttribute('child', Post::where('speciality' , 'Child and Adolescence Disorders')->count()); 
+    }
+    if($post->addiction != 0){
+        return view('html.blog', compact('posts'));    
+      }
+      else{
+           return redirect()->route('blog')->with('status2', 'There Is No Posts In This Speciality'); 
+      }
+}
+public function life_posts(Request $request)
+{
+    $posts = Post::with('patient')->where(function($q){
+        $q->where('speciality', 'Life Coach');
+    })->paginate(3);
+           foreach($posts as $post){
+            $post->setAttribute('added_at',$post->created_at->diffForHumans());
+            $post->setAttribute('comments_count',$post->comments->count());
+            $post->setAttribute('life_coach', Post::where('speciality' , 'Life Coach')->count()); 
+            $post->setAttribute('pid', Post::where('speciality' , 'Psychiatry of Intellectual Disability (PID)')->count());
+            $post->setAttribute('marital', Post::where('speciality' , 'Marital and Family Relations')->count()); 
+            $post->setAttribute('forensic', Post::where('speciality' , 'Forensic Psychiatry')->count()); 
+            $post->setAttribute('addiction', Post::where('speciality' , 'Addiction')->count()); 
+            $post->setAttribute('general', Post::where('speciality' , 'General Psychiatry')->count()); 
+            $post->setAttribute('geriatric', Post::where('speciality' , 'Geriatric Psychiatry')->count()); 
+            $post->setAttribute('child', Post::where('speciality' , 'Child and Adolescence Disorders')->count()); 
+        } 
+        
+        if($post->life_coach != 0){
+            return view('html.blog', compact('posts'));    
+          }
+          else{
+               return redirect()->route('blog')->with('status2', 'There Is No Posts In This Speciality'); 
+          }
+        // return response()->json($post->life_coach);
+    }
+
+
+public function child(Request $request)
+{
+    $posts = Post::with('patient')->where(function($q){
+        $q->where('speciality', 'Child and Adolescence Disorders');
+    })->paginate(3);
+           foreach($posts as $post){
+            $post->setAttribute('added_at',$post->created_at->diffForHumans());
+            $post->setAttribute('comments_count',$post->comments->count());
+            $post->setAttribute('life_coach', Post::where('speciality' , 'Life Coach')->count()); 
+            $post->setAttribute('pid', Post::where('speciality' , 'Psychiatry of Intellectual Disability (PID)')->count());
+            $post->setAttribute('marital', Post::where('speciality' , 'Marital and Family Relations')->count()); 
+            $post->setAttribute('forensic', Post::where('speciality' , 'Forensic Psychiatry')->count()); 
+            $post->setAttribute('addiction', Post::where('speciality' , 'Addiction')->count()); 
+            $post->setAttribute('general', Post::where('speciality' , 'General Psychiatry')->count()); 
+            $post->setAttribute('geriatric', Post::where('speciality' , 'Geriatric Psychiatry')->count()); 
+            $post->setAttribute('child', Post::where('speciality' , 'Child and Adolescence Disorders')->count()); 
+        } 
+        if($post->child != 0){
+            return view('html.blog', compact('posts'));    
+          }
+          else{
+               return redirect()->route('blog')->with('status2', 'There Is No Posts In This Speciality');
+          }
+    }
+
+public function disability(Request $request)
+{
+    $posts = Post::with('patient')->where(function($q){
+        $q->where('speciality', 'Psychiatry of Intellectual Disability (PID)');
+    })->paginate(3);
+           foreach($posts as $post){
+            $post->setAttribute('added_at',$post->created_at->diffForHumans());
+            $post->setAttribute('comments_count',$post->comments->count());
+            $post->setAttribute('life_coach', Post::where('speciality' , 'Life Coach')->count()); 
+            $post->setAttribute('pid', Post::where('speciality' , 'Psychiatry of Intellectual Disability (PID)')->count());
+            $post->setAttribute('marital', Post::where('speciality' , 'Marital and Family Relations')->count()); 
+            $post->setAttribute('forensic', Post::where('speciality' , 'Forensic Psychiatry')->count()); 
+            $post->setAttribute('addiction', Post::where('speciality' , 'Addiction')->count()); 
+            $post->setAttribute('general', Post::where('speciality' , 'General Psychiatry')->count()); 
+            $post->setAttribute('geriatric', Post::where('speciality' , 'Geriatric Psychiatry')->count()); 
+            $post->setAttribute('child', Post::where('speciality' , 'Child and Adolescence Disorders')->count()); 
+        } 
+//    if($post->pid != 0){
+//      return view('html.blog', compact('posts'));    
+//    }
+//    else{
+//         return redirect()->route('blog')->with('status2', 'There Is No Posts In This Speciality'); 
+//    }
+if ($post->count() == 0)
+{
+    return $this->index();
+    return redirect()->route('blog')->with('status', 'Your Post Was Sent');
+}
+return view('html.blog', compact('posts'))->with('status', 'Your Post Was Sent');    
+
+
+}
+
+public function family(Request $request)
+{
+    $posts = Post::with('patient')->where(function($q){
+        $q->where('speciality', 'Marital and Family Relations');
+    })->paginate(3);
+           foreach($posts as $post){
+            $post->setAttribute('added_at',$post->created_at->diffForHumans());
+            $post->setAttribute('comments_count',$post->comments->count());
+            $post->setAttribute('life_coach', Post::where('speciality' , 'Life Coach')->count()); 
+            $post->setAttribute('pid', Post::where('speciality' , 'Psychiatry of Intellectual Disability (PID)')->count());
+            $post->setAttribute('marital', Post::where('speciality' , 'Marital and Family Relations')->count()); 
+            $post->setAttribute('forensic', Post::where('speciality' , 'Forensic Psychiatry')->count()); 
+            $post->setAttribute('addiction', Post::where('speciality' , 'Addiction')->count()); 
+            $post->setAttribute('general', Post::where('speciality' , 'General Psychiatry')->count()); 
+            $post->setAttribute('geriatric', Post::where('speciality' , 'Geriatric Psychiatry')->count()); 
+            $post->setAttribute('child', Post::where('speciality' , 'Child and Adolescence Disorders')->count()); 
+        } 
+        
+    if($post->martial != 0){
+        return view('html.blog', compact('posts'));    
+        }
+        else{
+            return redirect()->route('blog')->with('status2', 'There Is No Posts In This Speciality'); 
+        }
+} 
+public function forensic(Request $request)
+{
+    $posts = Post::with('patient')->where(function($q){
+        $q->where('speciality', 'Forensic Psychiatry');
+    })->paginate(3);
+           foreach($posts as $post){
+            $post->setAttribute('added_at',$post->created_at->diffForHumans());
+            $post->setAttribute('comments_count',$post->comments->count());
+            $post->setAttribute('life_coach', Post::where('speciality' , 'Life Coach')->count()); 
+            $post->setAttribute('pid', Post::where('speciality' , 'Psychiatry of Intellectual Disability (PID)')->count());
+            $post->setAttribute('marital', Post::where('speciality' , 'Marital and Family Relations')->count()); 
+            $post->setAttribute('forensic', Post::where('speciality' , 'Forensic Psychiatry')->count()); 
+            $post->setAttribute('addiction', Post::where('speciality' , 'Addiction')->count()); 
+            $post->setAttribute('general', Post::where('speciality' , 'General Psychiatry')->count()); 
+            $post->setAttribute('geriatric', Post::where('speciality' , 'Geriatric Psychiatry')->count()); 
+            $post->setAttribute('child', Post::where('speciality' , 'Child and Adolescence Disorders')->count()); 
+        } 
+        if($post->forensic == 0){
+            return view('html.blog')->with('status2', 'There Is No Posts In This Speciality'); 
+        }
+          else if ($post->forensic != 0){
+        return view('html.blog', compact('posts'));    
+       }
+        
+    // return response()->json($post->forensic);
+        
+         
+}  
+public function geriatric(Request $request)
+{
+    $posts = Post::with('patient')->where(function($q){
+        $q->where('speciality', 'Geriatric Psychiatry');
+    })->paginate(3);
+           foreach($posts as $post){
+            $post->setAttribute('added_at',$post->created_at->diffForHumans());
+            $post->setAttribute('comments_count',$post->comments->count());
+            $post->setAttribute('life_coach', Post::where('speciality' , 'Life Coach')->count()); 
+            $post->setAttribute('pid', Post::where('speciality' , 'Psychiatry of Intellectual Disability (PID)')->count());
+            $post->setAttribute('marital', Post::where('speciality' , 'Marital and Family Relations')->count()); 
+            $post->setAttribute('forensic', Post::where('speciality' , 'Forensic Psychiatry')->count()); 
+            $post->setAttribute('addiction', Post::where('speciality' , 'Addiction')->count()); 
+            $post->setAttribute('general', Post::where('speciality' , 'General Psychiatry')->count()); 
+            $post->setAttribute('geriatric', Post::where('speciality' , 'Geriatric Psychiatry')->count()); 
+            $post->setAttribute('child', Post::where('speciality' , 'Child and Adolescence Disorders')->count()); 
+        } 
+        
+        if($post->geriatric != 0){
+            return view('html.blog', compact('posts'));    
+          }
+          else{
+               return redirect()->route('blog')->with('status2', 'There Is No Posts In This Speciality'); 
+          }
+    } 
+public function general(Request $request)
+{
+    $posts = Post::with('patient')->where(function($q){
+        $q->where('speciality', 'General Psychiatry');
+    })->paginate(3);
+           foreach($posts as $post){
+            $post->setAttribute('added_at',$post->created_at->diffForHumans());
+            $post->setAttribute('comments_count',$post->comments->count());
+            $post->setAttribute('life_coach', Post::where('speciality' , 'Life Coach')->count()); 
+            $post->setAttribute('pid', Post::where('speciality' , 'Psychiatry of Intellectual Disability (PID)')->count());
+            $post->setAttribute('marital', Post::where('speciality' , 'Marital and Family Relations')->count()); 
+            $post->setAttribute('forensic', Post::where('speciality' , 'Forensic Psychiatry')->count()); 
+            $post->setAttribute('addiction', Post::where('speciality' , 'Addiction')->count()); 
+            $post->setAttribute('general', Post::where('speciality' , 'General Psychiatry')->count()); 
+            $post->setAttribute('geriatric', Post::where('speciality' , 'Geriatric Psychiatry')->count()); 
+            $post->setAttribute('child', Post::where('speciality' , 'Child and Adolescence Disorders')->count()); 
+        } 
+        if($post->general != 0){
+            return view('html.blog', compact('posts'));  
+        }
+          else{
+        return redirect()->route('blog')->with('status2', 'There Is No Posts In This Speciality'); 
+               
+          }
+        // return view('html.blog', compact('posts'));  
+    }
+
     public function store(StorePostRequest $request)
     {
         $post = new Post();
+
         if ($image = $request->file('post-pic')){
             $path = 'images/';
             $ext = $image->getClientOriginalExtension();
@@ -65,56 +301,17 @@ class PostController extends  Controller
             $image->move($path , $imageName);
             $post->image = $imageName; 
         }
-     
-        
-        $post->body = $request->input('comment');   
+
+         $post->body = $request->input('comment');   
         $post->speciality = $request->input('cate');   
         $patientId = Auth::guard('patient')->user()->id ;
         $post->patient_id = $patientId;
         $post->save();
-     return redirect()->route('blog');
+     return redirect()->route('blog')->with('status', 'Your Post Was Sent');
+     
 
     }   
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Post $post)
-    {
-        //
-    }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Post $post)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdatePostRequest  $request
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdatePostRequest $request, Post $post)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Post  $post
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Post $post)
     {
         if($post->image)

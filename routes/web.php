@@ -4,8 +4,11 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\SecretaryController;
+use App\Http\Controllers\TestController;
 use App\Models\Comment;
 use App\Models\Patient;
+use App\Models\Secretary;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -72,10 +75,19 @@ Route::get('/signUp' , function(){
 Route::get('blog', [PostController::class, 'index'] )->name('blog');
 Route::post('blog', [PostController::class, 'store'] )->middleware('isPatient')->name('posts.store');
 Route::get('blog/search', [PostController::class, 'search'] )->name('post.search');
+Route::get('blog/speciality=addiction', [PostController::class, 'addiction_posts'] )->name('addiction.posts');
+Route::get('blog/speciality=life_coach', [PostController::class, 'life_posts'] )->name('life.posts');
+Route::get('blog/speciality=child', [PostController::class, 'child'] )->name('child.posts');
+Route::get('blog/speciality=disability', [PostController::class, 'disability'] )->name('disability.posts');
+Route::get('blog/speciality=family', [PostController::class, 'family'] )->name('family.posts');
+Route::get('blog/speciality=forensic', [PostController::class, 'forensic'] )->name('forensic.posts');
+Route::get('blog/speciality=general', [PostController::class, 'general'] )->name('general.posts');
+Route::get('blog/speciality=geriatric', [PostController::class, 'geriatric'] )->name('geriatric.posts');
 
 Route::get('blogPage/{id}', [CommentController::class, 'show'] )->name('blog.page');
-//Route::get('comment post/{id}', [CommentController::class, 'store']);
+Route::post('comment post/{id}', [CommentController::class, 'store'])->middleware('isPatient')->name('comments.store');
 Route::get('doctors' , [DoctorController::class, 'index'])->name('doctors.index');
+Route::get('logout' , [DoctorController::class, 'logout'])->name('doctors.logout');
 Route::get('/doctor/profile/' , [DoctorController::class, 'show_profile'])->name('doctor.profile');
 Route::get('doctors/profile/book' , [DoctorController::class, 'book'])->middleware('isPatient')->name('book.store');
 Route::get('doctors/search' , [DoctorController::class, 'search'])->name('doctors.search');
@@ -93,7 +105,7 @@ Auth::routes();
 
 // Route::middleware(['isDoctor'])->group(function () {
 
-Route::get('doctor-index', [DoctorController::class, 'doctor_index'])->name('doctor.index');
+Route::get('doctor-index', [DoctorController::class, 'doctor_index'])->middleware('isDoctor')->name('doctor.index');
 Route::get('requests status', function(){
     return view('doctor-dashboard.requests status');
 })->name('doctor.status');
@@ -107,6 +119,14 @@ Route::get('publish article', function(){
     
 // });
 
+/////// dashboard of admin
+
+Route::get('admin/index', [SecretaryController::class, 'index'])->name('admin.index');
+Route::get('admin/create', [SecretaryController::class, 'admin_create'])->name('admin.createDRAccount');
+Route::get('admin/contact', [SecretaryController::class, 'admin_contact'])->name('admin.contact.response');
+Route::get('admin/modify/appoinment', [SecretaryController::class, 'modify_appoinment'])->name('admin.modify.appoinments');
+Route::get('admin/approve/posts', [SecretaryController::class, 'admin_approve_posts'])->name('admin.approve.posts');
+Route::get('admin/approve/requests', [SecretaryController::class, 'admin_approve_requests'])->name('admin.approve.requests');
 
 
 

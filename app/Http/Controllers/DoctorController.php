@@ -57,6 +57,13 @@ class DoctorController extends Controller
     public function show_profile(){
         return view('html.doctor page');
     }
+    public function logout()
+    {
+        Auth::guard('doctor')->logout();
+        return redirect()
+            ->route('home')
+            ->with('status','Admin has been logged out!');
+    }
 
     /**
      * Store a newly created resource in storage.

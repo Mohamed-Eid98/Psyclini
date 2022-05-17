@@ -46,7 +46,9 @@ class PatientController extends Controller
         $request->validate([
             'email' => 'required|unique:patients,email',
             'name' => 'required',
-            'phone' => 'unique:patients,phone',
+            'phone' => 'unique:patients,phone|numeric',
+        ],[
+            'phone.numeric' => "the phone must be a number"
         ]);
         
         // $input = $request->all();
@@ -83,8 +85,12 @@ class PatientController extends Controller
     $patient->birth_date = $request->input('dob');
     $patient->password = Hash::make($request->input('password'));
     $patient->save();
- return redirect()->route('home');
+    
+    if(Auth::guard('patient')->attempt(['email' => $request->email, 'password' => $request->password])){
+        return redirect()->route('home');
     }
+
+}
 
     /**
      * Show the form for creating a new resource.

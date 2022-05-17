@@ -265,9 +265,9 @@
         <div class="col-lg-4">
           <nav class="pagination py-2 ">
             <div class="nav-links">
-              {{ $doctors->links() }}
-              
-              {{-- <span aria-current="page" class="page-numbers current">1</span>
+              {{ $doctors->links('vendor.pagination.custom') }}
+{{--               
+            <span aria-current="page" class="page-numbers current">1</span>
               <a class="page-numbers" href="#">2</a>
               <a class="page-numbers" href="#">3</a>
               <a class="page-numbers" href="#"><i class="icofont-thin-double-right"></i></a>     --}}

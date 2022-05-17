@@ -22,7 +22,7 @@ class isDoctor
         if (Auth::guard('doctor')->check()) {
             return $next($request);
         }
-        return Redirect()->route('signin'); 
+        return Redirect()->route('doctor.signin'); 
 
     }
 }

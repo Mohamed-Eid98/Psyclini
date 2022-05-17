@@ -15,8 +15,30 @@ class SecretaryController extends Controller
      */
     public function index()
     {
-        //
+        return view('html.ADMIN index');
     }
+    public function admin_create()
+    {
+        return view('html.ADMIN CreateDoctorsAccount');
+    }
+    public function admin_contact()
+    {
+        return view('html.ADMIN contact us responses');
+    }
+    public function admin_approve_posts()
+    {
+        return view('html.ADMIN approve posts');
+    }
+    public function admin_approve_requests()
+    {
+        return view('html.ADMIN approve doctors requests');
+    }
+    public function modify_appoinment()
+    {
+        return view('html.ADMIN Modify Appointments');
+    }
+
+
 
     /**
      * Show the form for creating a new resource.

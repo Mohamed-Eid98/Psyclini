@@ -14,16 +14,21 @@
       <div class="row">
         <div class="col-lg-8">
           <div class="row">
-            @foreach ($posts as $post)
             <div class="col-lg-12 mb-5">
               <div class="single-blog-item feature-item"><!--Post content begin-->
                 <div class="comment-area"><!--Post Owner-->
                   <div class="comment-area-box post-owner">
+                    @if ( $post->patient->img != NULL))
                     <div class="comment-thumb float-left">
-                      <img alt="" src="../img/people pic 5.jpg" class="img-fluid">
+                      <img alt="" src="{{ asset('images/patients/'. $post->patient->img) }}" class="img-fluid">
+                    </div>    
+                    @else
+                    <div class="comment-thumb float-left">
+                      <img alt="" src="{{ asset('images/patients/123.jpg') }}" class="img-fluid">
                     </div>
+                    @endif
                     <div class="comment-info ">
-                      <h4 class="mb-1 ">moh</h4>
+                      <h4 class="mb-1 ">{{ $post->patient->name }}</h4>
                     </div>
                   </div>
                 </div>
@@ -32,70 +37,60 @@
                 <div class="blog-item-content mt-5">
 
                   <div class="blog-item-meta mb-3"><!--Post headers-->
-                    <span class="text-color-2 text-capitalize mr-3"><i class="icofont-book-mark mr-2"></i> Child Disorders</span>
-                    <span class="text-muted text-capitalize mr-3"><i class="icofont-comment mr-2"></i>2 Comments</span>
-                    <span class="text-black text-muted text-capitalize mr-3"><i class="icofont-calendar mr-2"></i> 28th January 2019</span>
+                    <span class="text-color-2 text-capitalize mr-3"><i class="icofont-book-mark mr-2"></i> {{ $post->speciality }}</span>
+                    <span class="text-muted text-capitalize mr-3"><i class="icofont-comment mr-2"></i>{{ $post->comments_count }} Comments</span>
+                    <span class="text-black text-muted text-capitalize mr-3"><i class="icofont-calendar mr-2"></i> {{ $post->added_at }}</span>
                   </div> 
 
                   <p class="article-parag"><!--Post Body-->
-                        {{ $post->body }}
+                        {!! nl2br($post->body) !!}
                   </p>
                
-                  
-
-                  <div class="mt-5 clearfix"><!--tags-->
-                    <ul class="float-left list-inline tag-option"> 
-                      <li class="list-inline-item"><a href="#">Advancher</a></li>
-                      <li class="list-inline-item"><a href="#">Landscape</a></li>
-                      <li class="list-inline-item"><a href="#">Travel</a></li>
-                    </ul> 
-
-                    <ul class="float-right list-inline"><!--share-->
-                      <li class="list-inline-item"> Share: </li>
-                      <li class="list-inline-item"><a href="#" target="_blank"><i class="icofont-facebook" aria-hidden="true"></i></a></li>
-                      <li class="list-inline-item"><a href="#" target="_blank"><i class="icofont-twitter" aria-hidden="true"></i></a></li>
-                      <li class="list-inline-item"><a href="#" target="_blank"><i class="icofont-pinterest" aria-hidden="true"></i></a></li>
-                      <li class="list-inline-item"><a href="#" target="_blank"><i class="icofont-linkedin" aria-hidden="true"></i></a></li>
-                    </ul>
-                  </div>
+   
                 </div>
               </div>
             </div>
             <div class="col-lg-12" id="comments"><!-- Comments -->
               <div class="comment-area mt-4 mb-5 feature-item">
-                <h4 class="mb-4">Comments ... </h4>
+                <h4 class="mb-4">Comments ... </h4>      
+                @foreach ($comments as $comment)
                 <ul class="comment-tree list-unstyled">
                   <li class="mb-5">
                     <div class="comment-area-box">
+                      @if ( $comment->patient->img != NULL)
                       <div class="comment-thumb float-left">
-                        <img alt="" src="../img/people pic 2.jpg" class="img-fluid">
+                        <img alt="" src="{{ asset('images/patients/'. $comment->patient->img) }}" class="img-fluid">
+                      </div>    
+                      @else
+                      <div class="comment-thumb float-left">
+                        <img alt="" src="{{ asset('images/patients/123.jpg') }}" class="img-fluid">
                       </div>
+                      @endif
                       <div class="comment-info">
-                        <h5 class="mb-1">{{ $post->comments->patient_id }}</h5>
-                        <span class="date-comm"> Posted April 7, 2019</span>
-                      </div>
-                      <div class="comment-meta mt-2">
-                        <a href="#"><i class="icofont-reply mr-2 text-muted"></i>Reply</a>
+                        <h5 class="mb-1">{{ $comment->patient->name }}</h5>
+                        <span class="date-comm"> {{ $comment->comment_added_at }}</span>
                       </div>
                       <div class="comment-content mt-3">
-                        <p>Some consultants are employed indirectly by the client via a consultancy staffing company, a company that provides consultants on an agency basis. </p>
+                        <p>{!! nl2br($comment->body) !!} </p>
                       </div>
                     </div>
                   </li>
                 </ul>
+                
+                @endforeach
               </div>
             </div>
 
+            <form action="{{ route('comments.store', $post->id) }}" class="comment-form my-5" id="comment-form" method="POST">
+              @csrf
             <div class="col-lg-12"><!--Write a Comment-->
-              <form action="{{ url('/comment post', $post->id) }}" class="comment-form my-5" id="comment-form">
-                <h4 class="mb-4">Write a Comment</h4>
-                <textarea class="form-control mb-4" name="comment" id="comment" cols="30" rows="5" placeholder="Comment"></textarea>
+              <h4 class="mb-4">Write a Comment</h4>
+                <textarea class="form-control mb-4" name="comment" id="comment" cols="30" rows="5" placeholder="Comment" required></textarea>
                 <input class="btn btn-primary rounded-pill" type="submit" name="submit-contact" id="submit_contact" value="Submit Comment">
               </form>
             </div>
           </div>
         </div>
-        @endforeach
 
               <div class="col-lg-4"><!--Side Bar-->
                 <div class="sidebar-wrap pl-lg-4 mt-5 mt-lg-0">
@@ -132,52 +127,41 @@
                     <h4>Departments</h4>
                     <ul class="list-unstyled">
                       <li class="align-items-center">
-                        <a href="#">Child and Adolescence Disorders</a>
-                        <span>(0)</span>
+                        <a href="{{ route('child.posts') }}">Child and Adolescence Disorders</a>
+                        <span>({{ $post->child }})</span>
                       </li>
                       <li class="align-items-center">
-                        <a href="#">Geriatric Psychiatry</a>
-                        <span>(0)</span>
+                        <a href="{{ route('geriatric.posts') }}">Geriatric Psychiatry</a>
+                        <span>({{ $post->geriatric }})</span>
                       </li>
                       <li class="align-items-center">
-                        <a href="#">General Psychiatry</a>
-                        <span>(0)</span>
+                        <a href="{{ route('general.posts') }}">General Psychiatry</a>
+                        <span>({{ $post->general }})</span>
                       </li>
                       <li class="align-items-center">
-                        <a href="#">Psychiatry of Intellectual Disability (PID)</a>
-                        <span>(0)</span>
+                        <a href="{{ route('disability.posts') }}">Psychiatry of Intellectual Disability </a>
+                        <span>({{ $post->pid }})</span>
                       </li>
                       <li class="align-items-center">
-                        <a href="#">Marital and Family Relations</a>
-                        <span>(0)</span>
+                        <a href="{{ route('family.posts') }}">Marital and Family Relations</a>
+                        <span>({{ $post->marital }})</span>
                       </li>
                       <li class="align-items-center">
-                        <a href="#">Forensic Psychiatry</a>
-                        <span>(0)</span>
+                        <a type="button" href="{{ route('forensic.posts') }}">Forensic Psychiatry</a>
+                        <span>({{ $post->forensic }})</span>
                       </li>
                       <li class="align-items-center">
-                        <a href="#">Addiction</a>
-                        <span>(0)</span>
+                        <a href="{{ route('addiction.posts') }}">Addiction</a>
+                        <span>({{ $post->addiction }})</span>
                       </li>
                       <li class="align-items-center">
-                        <a href="#">Life Coach</a>
-                        <span>(0)</span>
+                        <a href="{{ route('life.posts') }}">Life Coach</a>
+                          <span>({{ $post->life_coach }})</span>
                       </li>                
                     </ul>
                   </div>
                   
-                  <div class="sidebar-widget tags mb-3"><!--Tags -->
-                    <h4 class="mb-4">Tags</h4>
-                    <a href="#">Doctors</a>
-                    <a href="#">Counseling</a>
-                    <a href="#">Autism</a>
-                    <a href="#">Medicine</a>
-                    <a href="#">Neurodivergent</a>
-                    <a href="#">Eating Disorders</a>
-                    <a href="#">Anxiety</a>
-                    <a href="#">Depression</a>
-                    <a href="#">OCD</a>
-                  </div>
+      
                 </div>
               </div>
             </div><!--end row-->
