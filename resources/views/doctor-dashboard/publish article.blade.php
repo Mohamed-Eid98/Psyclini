@@ -50,15 +50,15 @@
             </ul>
           </li>
           
-          <li class="sidebar-item has-sub">
+          <li class="sidebar-item has-sub active">
             <a href="#" class='sidebar-link'>
               <span>Publish</span>
             </a>
-            <ul class="submenu ">
+            <ul class="submenu active">
               <li class="submenu-item ">
                 <a href="{{ route('doctor.post') }}">Post</a>
               </li>
-              <li class="submenu-item ">
+              <li class="submenu-item active ">
                 <a href="{{ route('doctor.article') }}">Article</a>
               </li>
             </ul>
@@ -68,6 +68,9 @@
             <a href="{{  route('home')}}" class="sidebar-link"> 
               <span>Go to the Main Website <i class="icofont-simple-right"></i></span>
             </a>
+          </li>
+          <li class="sidebar-item log-out ">
+            <a href="#" class="text-muted">Log Out</a>
           </li>
           
         </ul>           
