@@ -105,7 +105,7 @@ Auth::routes();
 
 // Route::middleware(['isDoctor'])->group(function () {
 
-Route::get('doctor-index', [DoctorController::class, 'doctor_index'])->middleware('isDoctor')->name('doctor.index');
+Route::get('doctor-index', [DoctorController::class, 'doctor_index'])->name('doctor.index');
 Route::get('requests status', function(){
     return view('doctor-dashboard.requests status');
 })->name('doctor.status');
@@ -124,11 +124,9 @@ Route::get('publish article', function(){
 Route::get('admin/index', [SecretaryController::class, 'index'])->name('admin.index');
 Route::get('admin/create', [SecretaryController::class, 'admin_create'])->name('admin.createDRAccount');
 Route::get('admin/contact', [SecretaryController::class, 'admin_contact'])->name('admin.contact.response');
-Route::get('admin/modify/appoinment', [SecretaryController::class, 'modify_appoinment'])->name('admin.modify.appoinments');
-Route::get('admin/approve/posts', [SecretaryController::class, 'admin_approve_posts'])->name('admin.approve.posts');
-Route::get('admin/approve/requests', [SecretaryController::class, 'admin_approve_requests'])->name('admin.approve.requests');
-
-
+Route::get('admin/modify', [SecretaryController::class, 'modify_appoinment'])->name('admin.modify.appoinments');
+Route::get('admin/posts', [SecretaryController::class, 'posts'])->name('admin.posts');
+Route::get('admin/requests', [SecretaryController::class, 'admin_approve_requests'])->name('admin.approve.requests');
 
 
 

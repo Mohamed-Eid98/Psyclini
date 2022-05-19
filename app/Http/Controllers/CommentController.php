@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreCommentRequest;
 use App\Http\Requests\UpdateCommentRequest;
@@ -86,9 +87,25 @@ class CommentController extends Controller
             $comment->setAttribute('comment_added_at',$comment->created_at->diffForHumans());
         }
 
-        // return asset('images/patients/'.$post->patient->image);
-            // return  response()->json($comments);
+        // $dub = Comment::all();
+        // $collection = collect($dub);
+        // $m = $collection->duplicates('post_id');
+        // $mm = $collection->duplicates('post_id')->max();
+        // $p = Post::where('id', $mm)->get();
+
+            // return  response()->json($p);
+            // return $collection->duplicates();
          return view('html.comment', compact('post', 'comments'));
+
+    }
+
+    public function max_post(){
+        $dub = Comment::all();
+        $collection = collect($dub);
+        $m = $collection->duplicates('post_id');
+        $mm = $collection->duplicates('post_id')->max();
+        $p = Post::where('id', $mm)->get();
+        return view('html.blog', compact('p'));
 
     }
     

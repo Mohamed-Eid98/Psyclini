@@ -19,10 +19,9 @@ class isDoctor
     public function handle(Request $request, Closure $next, $guard = null)
     {
         
-        if (Auth::guard('doctor')->check()) {
-            return $next($request);
+        if (Auth::guard('doctor')->check() == false) {
+            return Redirect()->route('doctor.signin'); 
         }
-        return Redirect()->route('doctor.signin'); 
-
+        return $next($request);
     }
 }

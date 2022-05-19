@@ -41,6 +41,12 @@ class DoctorController extends Controller
      * @return \Illuminate\Http\Response
      */
 
+    private function loginFailed(){
+        return redirect()
+                ->back()
+                ->withInput()
+                ->with('error', 'Logain Failed, Please try again!');
+}
     public function postLogin(Request $request)
     {
         $request->validate([
@@ -49,10 +55,12 @@ class DoctorController extends Controller
         ]);
    
         if(Auth::guard('doctor')->attempt(['email' => $request->email, 'password' => $request->password])){
-           return view('doctor-dashboard.index');        
+           return view('doctor-dashboard.index');  
+        // return 'yes';   
         }
+
   
-        return ' nooooo' ;
+        return $this->loginFailed();
     }
     public function show_profile(){
         return view('html.doctor page');

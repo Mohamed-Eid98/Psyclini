@@ -1,22 +1,17 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
+
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+    <link rel="stylesheet" href="../css/admin main style.css">
+    <link rel="stylesheet" href="../css/admin_bootstrap.css">
+    <link rel="stylesheet" href="../css/icofont.css">
+    <link rel="icon" href="../img/icon.png">
 
 </head>
 <body>
-    <div id="app">    <div id="sidebar" class="active ">
+    <div id="app">
+      <div id="sidebar" class="active ">
         <div class="sidebar-wrapper active">
           <div class="sidebar-header">
             <div class="d-flex justify-content-between">
@@ -53,7 +48,7 @@
                 </a>
                 <ul class="submenu ">
                   <li class="submenu-item ">
-                    <a href="{{ route('admin.approve.posts') }}">Posts</a>
+                    <a href="{{ route('admin.posts') }}">Posts</a>
                   </li>
                   <li class="submenu-item ">
                     <a href="{{ route('admin.approve.requests') }}">Doctors' Requests</a>

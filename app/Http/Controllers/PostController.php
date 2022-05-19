@@ -6,6 +6,7 @@ use App\Models\Post;
 use App\Models\Test;
 use App\Models\Doctor;
 use App\Models\Article;
+use App\Models\Comment;
 use App\Models\Patient;
 use App\Models\Secretary;
 use App\Models\postPatient;
@@ -13,6 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StorePostRequest;
 use App\Http\Requests\UpdatePostRequest;
+use Illuminate\Cache\Events\KeyWritten;
 
 class PostController extends  Controller
 {
@@ -36,9 +38,20 @@ class PostController extends  Controller
             $post->setAttribute('geriatric', Post::where('speciality' , 'Geriatric Psychiatry')->count()); 
             $post->setAttribute('child', Post::where('speciality' , 'Child and Adolescence Disorders')->count()); 
         }
-     
-        return view('html.blog', compact('posts'));
-        // return response()->json($posts);
+        $dub = Comment::all();
+        $collection = collect($dub);
+        $m = $collection->duplicates('post_id');
+        $mm = $m->duplicates()->max();
+        $mmm= $m->countBy()->keys()->get(2);
+        $mmmm = $m->countBy()->keys()->get(0);
+
+        $p = Post::where('id', $mm)->get();
+        $pp = Post::where('id', $mmm)->get();
+        $ppp = Post::where('id', $mmmm)->get();
+ 
+
+        return view('html.blog', compact('posts','p', 'pp','ppp'));
+        // return $m->countBy()->keys()->max();
     }
 
     /**
@@ -93,8 +106,19 @@ public function addiction_posts(Request $request)
         $post->setAttribute('child', Post::where('speciality' , 'Child and Adolescence Disorders')->count()); 
     }
     if($post->addiction != 0){
-        return view('html.blog', compact('posts'));    
-      }
+        $dub = Comment::all();
+        $collection = collect($dub);
+        $m = $collection->duplicates('post_id');
+        $mm = $m->duplicates()->max();
+        $mmm= $m->countBy()->keys()->get(2);
+        $mmmm = $m->countBy()->keys()->get(0);
+
+        $p = Post::where('id', $mm)->get();
+        $pp = Post::where('id', $mmm)->get();
+        $ppp = Post::where('id', $mmmm)->get();
+ 
+
+        return view('html.blog', compact('posts','p', 'pp','ppp'));        }
       else{
            return redirect()->route('blog')->with('status2', 'There Is No Posts In This Speciality'); 
       }
@@ -118,8 +142,19 @@ public function life_posts(Request $request)
         } 
         
         if($post->life_coach != 0){
-            return view('html.blog', compact('posts'));    
-          }
+            $dub = Comment::all();
+            $collection = collect($dub);
+            $m = $collection->duplicates('post_id');
+            $mm = $m->duplicates()->max();
+            $mmm= $m->countBy()->keys()->get(2);
+            $mmmm = $m->countBy()->keys()->get(0);
+    
+            $p = Post::where('id', $mm)->get();
+            $pp = Post::where('id', $mmm)->get();
+            $ppp = Post::where('id', $mmmm)->get();
+     
+    
+            return view('html.blog', compact('posts','p', 'pp','ppp'));            }
           else{
                return redirect()->route('blog')->with('status2', 'There Is No Posts In This Speciality'); 
           }
@@ -145,8 +180,19 @@ public function child(Request $request)
             $post->setAttribute('child', Post::where('speciality' , 'Child and Adolescence Disorders')->count()); 
         } 
         if($post->child != 0){
-            return view('html.blog', compact('posts'));    
-          }
+            $dub = Comment::all();
+            $collection = collect($dub);
+            $m = $collection->duplicates('post_id');
+            $mm = $m->duplicates()->max();
+            $mmm= $m->countBy()->keys()->get(2);
+            $mmmm = $m->countBy()->keys()->get(0);
+    
+            $p = Post::where('id', $mm)->get();
+            $pp = Post::where('id', $mmm)->get();
+            $ppp = Post::where('id', $mmmm)->get();
+     
+    
+            return view('html.blog', compact('posts','p', 'pp','ppp'));            }
           else{
                return redirect()->route('blog')->with('status2', 'There Is No Posts In This Speciality');
           }
@@ -169,20 +215,23 @@ public function disability(Request $request)
             $post->setAttribute('geriatric', Post::where('speciality' , 'Geriatric Psychiatry')->count()); 
             $post->setAttribute('child', Post::where('speciality' , 'Child and Adolescence Disorders')->count()); 
         } 
-//    if($post->pid != 0){
-//      return view('html.blog', compact('posts'));    
-//    }
-//    else{
-//         return redirect()->route('blog')->with('status2', 'There Is No Posts In This Speciality'); 
-//    }
-if ($post->count() == 0)
-{
-    return $this->index();
-    return redirect()->route('blog')->with('status', 'Your Post Was Sent');
-}
-return view('html.blog', compact('posts'))->with('status', 'Your Post Was Sent');    
-
-
+        if($post->pid != 0){
+            $dub = Comment::all();
+            $collection = collect($dub);
+            $m = $collection->duplicates('post_id');
+            $mm = $m->duplicates()->max();
+            $mmm= $m->countBy()->keys()->get(2);
+            $mmmm = $m->countBy()->keys()->get(0);
+    
+            $p = Post::where('id', $mm)->get();
+            $pp = Post::where('id', $mmm)->get();
+            $ppp = Post::where('id', $mmmm)->get();
+     
+    
+            return view('html.blog', compact('posts','p', 'pp','ppp'));            }
+          else{
+               return redirect()->route('blog')->with('status2', 'There Is No Posts In This Speciality');
+          }
 }
 
 public function family(Request $request)
@@ -204,8 +253,19 @@ public function family(Request $request)
         } 
         
     if($post->martial != 0){
-        return view('html.blog', compact('posts'));    
-        }
+        $dub = Comment::all();
+        $collection = collect($dub);
+        $m = $collection->duplicates('post_id');
+        $mm = $m->duplicates()->max();
+        $mmm= $m->countBy()->keys()->get(2);
+        $mmmm = $m->countBy()->keys()->get(0);
+
+        $p = Post::where('id', $mm)->get();
+        $pp = Post::where('id', $mmm)->get();
+        $ppp = Post::where('id', $mmmm)->get();
+ 
+
+        return view('html.blog', compact('posts','p', 'pp','ppp'));          }
         else{
             return redirect()->route('blog')->with('status2', 'There Is No Posts In This Speciality'); 
         }
@@ -231,8 +291,19 @@ public function forensic(Request $request)
             return view('html.blog')->with('status2', 'There Is No Posts In This Speciality'); 
         }
           else if ($post->forensic != 0){
-        return view('html.blog', compact('posts'));    
-       }
+            $dub = Comment::all();
+            $collection = collect($dub);
+            $m = $collection->duplicates('post_id');
+            $mm = $m->duplicates()->max();
+            $mmm= $m->countBy()->keys()->get(2);
+            $mmmm = $m->countBy()->keys()->get(0);
+    
+            $p = Post::where('id', $mm)->get();
+            $pp = Post::where('id', $mmm)->get();
+            $ppp = Post::where('id', $mmmm)->get();
+     
+    
+            return view('html.blog', compact('posts','p', 'pp','ppp'));         }
         
     // return response()->json($post->forensic);
         
@@ -257,7 +328,19 @@ public function geriatric(Request $request)
         } 
         
         if($post->geriatric != 0){
-            return view('html.blog', compact('posts'));    
+            $dub = Comment::all();
+            $collection = collect($dub);
+            $m = $collection->duplicates('post_id');
+            $mm = $m->duplicates()->max();
+            $mmm= $m->countBy()->keys()->get(2);
+            $mmmm = $m->countBy()->keys()->get(0);
+    
+            $p = Post::where('id', $mm)->get();
+            $pp = Post::where('id', $mmm)->get();
+            $ppp = Post::where('id', $mmmm)->get();
+     
+    
+            return view('html.blog', compact('posts','p', 'pp','ppp'));   
           }
           else{
                return redirect()->route('blog')->with('status2', 'There Is No Posts In This Speciality'); 
@@ -281,7 +364,19 @@ public function general(Request $request)
             $post->setAttribute('child', Post::where('speciality' , 'Child and Adolescence Disorders')->count()); 
         } 
         if($post->general != 0){
-            return view('html.blog', compact('posts'));  
+            $dub = Comment::all();
+            $collection = collect($dub);
+            $m = $collection->duplicates('post_id');
+            $mm = $m->duplicates()->max();
+            $mmm= $m->countBy()->keys()->get(2);
+            $mmmm = $m->countBy()->keys()->get(0);
+    
+            $p = Post::where('id', $mm)->get();
+            $pp = Post::where('id', $mmm)->get();
+            $ppp = Post::where('id', $mmmm)->get();
+     
+    
+            return view('html.blog', compact('posts','p', 'pp','ppp'));  
         }
           else{
         return redirect()->route('blog')->with('status2', 'There Is No Posts In This Speciality'); 

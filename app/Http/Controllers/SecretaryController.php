@@ -15,27 +15,28 @@ class SecretaryController extends Controller
      */
     public function index()
     {
-        return view('html.ADMIN index');
+        return view('admin.ADMIN index');
     }
     public function admin_create()
     {
-        return view('html.ADMIN CreateDoctorsAccount');
+        return view('admin.ADMIN CreateDoctorsAccount');
     }
     public function admin_contact()
     {
-        return view('html.ADMIN contact us responses');
+        return view('admin.ADMIN contact us responses');
     }
-    public function admin_approve_posts()
-    {
-        return view('html.ADMIN approve posts');
-    }
+
     public function admin_approve_requests()
     {
-        return view('html.ADMIN approve doctors requests');
+        return view('admin.ADMIN approve doctors requests');
     }
     public function modify_appoinment()
     {
-        return view('html.ADMIN Modify Appointments');
+        return view('admin.ADMIN Modify Appointments');
+    }
+    public function posts()
+    {
+        return view('admin.ADMIN posts');
     }
 
 

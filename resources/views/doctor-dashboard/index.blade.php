@@ -73,6 +73,9 @@
                 <span>Go to the Main Website <i class="icofont-simple-right"></i></span>
               </a>
             </li>
+            <li class="sidebar-item log-out ">
+              <a href="#" class="text-muted">Log Out</a>
+            </li>
             
           </ul>           
         </div>
@@ -230,7 +233,11 @@
   <script>
     // Simple Datatable
     let table1 = document.querySelector('#table1');
-    let dataTable = new simpleDatatables.DataTable(table1);
+    let dataTable = new simpleDatatables.DataTable(table1, {
+      columns: [
+        { select: 2, sortable: false }
+      ]
+    });
   </script>
 </body>
 

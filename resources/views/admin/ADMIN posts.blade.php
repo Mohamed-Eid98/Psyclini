@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-
+    
 <!DOCTYPE html>
 <html lang="en">
 
@@ -17,6 +17,11 @@
 </head>
 
 <body>
+  <div id="app">
+    <div id="sidebar" class="active ">
+      
+    </div>
+    
     <div id="main">
 
       <header class="mb-4">
@@ -237,4 +242,5 @@
 </body>
 
 </html>
-@endsection
+
+  @endsection
