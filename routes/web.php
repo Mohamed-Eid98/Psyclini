@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\PostController;
@@ -29,6 +30,9 @@ Route::get('/' , function(){
     return view('html.index');
 })->name('home');
 
+Route::get('department' , function(){
+    return view('html.department');
+})->name('department');
 
 Route::get('articles' , function(){
     return view('html.articles');
@@ -72,6 +76,8 @@ Route::get('/signUp' , function(){
     return view('html.Sign UP');
 })->name('signUp');
 
+Route::post('contact', [ContactController::class, 'store'] )->name('contact.store');
+
 Route::get('blog', [PostController::class, 'index'] )->name('blog');
 Route::post('blog', [PostController::class, 'store'] )->middleware('isPatient')->name('posts.store');
 Route::get('blog/search', [PostController::class, 'search'] )->name('post.search');
@@ -87,8 +93,9 @@ Route::get('blog/speciality=geriatric', [PostController::class, 'geriatric'] )->
 Route::get('blogPage/{id}', [CommentController::class, 'show'] )->name('blog.page');
 Route::post('comment post/{id}', [CommentController::class, 'store'])->middleware('isPatient')->name('comments.store');
 Route::get('doctors' , [DoctorController::class, 'index'])->name('doctors.index');
+Route::get('doctors/search' , [DoctorController::class, 'index'])->name('doctors.search');
 Route::get('logout' , [DoctorController::class, 'logout'])->name('doctors.logout');
-Route::get('/doctor/profile/' , [DoctorController::class, 'show_profile'])->name('doctor.profile');
+Route::get('doctors/{doctor:name}' , [DoctorController::class, 'show'])->name('doctor.profile');
 Route::get('doctors/profile/book' , [DoctorController::class, 'book'])->middleware('isPatient')->name('book.store');
 Route::get('doctors/search' , [DoctorController::class, 'search'])->name('doctors.search');
 Route::post('Patientdash' , [PatientController::class, 'PostRegisteration'])->name('patient.data');

@@ -53,7 +53,7 @@
               <div class="single-blog-item feature-item"><!--Post content begin-->
                 <div class="comment-area"><!--Post Owner-->
                   <div class="comment-area-box post-owner">
-                    @if ( $post->patient->img != NULL)
+                    @if ( ($post->patient->img) != NULL)
                       <div class="comment-thumb float-left">
                         <img alt="" src="{{ asset('images/patients/'. $post->patient->img) }}" class="img-fluid">
                       </div>    

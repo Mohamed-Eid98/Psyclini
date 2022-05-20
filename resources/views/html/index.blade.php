@@ -6,7 +6,17 @@
 <head>
 
     <title>Psyclini</title>
+<style>
+input[type= number]::-webkit-outer-spin-button,
+input[type= number]::-webkit-inner-spin-button{
+  -webkit-appearance : none;
+  -moz-appearance : none;
+  margin :0;
 
+}
+
+
+</style>
  
     
 </head>
@@ -223,18 +233,31 @@
         </div>
         <div class="col-lg-8 col-md-7">
           <div class="contact-form">
-            <form action="!#" class="row">
+            <form action="{{ route('contact.store')}}" class="row" method="POST">
+              @csrf
               <div class="col-lg-6">
                 <input type="text" name="name" class="form-control main" placeholder="Name" required>
+                @if ($errors->has('name'))
+                    <span class="text-danger">{{ $errors->first('name') }} </span>
+                @endif
               </div>
               <div class="col-lg-6">
                 <input type="email" class="form-control main" placeholder="Email" name="email" required>
+                @if ($errors->has('email'))
+                   <span class="text-danger">{{ $errors->first('email') }} </span>
+                @endif
               </div>
               <div class="col-lg-12">
-                <input type="tel" class="form-control main" placeholder="Phone Number" required>
+                <input type="number" class="form-control main"  name="phone" placeholder="Phone Number" required>
+                @if ($errors->has('phone'))
+                   <span class="text-danger">{{ $errors->first('phone') }} </span>
+                @endif
               </div>
               <div class="col-lg-12">
                 <textarea name="message" rows="8" class="form-control main" placeholder="Your message"></textarea>
+                @if ($errors->has('message'))
+                    <span class="text-danger">{{ $errors->first('message') }} </span>
+                @endif
               </div>
               <div class="col-md-12 text-right">
                 <button class=" btn btn-primary rounded-pill submit px-3" type="submit">Send Message</button>

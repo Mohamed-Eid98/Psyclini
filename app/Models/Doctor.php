@@ -59,5 +59,8 @@ class Doctor extends Authenticatable
    {
        return $this->hasMany(Comment::class);
    }
+   public function getRouteKeyName(){
+       return 'name';
+   }
 }
 

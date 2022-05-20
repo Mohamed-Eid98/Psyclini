@@ -19,20 +19,52 @@ class DoctorController extends Controller
     public function index()
     {
         $doctors = Doctor::Paginate(9);
+        // return response()->json($doctor);
         return view('html.doctors', compact('doctors'));
     }
     public function search(Request $request)
 {
     $specialization = $request->input('speciality');
     $rating = $request->input('rating');
-
-        $doctors = Doctor::where(function ($q) use ($rating, $specialization){
+    $gender = $request->input('gender');
+    $fees = $request->input('fees');
+    
+        $doctors = Doctor::where(function ($q) use ($rating, $specialization, $gender, $fees){
             
+
             $q->where('speciality' , 'LIKE' , '%'.$specialization.'%')
-                ->Where('rating' , "LIKE" , $rating.'%');
-        })->paginate(6);
-        // $doctors = Doctor::where('rating' , "LIKE" , '%'.$rating.'%')->paginate(6);
-        return view('html.doctors', compact('doctors'));    
+                ->Where('rating' , "LIKE" , $rating.'%')
+                ->Where('gender' , "LIKE" , $gender);
+            if ($fees == 'Less Than 150'){
+                $q->Where('session_fees' , '<' , 150);
+            }
+            elseif ($fees == '150 Less Than 200') {
+               
+               $q ->WhereBetween('session_fees', [ 150, 200] );
+            }
+            elseif ($fees == 'From 200 To 300') {
+               
+               $q ->WhereBetween('session_fees', [ 200, 300] );
+            }
+            elseif ($fees == 'From 300 To 500') {
+               
+               $q ->WhereBetween('session_fees', [ 300, 500] );
+            }
+            elseif ($fees == 'Above 500') {
+               
+               $q ->where('session_fees', '>', 500 );
+            }
+        })->paginate(9);
+
+        if ($doctors->count() == 0){
+            return redirect()->route('doctors.index')->with('status2', 'Your Search Does Not Match With Our Doctors ' );
+        }
+        else{
+
+            return view('html.doctors', compact('doctors'));    
+        }
+
+        // return  response()->json($doctors->count());
 }
 
     /**
@@ -105,9 +137,12 @@ public function create_post()
      * @param  \App\Models\Doctor  $doctor
      * @return \Illuminate\Http\Response
      */
-    public function edit(Doctor $doctor)
+    public function show(Doctor $doctor)
     {
-        //
+        // $ssn =  $doctor->ssn;
+        // $doctors = Doctor::where('ssn',$ssn)->get();
+        // return response()->json($doctors);
+        return view('html.doctor Page', compact('doctor'));
     }
 
     /**

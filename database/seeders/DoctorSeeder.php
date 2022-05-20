@@ -19,7 +19,7 @@ class DoctorSeeder extends Seeder
         \App\Models\Doctor::create([
             'ssn'=>'8524001',
             'name'=>'Mohammad Adel',
-            'speciality'=>'Child and Adolescent',
+            'speciality'=>'child and Adolescence Disorders',
             'rating'=>'4.7',
             'img' => 'people pic 2.jpg',
             'birth_date'=>'1985-02-04',
@@ -34,7 +34,7 @@ class DoctorSeeder extends Seeder
          \App\Models\Doctor::create([
             'ssn'=>'8542002',
             'name'=>'Amira Ali',
-            'speciality'=>'Child and Adolescent',
+            'speciality'=>'child and Adolescence Disorders',
             'rating'=>'4.7',
             'img' => 'people pic 8.jpg',
             'birth_date'=>'1981-04-02',
@@ -49,7 +49,7 @@ class DoctorSeeder extends Seeder
         \App\Models\Doctor::create([
             'ssn'=>'8265003',
             'name'=>'Samir Mohammad',
-            'speciality'=>'geronto-psychiatry',
+            'speciality'=>'General Psychiatry',
             'rating'=>'4.7',
             'img' => 'people pic 7.jpg',
             'birth_date'=>'1985-06-05',
@@ -58,13 +58,13 @@ class DoctorSeeder extends Seeder
             'email'=>'samirmohammad82@gmail.com',
             'session_fees'=>'200',
             'experince_years'=>'5',
-            'education'=>'Master\'s degree in geronto-psychiatry',
+            'education'=>'Master\'s degree in General Psychiatry',
             'gender'=>'male',
             ]);
         \App\Models\Doctor::create([
             'ssn'=>'8256004',
             'name'=>'Manar Ahmed',
-            'speciality'=>'geronto-psychiatry',
+            'speciality'=>'General Psychiatry',
             'rating'=>'4.7',
             'img' => 'people pic 8.jpg',
             'birth_date'=>'1985-05-06',
@@ -73,13 +73,13 @@ class DoctorSeeder extends Seeder
             'email'=>'manarahmed82@gmail.com',
             'session_fees'=>'150',
             'experince_years'=>'3',
-            'education'=>'Master\'s degree in geronto-psychiatry',
+            'education'=>'Master\'s degree in General Psychiatry',
             'gender'=>'female',
             ]);
         \App\Models\Doctor::create([
             'ssn'=>'8179005',
             'name'=>'Ahmed Abbas',
-            'speciality'=>'Mental disabilites',
+            'speciality'=>'Geriatric Psychiatry',
             'rating'=>'4.7',
             'img' => 'people pic 3.jpg',
             'birth_date'=>'1981-07-09',
@@ -88,13 +88,13 @@ class DoctorSeeder extends Seeder
             'email'=>'ahmedabbas81@gmail.com',
             'session_fees'=>'200',
             'experince_years'=>'7',
-            'education'=>'Master\'s degree in mental disorders',
+            'education'=>'Master\'s degree in Geriatric Psychiatry',
             'gender'=>'male',
             ]);
         \App\Models\Doctor::create([
             'ssn'=>'8197006',
             'name'=>'Salah Abd Alah',
-            'speciality'=>'Mental disabilites',
+            'speciality'=>'Geriatric Psychiatry',
             'rating'=>'4.7',
             'img' => 'people pic 4.jpg',
             'birth_date'=>'1981-09-07',
@@ -103,13 +103,13 @@ class DoctorSeeder extends Seeder
             'email'=>'salahabdalah81@gmail.com',
             'session_fees'=>'100',
             'experince_years'=>'4',
-            'education'=>'PhD in mental disorders',
+            'education'=>'PhD in Geriatric Psychiatry',
             'gender'=>'male',
             ]);
         \App\Models\Doctor::create([
             'ssn'=>'8354007',
             'name'=>'Walaa Mohammad',
-            'speciality'=>'Marital and family relation',
+            'speciality'=>'Marital and Family Relations',
             'rating'=>'4.7',
             'img' => 'people pic 8.jpg',
             'birth_date'=>'1983-05-04',
@@ -118,14 +118,14 @@ class DoctorSeeder extends Seeder
             'email'=>'walaamohammad83@gmail.com',
             'session_fees'=>'200',
             'experince_years'=>'6',
-            'education'=>'Master\'s degree in marital relations',
+            'education'=>'Master\'s degree in Marital and Family Relations',
             'gender'=>'female',
             ]);
 
         \App\Models\Doctor::create([
             'ssn'=>'8345008',
             'name'=>'Amir Karim',
-            'speciality'=>'Marital and family relation',
+            'speciality'=>'Marital and Family Relations',
             'rating'=>'4.7',
             'img' => 'people pic 2.jpg',
             'birth_date'=>'1983-04-05',
@@ -134,13 +134,13 @@ class DoctorSeeder extends Seeder
             'email'=>'amirkarim83@gmail.com',
             'session_fees'=>'100',
             'experince_years'=>'4',
-            'education'=>'PHD in marital relations',
+            'education'=>'PHD in Marital and Family Relations',
             'gender'=>'male',
             ]);
         \App\Models\Doctor::create([
             'ssn'=>'8775009',
             'name'=>'Marina Kamil',
-            'speciality'=>'Forensic psychiatry',
+            'speciality'=>'Forensic Psychiatry',
             'rating'=>'4.5',
             'img' => 'people pic 6.jpg',
             'birth_date'=>'1987-07-05',
@@ -155,7 +155,7 @@ class DoctorSeeder extends Seeder
         \App\Models\Doctor::create([
             'ssn'=>'87570010',
             'name'=>'Samar Said',
-            'speciality'=>'Forensic psychiatry',
+            'speciality'=>'Forensic Psychiatry',
             'rating'=>'4.6',
             'img' => 'people pic 8.jpg',
             'birth_date'=>'1987-05-07',
@@ -170,7 +170,7 @@ class DoctorSeeder extends Seeder
         \App\Models\Doctor::create([
             'ssn'=>'75890011',
             'name'=>'Nader Ali',
-            'speciality'=>'Addiction treatment',
+            'speciality'=>'Addiction',
             'rating'=>'4.3',
             'img' => 'people pic 4.jpg',
             'birth_date'=>'1975-08-09',
@@ -185,7 +185,7 @@ class DoctorSeeder extends Seeder
         \App\Models\Doctor::create([
             'ssn'=>'75980012',
             'name'=>'Kamal Mohammad',
-            'speciality'=>'Addiction treatment',
+            'speciality'=>'Addiction',
             'rating'=>'4.7',
             'img' => 'people pic 7.jpg',
             'birth_date'=>'1979-09-08',

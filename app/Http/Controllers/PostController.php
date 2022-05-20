@@ -42,15 +42,15 @@ class PostController extends  Controller
         $collection = collect($dub);
         $m = $collection->duplicates('post_id');
         $mm = $m->duplicates()->max();
-        $mmm= $m->countBy()->keys()->get(2);
-        $mmmm = $m->countBy()->keys()->get(0);
+        $mmm= $m->countBy()->keys()->get(0);
+        $mmmm = $m->countBy()->keys()->get(2);
 
         $p = Post::where('id', $mm)->get();
         $pp = Post::where('id', $mmm)->get();
         $ppp = Post::where('id', $mmmm)->get();
- 
 
         return view('html.blog', compact('posts','p', 'pp','ppp'));
+        // return response()->json($ppp);
         // return $m->countBy()->keys()->max();
     }
 
@@ -105,7 +105,7 @@ public function addiction_posts(Request $request)
         $post->setAttribute('geriatric', Post::where('speciality' , 'Geriatric Psychiatry')->count()); 
         $post->setAttribute('child', Post::where('speciality' , 'Child and Adolescence Disorders')->count()); 
     }
-    if($post->addiction != 0){
+    if($posts != Null){
         $dub = Comment::all();
         $collection = collect($dub);
         $m = $collection->duplicates('post_id');
@@ -122,6 +122,7 @@ public function addiction_posts(Request $request)
       else{
            return redirect()->route('blog')->with('status2', 'There Is No Posts In This Speciality'); 
       }
+
 }
 public function life_posts(Request $request)
 {
@@ -141,7 +142,7 @@ public function life_posts(Request $request)
             $post->setAttribute('child', Post::where('speciality' , 'Child and Adolescence Disorders')->count()); 
         } 
         
-        if($post->life_coach != 0){
+        if($posts != Null){
             $dub = Comment::all();
             $collection = collect($dub);
             $m = $collection->duplicates('post_id');
@@ -156,12 +157,12 @@ public function life_posts(Request $request)
     
             return view('html.blog', compact('posts','p', 'pp','ppp'));            }
           else{
+            // return view('html.blog', compact('posts','p', 'pp','ppp'))>-with('status2', 'There Is No Posts In This Speciality'); 
                return redirect()->route('blog')->with('status2', 'There Is No Posts In This Speciality'); 
           }
-        // return response()->json($post->life_coach);
-    }
 
 
+}
 public function child(Request $request)
 {
     $posts = Post::with('patient')->where(function($q){
