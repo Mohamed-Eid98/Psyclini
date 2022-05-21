@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="../css/signin_signup_style.css">
         <link rel="stylesheet" href="../css/home_style.css">
         <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/flick/jquery-ui.css" rel="stylesheet">
         <link rel="icon" href="../img/icon.png">
  	<body>  
 
@@ -29,37 +30,37 @@
                                     <form action="{{ route('patient.data') }}"  method="POST" class="signup-form" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group mt-3">
-                                            <input type="text" class="form-control"  name = "name" required>
-                                            <label class="form-control-placeholder" for="Username" >Name </label>
+                                        <input type="text" class="form-control" required>
+                                            <label class="form-control-placeholder required" for="Firstname" >Name</label>
                                             @if ($errors->has('name'))
                                                 <span class="text-danger">{{ $errors->first('name') }}
                                              @endif  
                                         </div>
                                         
                                         <div class="form-group mt-3">
-                                            <input type="tel" class="form-control" name="phone" required>
-                                            <label class="form-control-placeholder" for="phone">Phone Number</label>
+                                        <input type="tel" class="form-control" name="phone" required>
+                                            <label class="form-control-placeholder required" for="phone">Phone Number</label>
                                             @if ($errors->has('phone'))
                                                 <span class="text-danger">{{ $errors->first('phone') }}
                                             @endif
                                         </div>
                                         <div class="form-group mt-4">
-                                            <input type="text" class="form-control" name="dob" onfocus="(this.type='date')" onblur="(this.type='text')"  max="2022-04-30" required>
-                                            <label class="form-control-placeholder" for="dob">Date of Birth</label>
+                                        <input class="form-control " name="dob" id="my_date" required>
+                                            <label class="form-control-placeholder required " for="dob">Date of Birth</label>
                                             @if ($errors->has('dob'))
                                                  <span class="text-danger">{{ $errors->first('dob') }}
                                              @endif
                                         </div>
                                         <div class="form-group mt-3">
-                                            <input type="email" class="form-control" name="email" required>
-                                            <label class="form-control-placeholder" for="email" >E-mail</label>
+                                        <input type="email" class="form-control" name="email" required>
+                                            <label class="form-control-placeholder required" for="email" >E-mail</label>
                                             @if ($errors->has('email'))
                                                 <span class="text-danger">{{ $errors->first('email') }}
                                             @endif
                                         </div>
                                         <div class="form-group">
-                                            <input id="password-field" type="password" name = "password" class="form-control" required>
-                                            <label class="form-control-placeholder" for="password">Password</label>
+                                        <input id="password-field" type="password" class="form-control" required>
+                                            <label class="form-control-placeholder required " for="password">Password</label>
                                             <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                                             @if ($errors->has('password'))
                                                 <span class="text-danger">{{ $errors->first('password') }}
@@ -85,9 +86,20 @@
                 </div>
             </div>
         </section>
-        <script src="../js/jquery.js"></script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script><!--لينك jquery الرئيسي -->
+	    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script><!--لينك المكتبه بتاعه التاريخ نفسه-->
         <script src="../js/bootstrap.min.js"></script>
         <script src="../js/singin_signup.js"></script>
+
+        <script>
+            $("#my_date").datepicker({
+                maxDate: "-548",
+                changeMonth: true,
+                changeYear: true,
+                yearRange: "-100:+0"
+            });
+        </script>
 	</body>
 </html>
 @endsection
