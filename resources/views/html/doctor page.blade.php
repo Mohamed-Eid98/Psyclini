@@ -173,7 +173,7 @@
               <h4 class="mb-4">Book an Appoinment</h4>
               <div class="appointment-fees justify-content-center">
                 <i class="icofont-money"></i>
-                <label class="30-min-fee">30 Mins : 120 EGP</label>
+                <label class="30-min-fee">60 Mins : 220 EGP</label>
                 <!--
                 <label class="ver-divider"> - </label>              
                 <label class="60-min-fee">60 Mins : 200 EGP</label>
