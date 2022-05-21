@@ -22,8 +22,8 @@ return new class extends Migration
                   ->on('posts')
                   ->onDelete('cascade')
                   ->onUpdate('cascade');
-            $table->bigInteger('doctor_ssn')->unsigned();
-            $table->integer('patient_id')->unsigned();
+            $table->bigInteger('doctor_ssn')->unsigned()->nullable();
+            $table->integer('patient_id')->unsigned()->nullable();
             $table->foreign('doctor_ssn')
                   ->references('ssn')
                   ->on('doctors')

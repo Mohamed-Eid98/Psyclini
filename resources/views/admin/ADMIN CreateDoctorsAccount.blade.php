@@ -13,15 +13,19 @@
     
 </head>
 <body id="app">
-
-<div class="row">
-
-  <div class="col-lg-1">
-    <header class=" ml-5 pt-4">
-      <a href="#" class="burger-btn d-block d-xl-none "><i class="icofont-navigation-menu fs-3 "></i></a>
-    </header>
-  </div>
   
+ 
+  <div class="row">
+    <div id="sidebar" class="active col-lg-3">
+
+    </div>
+  
+    <div class="col-lg-1">
+      <header class=" ml-5 pt-4">
+        <a href="#" class="burger-btn d-block d-xl-none "><i class="icofont-navigation-menu fs-3 "></i></a>
+      </header>
+    </div>
+ 
   <div class="justify-content-center col-lg-8 d-flex mt-2">
     <div class="col-lg-9 col-md-9 ">
       <div class=" rounded h-100 p-4">
@@ -78,7 +82,7 @@
   <script src="../js/bootstrap.bundle.js"></script>
   <script src="../js/admin main script.js"></script>
 </body>
-</html>
+</html> 
 
 
 @endsection

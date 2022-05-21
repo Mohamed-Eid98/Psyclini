@@ -14,11 +14,16 @@ return new class extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->string('title')->nullable();
             $table->string('image')->nullable();
             $table->longText('body');
             $table->boolean('status')->nullable();
             $table->string('speciality');
+            $table->integer('patient_id')->unsigned();
+            $table->foreign('patient_id')
+                  ->references('id')
+                  ->on('patients')
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');
             $table->timestamps();
         });
     }

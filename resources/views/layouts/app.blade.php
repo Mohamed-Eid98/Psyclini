@@ -48,17 +48,17 @@
           <ul class="navbar-nav ml-auto">
             <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Home</a></li>
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="department.html" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Departments</a>
+              <a class="nav-link dropdown-toggle" href="{{ url('department') }}" id="dropdown02" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Departments</a>
               <ul class="dropdown-menu" aria-labelledby="dropdown02">
-                <li><a class="dropdown-item" href="department.html">All Departments</a></li>
-                <li><a class="dropdown-item" href="department.html#child_adol">Child and Adolescence Disorders</a></li>
-                <li><a class="dropdown-item" href="department.html#general">General Psychiatry</a></li>
-                <li><a class="dropdown-item" href="department.html#geriatric">Geriatric Psychiatry</a></li>
-                <li><a class="dropdown-item" href="department.html#pid">Psychiatry of Intellectual Disability (PID)</a></li>
-                <li><a class="dropdown-item" href="department.html#marital">Marital and Family Relations</a></li>
-                <li><a class="dropdown-item" href="department.html#forensic">Forensic Psychiatry</a></li>
-                <li><a class="dropdown-item" href="department.html#addiction">Addiction</a></li>
-                <li><a class="dropdown-item" href="department.html#life_coach">Life Coach</a></li>
+                <li><a class="dropdown-item" href="{{ url('department') }}">All Departments</a></li>
+                <li><a class="dropdown-item" href="{{ url('department' . '#child_adol') }}">Child and Adolescence Disorders</a></li>
+                <li><a class="dropdown-item" href="{{ url('department' . '#general') }}">General Psychiatry</a></li>
+                <li><a class="dropdown-item" href="{{ url('department' . '#geriatric') }}">Geriatric Psychiatry</a></li>
+                <li><a class="dropdown-item" href="{{ url('department' . '#pid') }}">Psychiatry of Intellectual Disability (PID)</a></li>
+                <li><a class="dropdown-item" href="{{ url('department' . '#marital') }}">Marital and Family Relations</a></li>
+                <li><a class="dropdown-item" href="{{ url('department' . '#forensic') }}">Forensic Psychiatry</a></li>
+                <li><a class="dropdown-item" href="{{ url('department' . '#addiction') }}">Addiction</a></li>
+                <li><a class="dropdown-item" href="{{ url('department' . '#life_coach') }}">Life Coach</a></li>
               </ul>
             </li>
             <li class="nav-item"><a class="nav-link" href="{{ url('doctors/') }}">Doctors</a></li>
@@ -66,24 +66,32 @@
             <li class="nav-item"><a class="nav-link" href="{{ url('tests/') }}">Tests</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ url('blog/') }}">Blog</a></li>    
             <li class="nav-item"><a class="nav-link" href="{{ url('games/') }}">Games</a></li>  
-            <li class="nav-item"><a class="nav-link" href="{{ url('contactUs/') }}">Contact Us</a></li>    
+            <li class="nav-item"><a class="nav-link" href="{{ url('/'.'#contact-us') }}">Contact Us</a></li>    
                 @if (Auth::guard('patient')->check())
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::guard('patient')->user()->name}}
+                <li class="nav-item dropdown user-dropdown">
+                  <a class="nav-link dropdown-toggle" href="{{ route('home') }}"  id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    @if(Auth::guard('patient')->user()->img == NUll)
+                    
+                      <span><img src="{{ asset('images/patients/123.jpg') }}" width="50" height="50" alt=""></span>
+                    
+                    @else
+
+                      <span><img src="{{ asset('images/patients/'. Auth::guard('patient')->user()->img) }}" width="50" height="50" alt=""></span>
+                    
+                    @endif
+                </a>
+                  <ul class="dropdown-menu " aria-labelledby="dropdown03">
+                    <li><a href="{{route('home')}}" class="dropdown-item">Welcome, {{ Auth::guard('patient')->user()->name}}</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="event.preventDefault();document.querySelector('#logout-form').submit();">
+                      Logout
                         </a>
-        
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                          <a href="{{route('home')}}" class="dropdown-item">Dashboard</a>
-                          <a class="dropdown-item" href="#" onclick="event.preventDefault();document.querySelector('#logout-form').submit();">
-                              Logout
-                          </a>
-                          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                              @csrf
-                          </form>
-                      </div>
                     </li>
-            
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                      @csrf
+                  </form>
+                  </ul>
+                </li>
+
                     @else               
                     
                     <a class="btn btn-outline-primary rounded-pill order-1 order-lg-0 ms-lg-4"  href="{{ url('sign in/') }}">Sign In</a>

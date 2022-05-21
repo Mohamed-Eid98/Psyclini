@@ -25,6 +25,7 @@
                                             <label class="text-muted text-helper">If You're a Therapist Please Contact the Secretary <a href="index.html#contact-us">Here</a></label>
                                         </div>         
                                     </div>
+
                                     <form action="{{ route('patient.data') }}"  method="POST" class="signup-form" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group mt-3">
@@ -43,7 +44,7 @@
                                             @endif
                                         </div>
                                         <div class="form-group mt-4">
-                                            <input type="text" class="form-control" name="dob" onfocus="(this.type='date')" onblur="(this.type='text')"required>
+                                            <input type="text" class="form-control" name="dob" onfocus="(this.type='date')" onblur="(this.type='text')"  max="2022-04-30" required>
                                             <label class="form-control-placeholder" for="dob">Date of Birth</label>
                                             @if ($errors->has('dob'))
                                                  <span class="text-danger">{{ $errors->first('dob') }}
@@ -60,6 +61,9 @@
                                             <input id="password-field" type="password" name = "password" class="form-control" required>
                                             <label class="form-control-placeholder" for="password">Password</label>
                                             <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                            @if ($errors->has('password'))
+                                                <span class="text-danger">{{ $errors->first('password') }}
+                                             @endif
                                         </div>
                                         <div class="form-group mt-4 profile-pic">
                                             {{-- <label class="lbl" >Add a Profile Picture</label> --}}

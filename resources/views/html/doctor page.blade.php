@@ -1,15 +1,18 @@
 @extends('layouts.app')
 @section('content')
+    
 
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8">
 
     <title>Psyclini</title>
     
 </head>
 <body id="bootstrap-overrides top">
   
+
   <section class="section doctor-page">
     <div class="container">
       <div class="row">
@@ -18,16 +21,23 @@
 
           <div class="row feature-item"> 
             <div class="doctor-img-block col-lg-4">
-              <img src="../img/people pic 8.jpg" alt="" class="img-fluid w-100">
+              <img src="{{ asset('').$doctor->img }}" alt="" class="img-fluid w-100">
               <div class="info-block mt-4">
-                <h4 class="mb-0" id="doctor_name">Marina Kamil</h4>
+                <h4 class="mb-0" id="doctor_name">{{ $doctor->name}}</h4>
               </div>
             </div>
 
             <div class="doctor-details mt-4 mt-lg-0 col-lg-8">
               <h4 >Basic Info</h4>
-              <label class="doctor-title"> Title : <label> Councelor</label></label><br>
-              <label class="doctor-title"> Speciality : <label> Child and Adolescence Disorders, Marital and Family Relations </label></label>
+              <label class="doctor-title"> Speciality : <label> {{ $doctor->speciality}} </label></label><br>
+              <label class="doctor-title"> Rating  : </label>
+              <div class="d-flex justify-content-between col-lg-5 list-unstyled rating">
+                <i class="icofont-star full-star"></i>
+                <i class="icofont-star full-star"></i>
+                <i class="icofont-star full-star"></i>
+                <i class="icofont-star full-star"></i>
+                <i class="icofont-star empty-star"></i>
+              </div>
             </div>
           </div>
 
@@ -52,6 +62,7 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                   </div>
                 </div>
+                <!--
                 <div class="experience-section">
                   <h4 class="">Certificates</h4>
                   <div class="edu-block ">
@@ -65,11 +76,12 @@
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                   </div>
                 </div>
+                -->
                 <div class="experience-section">
                   <h4 class="">Education</h4>
                   <div class="edu-block ">
                     <span class="h6 text-muted">Year(2005-2007) </span>
-                    <h5 class="title-color">MBBS, M.D at University of Wyoming</h5>
+                    <h5 class="title-color">{{ $doctor->education}} at University of Wyoming</h5>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
                   </div>
                   <div class="edu-block">
@@ -162,8 +174,10 @@
               <div class="appointment-fees justify-content-center">
                 <i class="icofont-money"></i>
                 <label class="30-min-fee">30 Mins : 120 EGP</label>
+                <!--
                 <label class="ver-divider"> - </label>              
                 <label class="60-min-fee">60 Mins : 200 EGP</label>
+                -->
               </div>
               <div class="year-header"> 
                 <span class="left-button" id="prev"><i class="icofont-rounded-left"></i></span> 
@@ -176,7 +190,7 @@
                     <td class="month">Jan</td> 
                     <td class="month">Feb</td> 
                     <td class="month">Mar</td> 
-                    <td class="month active-month">Apr</td> 
+                    <td class="month">Apr</td> 
                     <td class="month">May</td> 
                     <td class="month">Jun</td> 
                     <td class="month">Jul</td>
@@ -206,7 +220,7 @@
             </div>
             <div class="events-container"></div>
             <div class="justify-content-center disp-flex">
-              <a class=" btn btn-primary rounded-pill w-auto" href="{{ route('book.store') }}" id="book-button">Book Now</a>
+              <a class="button book-button" href="{{ route('book.store')}}" id="book-button">Book Now</a>
             </div>
           </div>
           <button class="button" id="add-button">Add Event</button>
@@ -248,10 +262,17 @@
   </div>
   <!--footer end-->
 
+
+
+
+  <script src="../js/jquery.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
   <script src="../js/calendar.js"></script>
   <script src="../js/popper.js"></script>
-
+  <script src="../js/slick.min.js"></script>
+  <script src="../js/script.js"></script>
 </body>
 </html>
-@endsection
 
+
+@endsection

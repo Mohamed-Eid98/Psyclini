@@ -53,7 +53,7 @@
               <div class="single-blog-item feature-item"><!--Post content begin-->
                 <div class="comment-area"><!--Post Owner-->
                   <div class="comment-area-box post-owner">
-                    @if ( $post->patient->img != NULL)
+                    @if ( ($post->patient->img) != NULL)
                       <div class="comment-thumb float-left">
                         <img alt="" src="{{ asset('images/patients/'. $post->patient->img) }}" class="img-fluid">
                       </div>    
@@ -110,18 +110,18 @@
             <div class="sidebar-widget latest-post mb-3"><!--Latest Posts-->
               <h4>Popular Posts</h4>
               <div class="py-2">
-                <span class="text-sm text-muted">03 Mar 2018</span>
-                <h6 class="my-2"><a href="#">Thoughtful living in los Angeles</a></h6>
+                <span class="text-sm text-muted">{{ $p->first()->created_at->format('d M-Y') }} </span>
+                <h6 class="my-2"><a href="{{ route('blog.page', $p->first()->id) }}">{{ $p->first()->body }}</a></h6>
               </div>
 
               <div class="py-2">
-                <span class="text-sm text-muted">03 Mar 2018</span>
-                <h6 class="my-2"><a href="#">Vivamus molestie gravida turpis.</a></h6>
+                <span class="text-sm text-muted">{{ $pp->first()->created_at->format('d M-Y') }}</span>
+                <h6 class="my-2"><a href="{{ route('blog.page', $pp->first()->id) }}">{{ $pp->first()->body }}.</a></h6>
               </div>
 
               <div class="py-2">
-                <span class="text-sm text-muted">03 Mar 2018</span>
-                  <h6 class="my-2"><a href="#">Fusce lobortis lorem at ipsum semper sagittis</a></h6>
+                <span class="text-sm text-muted">{{ $ppp->first()->created_at->format('d M-Y') }}</span>
+                  <h6 class="my-2"><a href="{{route('blog.page', $ppp->first()->body)}}">{{ $ppp->first()->body }}</a></h6>
               </div>                       
             </div>
 

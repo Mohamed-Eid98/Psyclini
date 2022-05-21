@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use App\Models\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreCommentRequest;
 use App\Http\Requests\UpdateCommentRequest;
@@ -86,9 +87,29 @@ class CommentController extends Controller
             $comment->setAttribute('comment_added_at',$comment->created_at->diffForHumans());
         }
 
-        // return asset('images/patients/'.$post->patient->image);
-            // return  response()->json($comments);
-         return view('html.comment', compact('post', 'comments'));
+        $dub = Comment::all();
+        $collection = collect($dub);
+        $m = $collection->duplicates('post_id');
+        $mm = $m->duplicates()->max();
+        $mmm= $m->countBy()->keys()->get(0);
+        $mmmm = $m->countBy()->keys()->get(2);
+
+        $p = Post::where('id', $mm)->get();
+        $pp = Post::where('id', $mmm)->get();
+        $ppp = Post::where('id', $mmmm)->get();
+
+        // return view('html.blog', compact('posts','p', 'pp','ppp'));
+         return view('html.comment', compact('post','p','comments', 'pp','ppp'));
+
+    }
+
+    public function max_post(){
+        $dub = Comment::all();
+        $collection = collect($dub);
+        $m = $collection->duplicates('post_id');
+        $mm = $collection->duplicates('post_id')->max();
+        $p = Post::where('id', $mm)->get();
+        return view('html.blog', compact('p'));
 
     }
     

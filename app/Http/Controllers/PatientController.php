@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\StorePatientRequest;
 use App\Http\Requests\UpdatePatientRequest;
 use Illuminate\Support\Facades\Redirect;
+use Symfony\Component\Console\Input\Input;
 
 class PatientController extends Controller
 {
@@ -27,47 +28,51 @@ class PatientController extends Controller
                 ->withInput()
                 ->with('error', 'Logain Failed, Please try again!');
     }
+    private function validator(Request $request)
+    {
+        //validation rules.
+        $rules = [
+                'email' => 'required|unique:patients,email',
+                'name' => 'required',
+                'phone' => 'unique:patients,phone|numeric',
+                'password' => 'required|min:5',
+                'birth_date' => 'required|before:today'
+            ];
+            
+
+        //custom validation error messages.
+        $messages = [
+            'email.unique' => 'This Email Is Already Exist.',
+            'phone.numeric' => 'the phone must be a number',
+            'phone.unique' => 'the phone must be unique',
+            'password.min' => 'the password must be greater than 5 letters',
+            'birth_date.before' => 'You Should Enter Your Real Birth Date'
+
+
+        ];
+
+        //validate the request.
+        $request->validate($rules,$messages);
+    }
     public function postLogin(Request $request)
     {
         $request->validate([
             'email' => 'required|email|',
             'password' => 'required',
         ]);
+        // $this->validator($request);
    
         // $credentials = $request->only('email', 'password');
         if(Auth::guard('patient')->attempt(['email' => $request->email, 'password' => $request->password])){
-            return view('home');
+            return redirect()->route('home');
         }
   
         return $this->loginFailed();
     }
     public function PostRegisteration(Request $request)
     {
-        $request->validate([
-            'email' => 'required|unique:patients,email',
-            'name' => 'required',
-            'phone' => 'unique:patients,phone|numeric',
-        ],[
-            'phone.numeric' => "the phone must be a number"
-        ]);
-        
-        // $input = $request->all();
-        // if ($image = $request->file('patient-pic')){
-        //     $path = 'images/patients/';
-        //     $ext = $image->getClientOriginalExtension();
-        //     $imageName = time(). '.' .$ext;
-        //     $image->move($path , $imageName);
-        //     $input['img'] = $imageName;
-        // }
-        // $check = Patient::create([
-        //     'name' => $request->input('name'),
-        //     'email' => $request->input('email'),
-        //     'phone' => $request->input('phone'),
-        //     'birth_date' => $request->input('dob'),
-        //     'password' => Hash::make($request->input('password')),
-        // ]);
-        // return redirect()->route('home');
-    
+  
+
 
     $patient = new Patient();
     if ($image = $request->file('patient-pic')){
@@ -87,7 +92,13 @@ class PatientController extends Controller
     $patient->save();
     
     if(Auth::guard('patient')->attempt(['email' => $request->email, 'password' => $request->password])){
-        return redirect()->route('home');
+        return redirect()->intended(route('home'));
+    }
+    else{
+        $this->validator($request);
+        $credentials = $request->only('email', 'password');
+        return redirect()->back()->withInput($credentials);
+
     }
 
 }
