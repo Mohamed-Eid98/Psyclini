@@ -46,7 +46,9 @@ h6, .h6 {
 p {
   line-height: 30px;
 }
-
+.fw-normal{
+  font-weight: normal !important;
+}
 .navbar-toggle .icon-bar {
   background: #223a66;
 }
@@ -1703,7 +1705,7 @@ a:focus {
 .client-info h4{
   color: #7C4DFF;
 }
-#doctor_mainpage .title-color{
+#mainpage_doctors .title-color{
   color: #4d77ff !important;
 }
 .dir-rtl{
@@ -1900,8 +1902,9 @@ a:focus {
   font-size: 1rem;
 }
 .appointment-fees i{
-  color: #4d77ff;
+  color: #7c4dff;
   padding-right: 1;
+  padding-right: .5rem;
 }
 .doctor-title{
   margin-bottom: .5rem !important;
@@ -2600,9 +2603,7 @@ footer ul li{
 .ver-divider{
   padding: 0 .5rem !important;
 }
-.appointment-fees i{
-  padding-right: .5rem;
-}
+
 .book-button{
   margin-top: .75rem;
 }
@@ -2681,6 +2682,8 @@ footer ul li{
 }
 .text-align-center{
   text-align: -moz-center !important;
+  text-align: -webkit-center;
+
 }
 .book-appt .col-lg-4{
   padding: 0;

@@ -154,14 +154,14 @@
             <form>
               <div class="row justify-content-center appts-details ">
                 <!--each day details begin-->
-                <div class="col-lg-4 text-align-center">
+                <div class="col-lg-4 text-align-center mb-3">
                   <div class="col-lg-11 border">
                     <h5 class="w-100 appt-day bg-gray">Tuesday<br>23/12/2022</h5>
                     <label class="single-appt col-lg-12">
                       <input type="radio" class="appts-radio" name="picked-appt" id="appt-1">
                       <span> 11:00 - 12:00</span>
                     </label>
-                    <label class="single-appt col-lg-12 appt-booked">
+                    <label class="single-appt col-lg-12 ">
                       <input type="radio" class="appts-radio" name="picked-appt" id="appt-2">
                       <span> 11:00 - 12:00</span>
                     </label>
@@ -173,14 +173,14 @@
                 </div>
                 <!--each day details end-->
                 <!--each day details begin-->
-                <div class="col-lg-4 text-align-center">
+                <div class="col-lg-4 text-align-center mb-3">
                   <div class="col-lg-11 border">
                     <h5 class="w-100 appt-day bg-gray">Tuesday<br>23/12/2022</h5>
                     <label class="single-appt col-lg-12">
                       <input type="radio" class="appts-radio" name="picked-appt" id="appt-1">
                       <span> 11:00 - 12:00</span>
                     </label>
-                    <label class="single-appt col-lg-12 appt-booked">
+                    <label class="single-appt col-lg-12 ">
                       <input type="radio" class="appts-radio" name="picked-appt" id="appt-2">
                       <span> 11:00 - 12:00</span>
                     </label>
@@ -191,6 +191,10 @@
                   </div>
                 </div>
                 <!--each day details end-->
+                <!--massage section-->
+                <div class="col-lg-12 m-3">
+                  <textarea class="form-control pr-2 " name="rev" id="massage" cols="30" rows="3" placeholder="Include a Massage (Optional)"></textarea>
+                </div>
                 <div class="col-lg-12 text-align-center mt-3">
                   <button class="button book-button w-50" href="{{ route('book.store')}}" id="book-button">Book Now</button>
                 </div>
