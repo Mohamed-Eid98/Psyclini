@@ -30,8 +30,8 @@
                                     <form action="{{ route('patient.data') }}"  method="POST" class="signup-form" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-group mt-3">
-                                        <input type="text" class="form-control" required>
-                                            <label class="form-control-placeholder required" for="Firstname" >Name</label>
+                                            <input type="text" class="form-control"  name = "name" required>
+                                            <label class="form-control-placeholder required" for="Username" >Name </label>
                                             @if ($errors->has('name'))
                                                 <span class="text-danger">{{ $errors->first('name') }}
                                              @endif  
