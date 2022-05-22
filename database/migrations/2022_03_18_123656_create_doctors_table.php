@@ -21,12 +21,13 @@ return new class extends Migration
             $table->integer('phone')->unique();
             $table->date('birth_date');
             $table->float('rating');
+			$table->integer('ratting_times');
             $table->string('img')->nullable();
             $table->string('speciality');
            $table->integer('session_fees');
 		   $table->integer('experince_years');
 		    $table->string('education');
-			 $table->string('gender');
+			$table->string('gender');
             
         });
     }

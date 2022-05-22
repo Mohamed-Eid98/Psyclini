@@ -19,16 +19,8 @@ return new class extends Migration
             $table->string('day');
 			$table->string('hall');
 			$table->bigInteger('doctor_ssn')->unsigned();
-            $table->boolean('patient_status1');
-			$table->boolean('patient_status2');
-			$table->boolean('patient_status3');
-			$table->boolean('patient_status4');
-			$table->boolean('patient_status5');
-            $table->boolean('doctor_status1');
-            $table->boolean('doctor_status2');
-            $table->boolean('doctor_status3');
-            $table->boolean('doctor_status4');
-            $table->boolean('doctor_status5');
+            $table->boolean('patient_status');
+            $table->boolean('doctor_status');
 			   $table->foreign('doctor_ssn')
                   ->references('ssn')
                   ->on('doctors')
