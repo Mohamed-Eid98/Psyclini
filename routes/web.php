@@ -135,7 +135,8 @@ Route::get('admin/modify', [SecretaryController::class, 'modify_appoinment'])->n
 Route::get('admin/posts', [SecretaryController::class, 'posts'])->name('admin.posts');
 Route::get('admin/requests', [SecretaryController::class, 'admin_approve_requests'])->name('admin.approve.requests');
 
-
+Route::get('/send-notification', [NotificationController::class, 'sendCancelNotification']);
+Route::post('/review', [ReviewController::class, 'store'] )->middleware('isPatient')->name('reviews.store');
 
 
 

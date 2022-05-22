@@ -31,6 +31,7 @@
               <h4 >Basic Info</h4>
               <label class="doctor-title"> Speciality : <label> {{ $doctor->speciality}} </label></label><br>
               <label class="doctor-title"> Rating  : </label>
+              <div class="row">
               <div class="d-flex justify-content-between col-lg-5 list-unstyled rating">
                 <i class="icofont-star full-star"></i>
                 <i class="icofont-star full-star"></i>
@@ -38,6 +39,12 @@
                 <i class="icofont-star full-star"></i>
                 <i class="icofont-star empty-star"></i>
               </div>
+              <div class="col-lg-7">
+                <lable class="text-align-center pl-5 w-100 "> From {{ $doctor->ratting_times}} Patients</lable>
+              </div>
+              </div>
+              
+              
             </div>
           </div>
 
@@ -51,73 +58,16 @@
               <div id="doctor-details" class="tab-pane fade in active show">
                 <div class="experience-section">
                   <h4 class="">Experience</h4>
-                  <div class="edu-block ">
-                    <span class="h6 text-muted">Year(2005-2007) </span>
-                    <h5 class="title-color">MBBS, M.D at University of Wyoming</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                  </div>
-                  <div class="edu-block">
-                    <span class="h6 text-muted">Year(2007-2009) </span>
-                    <h5 class="title-color">M.D. of Netherland Medical College</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                  </div>
+                  <h5 class="pl-4 fw-normal">{{ $doctor->experince_years}} years</h5>
                 </div>
-                <!--
-                <div class="experience-section">
-                  <h4 class="">Certificates</h4>
-                  <div class="edu-block ">
-                    <span class="h6 text-muted">Year(2005-2007) </span>
-                    <h5 class="title-color">MBBS, M.D at University of Wyoming</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                  </div>
-                  <div class="edu-block">
-                    <span class="h6 text-muted">Year(2007-2009) </span>
-                    <h5 class="title-color">M.D. of Netherland Medical College</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                  </div>
-                </div>
-                -->
                 <div class="experience-section">
                   <h4 class="">Education</h4>
-                  <div class="edu-block ">
-                    <span class="h6 text-muted">Year(2005-2007) </span>
-                    <h5 class="title-color">{{ $doctor->education}} at University of Wyoming</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                  </div>
-                  <div class="edu-block">
-                    <span class="h6 text-muted">Year(2007-2009) </span>
-                    <h5 class="title-color">M.D. of Netherland Medical College</h5>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-                  </div>
+                  <h5 class="pl-4 fw-normal">{{ $doctor->education}} </h5>
                 </div>
               </div>
 
               <div id="reviews" class="tab-pane fade doctor-reviews">
-                <div class="container review-meta d-flex justify-content-center align-items-center ">
-                  <div class="card p-3">
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="ratings"> <i class="icofont-star rating-color"></i> <i class="icofont-star rating-color"></i> <i class="icofont-star rating-color"></i> <i class="icofont-star rating-color"></i> <i class="icofont-star"></i> </div>
-                      <h5 class="review-count">12 Reviews</h5>
-                    </div>
-                    <div class="mt-4 d-flex justify-content-between align-items-center">
-                      <h5 class="review-stat">Communication</h5>
-                      <div class="small-ratings"> <i class="icofont-star rating-color"></i> <i class="icofont-star rating-color"></i> <i class="icofont-star rating-color"></i> <i class="icofont-star"></i> <i class="icofont-star"></i> </div>
-                    </div>
-                    <div class="mt-1 d-flex justify-content-between align-items-center">
-                      <h5 class="review-stat">Understanding of the situation</h5>
-                      <div class="small-ratings"> <i class="icofont-star rating-color"></i> <i class="icofont-star rating-color"></i> <i class="icofont-star rating-color"></i> <i class="icofont-star rating-color"></i> <i class="icofont-star"></i> </div>
-                    </div>
-                    <div class="mt-1 d-flex justify-content-between align-items-center">
-                      <h5 class="review-stat">Providing effective solutions</h5>
-                      <div class="small-ratings"> <i class="icofont-star rating-color"></i> <i class="icofont-star rating-color"></i> <i class="icofont-star"></i> <i class="icofont-star"></i> <i class="icofont-star"></i> </div>
-                    </div>
-                    <div class="mt-1 d-flex justify-content-between align-items-center mb-3">
-                      <h5 class="review-stat">Commitment to start and end times</h5>
-                      <div class="small-ratings"> <i class="icofont-star rating-color"></i> <i class="icofont-star rating-color"></i> <i class="icofont-star rating-color"></i> <i class="icofont-star rating-color"></i> <i class="icofont-star rating-color "></i></div>
-                    </div>
-                  </div>
-                </div> 
-
+                <!--Reviews-->
                 <div class="testimonial-2 review-contents">
                   <div class="row align-items-center">
                     <div class="col-lg-12 testimonial-wrap">
@@ -162,6 +112,35 @@
                     </div>
                   </div>
                 </div>
+
+                <!--Rate Stars-->
+                <div class="container review-meta d-flex align-items-center mt-3 mb-2">
+                  <h5 class="pr-5 title-color"> Rate :</h5>
+                  <div class="starrating risingstar d-flex justify-content-center flex-row-reverse list-unstyled mt-0">
+                    <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="5 Stars"></label>
+                    <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="4 Stars"></label>
+                    <input type="radio" id="star3" name="rating" value="3" /><label for="star3" title="3 Stars"></label>
+                    <input type="radio" id="star2" name="rating" value="2" /><label for="star2" title="2 Stars"></label>
+                    <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="1 Star"></label>
+                  </div>                      
+                </div> 
+
+                <!--write a review-->
+                <div class="col-lg-12 mb-5 ">
+                  <form action="{{ route('reviews.store') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <div class="review">
+                      <h5 class="mb-3 title-color">Write a Review :</h5> 
+                      <div class="ml-2 mr-2">
+                      <textarea class="form-control pr-2 mb-4" name="rev" id="comment" cols="30" rows="3" placeholder="What is your opinion??"></textarea>
+                      </div>
+                      <div class="text-right ">
+                        <button class="btn btn-primary rounded-pill px-3 w-100">Submit</button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                                
               </div> 
             </div>
           </div>
@@ -173,50 +152,9 @@
               <h4 class="mb-4">Book an Appoinment</h4>
               <div class="appointment-fees justify-content-center">
                 <i class="icofont-money"></i>
-                <label class="30-min-fee">60 Mins : 220 EGP</label>
-                <!--
-                <label class="ver-divider"> - </label>              
-                <label class="60-min-fee">60 Mins : 200 EGP</label>
-                -->
+                <label class="60-min-fee">60 Mins : {{$doctor->session_fees}} EGP</label>
               </div>
-              <div class="year-header"> 
-                <span class="left-button" id="prev"><i class="icofont-rounded-left"></i></span> 
-                <span class="year" id="label">2022</span> 
-                <span class="right-button" id="next"><i class="icofont-rounded-right"></i></span>
-              </div> 
-              <table class="months-table w-100"> 
-                <tbody>
-                  <tr class="months-row">
-                    <td class="month">Jan</td> 
-                    <td class="month">Feb</td> 
-                    <td class="month">Mar</td> 
-                    <td class="month">Apr</td> 
-                    <td class="month">May</td> 
-                    <td class="month">Jun</td> 
-                    <td class="month">Jul</td>
-                    <td class="month">Aug</td> 
-                    <td class="month">Sep</td> 
-                    <td class="month">Oct</td>          
-                    <td class="month">Nov</td>
-                    <td class="month">Dec</td>
-                  </tr>
-                </tbody>
-              </table>               
-              <table class="days-table w-100"> 
-                <td class="day">Sun</td> 
-                <td class="day">Mon</td> 
-                <td class="day">Tue</td> 
-                <td class="day">Wed</td> 
-                <td class="day">Thu</td> 
-                <td class="day">Fri</td> 
-                <td class="day">Sat</td>
-              </table> 
-              <div class="frame"> 
-                <table class="dates-table w-100"> 
-                  <tbody class="tbody">             
-                  </tbody> 
-                </table>
-              </div> 
+              
             </div>
             <div class="events-container"></div>
             <div class="justify-content-center disp-flex">

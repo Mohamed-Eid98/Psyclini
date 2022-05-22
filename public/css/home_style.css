@@ -2206,9 +2206,11 @@ footer ul li{
 { color: #ffca08 ;  } /* Set yellow color when star hover */
 
 .doctor-page .rating{
-  margin-top: .25rem !important;
+  margin-top: 0rem !important;
   font-size: 1.35rem;
+  padding-left: 2rem !important;
 }
+
 .full-star{
   color: #ffca08 !important ;
 }
@@ -2668,7 +2670,9 @@ footer ul li{
   content:" *";
   color: red;
 }
-
+.color-black{
+  color: #222 !important;
+}
 
 /*.game-wrap{
   min-height: 20rem !important;
