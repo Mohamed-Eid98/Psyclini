@@ -16,9 +16,9 @@
   <section class="section doctor-page">
     <div class="container">
       <div class="row">
-        
+        <!--Doctor informations and reviews-->
         <div class="col-lg-7 col-md-7">
-
+          <!--Basic info Section-->
           <div class="row feature-item"> 
             <div class="doctor-img-block col-lg-4">
               <img src="{{ asset('').$doctor->img }}" alt="" class="img-fluid w-100">
@@ -32,19 +32,17 @@
               <label class="doctor-title"> Speciality : <label> {{ $doctor->speciality}} </label></label><br>
               <label class="doctor-title"> Rating  : </label>
               <div class="row">
-              <div class="d-flex justify-content-between col-lg-5 list-unstyled rating">
-                <i class="icofont-star full-star"></i>
-                <i class="icofont-star full-star"></i>
-                <i class="icofont-star full-star"></i>
-                <i class="icofont-star full-star"></i>
-                <i class="icofont-star empty-star"></i>
-              </div>
-              <div class="col-lg-7">
-                <lable class="text-align-center pl-5 w-100 "> From {{ $doctor->ratting_times}} Patients</lable>
-              </div>
-              </div>
-              
-              
+                <div class="d-flex justify-content-between col-lg-5 list-unstyled rating">
+                  <i class="icofont-star full-star"></i>
+                  <i class="icofont-star full-star"></i>
+                  <i class="icofont-star full-star"></i>
+                  <i class="icofont-star full-star"></i>
+                  <i class="icofont-star empty-star"></i>
+                </div>
+                <div class="col-lg-7">
+                  <lable class="text-align-center pl-5 w-100 "> From {{ $doctor->ratting_times}} Patients</lable>
+                </div>
+              </div>              
             </div>
           </div>
 
@@ -55,6 +53,7 @@
             </ul>
           
             <div class="tab-content col-lg-12 col-md-12">
+              <!--Doctor's Details Section-->
               <div id="doctor-details" class="tab-pane fade in active show">
                 <div class="experience-section">
                   <h4 class="">Experience</h4>
@@ -65,9 +64,9 @@
                   <h5 class="pl-4 fw-normal">{{ $doctor->education}} </h5>
                 </div>
               </div>
-
+              <!--Reviews Section-->
               <div id="reviews" class="tab-pane fade doctor-reviews">
-                <!--Reviews-->
+                <!--view existing reviews-->
                 <div class="testimonial-2 review-contents">
                   <div class="row align-items-center">
                     <div class="col-lg-12 testimonial-wrap">
@@ -112,7 +111,6 @@
                     </div>
                   </div>
                 </div>
-
                 <!--Rate Stars-->
                 <div class="container review-meta d-flex align-items-center mt-3 mb-2">
                   <h5 class="pr-5 title-color"> Rate :</h5>
@@ -124,7 +122,6 @@
                     <input type="radio" id="star1" name="rating" value="1" /><label for="star1" title="1 Star"></label>
                   </div>                      
                 </div> 
-
                 <!--write a review-->
                 <div class="col-lg-12 mb-5 ">
                   <form action="{{ route('reviews.store') }}" method="POST" enctype="multipart/form-data">
@@ -139,13 +136,13 @@
                       </div>
                     </div>
                   </form>
-                </div>
-                                
+                </div>                 
               </div> 
             </div>
           </div>
         </div>
 
+        <!--Book appointment section-->
         <div class="col-lg-5 col-md-5 position-sticky fixed-top ">
           <div class="sidebar-widget white-bg p-4 calendar-container ">
             <div class="calendar">
@@ -154,8 +151,8 @@
                 <i class="icofont-money"></i>
                 <label class="60-min-fee">60 Mins : {{$doctor->session_fees}} EGP</label>
               </div>
-              
             </div>
+            
             <div class="events-container"></div>
             <div class="justify-content-center disp-flex">
               <a class="button book-button" href="{{ route('book.store')}}" id="book-button">Book Now</a>
