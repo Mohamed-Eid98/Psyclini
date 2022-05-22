@@ -33,7 +33,7 @@ input[type= number]::-webkit-inner-spin-button{
             
             <p class="mb-4 pr-5 font-large-p">With the help of the best Therapists, Psychiatrists and Counselors get back up on your feet.</p>
             <div class="btn-container ">
-              <a href="#doctor_mainpage" class="btn btn-sm btn-outline-primary rounded-pill order-1 order-lg-0 ms-lg-4">Get Started<i class="icofont-simple-right ml-2  "></i></a>
+              <a href="#mainpage_doctors" class="btn btn-sm btn-outline-primary rounded-pill order-1 order-lg-0 ms-lg-4">Get Started<i class="icofont-simple-right ml-2  "></i></a>
             </div>
           </div>
         </div>
@@ -43,7 +43,7 @@ input[type= number]::-webkit-inner-spin-button{
   <!--banner end-->
 
   <!--book an appointment section begin-->
-  <section class="section" id="doctor_mainpage">
+  <section class="section" id="mainpage_doctors">
     <div class="container ">
       <div class="row align-items-center ">
         <div class="col-lg-7">
