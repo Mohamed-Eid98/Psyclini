@@ -1708,6 +1708,7 @@ a:focus {
 }
 .dir-rtl{
   direction: rtl;
+  text-align: right;
 }
 
 .testimonial-block a{
@@ -1811,12 +1812,17 @@ a:focus {
   padding-top: 20px;
 }
 .dep p{
-  padding-left: 3%;
+  padding-left: 2%;
   margin-bottom: 15px;
   font-size: 18px !important;
 }
+.dep p.ar{
+  padding-left: 0%;
+  padding-right: 2%;
+}
 .dep .ar{
   direction: rtl;
+  text-align: right;
 }
 .font-large-p{
   font-size: large;
@@ -2666,12 +2672,58 @@ footer ul li{
 .settings-section h4{
   color: #4d77ff
 }
+.red-color{
+  color: red !important;
+}
 .required:after {
   content:" *";
   color: red;
 }
-.color-black{
-  color: #222 !important;
+.text-align-center{
+  text-align: -moz-center !important;
+}
+.book-appt .col-lg-4{
+  padding: 0;
+}
+.book-appt .appt-day{
+  padding: .5rem;
+  color: #7c4dff;
+  font-size: large;
+  margin: 0;
+  line-height: 2rem;
+}
+.book-appt .single-appt{
+  padding: 1rem 0rem ;
+  cursor: pointer !important;
+}
+.single-appt input[type="radio"]{
+  display: none;
+}
+.single-appt span{
+  padding: 1rem 1.2rem;
+}
+.single-appt:hover span {
+  background: #7c4dff;
+  color: #fff;
+}
+.single-appt input:checked + span {
+  background: #7c4dff;
+  color: #fff;
+}
+.appts-details .col-lg-11{
+  padding: 0;
+}
+.appt-booked{
+  background-color: rgba(77, 119, 255, .75) !important;
+  color: #fff;
+}
+.appt-booked:hover  span {
+  background-color: rgba(77, 119, 255, 0) !important;
+  color: #fff;
+}
+.appt-booked input:checked + span {
+  background-color: rgba(77, 119, 255, 0) !important;
+  color: #fff;
 }
 
 /*.game-wrap{

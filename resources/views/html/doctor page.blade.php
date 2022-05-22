@@ -143,32 +143,57 @@
         </div>
 
         <!--Book appointment section-->
-        <div class="col-lg-5 col-md-5 position-sticky fixed-top ">
-          <div class="sidebar-widget white-bg p-4 calendar-container ">
-            <div class="calendar">
-              <h4 class="mb-4">Book an Appoinment</h4>
-              <div class="appointment-fees justify-content-center">
-                <i class="icofont-money"></i>
-                <label class="60-min-fee">60 Mins : {{$doctor->session_fees}} EGP</label>
-              </div>
+        <div class="col-lg-5 col-md-5 position-sticky fixed-top book-appt">
+          <div class="sidebar-widget white-bg p-4">
+            <h3 class="mb-3 mt-2">Book an Appointment</h3>
+            <div class="appointment-fees justify-content-center mb-3">
+              <i class="icofont-money"></i>
+              <label class="60-min-fee">60 Minutes : {{$doctor->session_fees}} EGP</label>
             </div>
-            
-            <div class="events-container"></div>
-            <div class="justify-content-center disp-flex">
-              <a class="button book-button" href="{{ route('book.store')}}" id="book-button">Book Now</a>
-            </div>
-          </div>
-          <button class="button" id="add-button">Add Event</button>
-          <div class="dialog" id="dialog">
-            <h2 class="dialog-header"> Add New Event </h2>
-            <form class="form" id="form">
-              <div class="form-container" align="center">
-                <label class="form-label" id="valueFromMyButton" for="name">Event name</label>
-                <input class="input" type="text" id="name" maxlength="36">
-                <label class="form-label" id="valueFromMyButton" for="count">Number of people to invite</label>
-                <input class="input" type="number" id="count" min="0" max="1000000" maxlength="7">
-                <input type="button" value="Cancel" class="button" id="cancel-button">
-                <input type="button" value="OK" class="button button-white" id="ok-button">
+            <h5 class="mb-3 blue-title"> Available Appointments</h5>
+            <form>
+              <div class="row justify-content-center appts-details ">
+                <!--each day details begin-->
+                <div class="col-lg-4 text-align-center">
+                  <div class="col-lg-11 border">
+                    <h5 class="w-100 appt-day bg-gray">Tuesday<br>23/12/2022</h5>
+                    <label class="single-appt col-lg-12">
+                      <input type="radio" class="appts-radio" name="picked-appt" id="appt-1">
+                      <span> 11:00 - 12:00</span>
+                    </label>
+                    <label class="single-appt col-lg-12 appt-booked">
+                      <input type="radio" class="appts-radio" name="picked-appt" id="appt-2">
+                      <span> 11:00 - 12:00</span>
+                    </label>
+                    <label class="single-appt col-lg-12">
+                      <input type="radio" class="appts-radio" name="picked-appt" id="appt-3">
+                      <span> 23:00 - 24:00</span>
+                    </label>
+                  </div>
+                </div>
+                <!--each day details end-->
+                <!--each day details begin-->
+                <div class="col-lg-4 text-align-center">
+                  <div class="col-lg-11 border">
+                    <h5 class="w-100 appt-day bg-gray">Tuesday<br>23/12/2022</h5>
+                    <label class="single-appt col-lg-12">
+                      <input type="radio" class="appts-radio" name="picked-appt" id="appt-1">
+                      <span> 11:00 - 12:00</span>
+                    </label>
+                    <label class="single-appt col-lg-12 appt-booked">
+                      <input type="radio" class="appts-radio" name="picked-appt" id="appt-2">
+                      <span> 11:00 - 12:00</span>
+                    </label>
+                    <label class="single-appt col-lg-12">
+                      <input type="radio" class="appts-radio" name="picked-appt" id="appt-3">
+                      <span> 23:00 - 24:00</span>
+                    </label>
+                  </div>
+                </div>
+                <!--each day details end-->
+                <div class="col-lg-12 text-align-center mt-3">
+                  <button class="button book-button w-50" href="{{ route('book.store')}}" id="book-button">Book Now</button>
+                </div>
               </div>
             </form>
           </div>
@@ -202,7 +227,6 @@
 
   <script src="../js/jquery.js"></script>
   <script src="../js/bootstrap.min.js"></script>
-  <script src="../js/calendar.js"></script>
   <script src="../js/popper.js"></script>
   <script src="../js/slick.min.js"></script>
   <script src="../js/script.js"></script>
