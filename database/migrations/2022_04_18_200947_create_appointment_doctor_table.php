@@ -18,7 +18,7 @@ return new class extends Migration
             $table->date('date');
             $table->integer('patient_id')->unsigned();
             $table->integer('appointment_id')->unsigned();
-            $table->bigInteger('doctor_ssn')->unsigned();
+            $table->bigInteger('doctor_id')->unsigned();
             $table->foreign('patient_id')
                   ->references('id')
                   ->on('patients')
@@ -29,8 +29,8 @@ return new class extends Migration
                   ->on('appointments')
                   ->onDelete('cascade')
                   ->onUpdate('cascade');
-            $table->foreign('doctor_ssn')
-                  ->references('ssn')
+            $table->foreign('doctor_id')
+                  ->references('id')
                   ->on('doctors')
                   ->onDelete('cascade')
                   ->onUpdate('cascade');

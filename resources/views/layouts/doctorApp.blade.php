@@ -17,7 +17,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        {{-- <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -29,11 +29,11 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
-
-                        @if (Auth::guard('patient')->check())
+{{-- 
+                        @if (Auth::guard('doctor')->check())
                     
                         <li class="nav-item dropdown user-dropdown">
-                          <a class="nav-link dropdown-toggle" href="{{ route('doctor.index') }}"  id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          {{-- <a class="nav-link dropdown-toggle" href="{{ route('doctor.index') }}"  id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             @if(Auth::guard('doctor')->user()->img == NUll)
                             
                               <span><img src="{{ asset('images/patients/123.jpg') }}" width="50" height="50" alt=""></span>
@@ -43,13 +43,12 @@
                               <span><img src="{{ asset('images/'. Auth::guard('doctor')->user()->img) }}" width="50" height="50" alt=""></span>
                             
                             @endif
-                        </a>
+                        </a> --}}
                           <ul class="dropdown-menu " aria-labelledby="dropdown03">
-                            <li><a href="{{route('doctor.index')}}" class="dropdown-item">Welcome, {{ Auth::guard('doctor')->user()->name}}</a></li>
-                            <li><a class="dropdown-item" href="#" onclick="event.preventDefault();document.querySelector('#logout-form').submit();">
+                            {{-- <li><a class="dropdown-item" href="#" onclick="event.preventDefault();document.querySelector('#logout-form').submit();">
                               Logout
                                 </a>
-                            </li>
+                            </li> --}}
                             <form id="logout-form" action="{{ route('doctors.logout') }}" method="POST" style="display: none;">
                               @csrf
                           </form>
@@ -77,13 +76,14 @@
                           </div>
                         </li>         
                     @endif  --}}
-                    @endif
+                    {{-- @endif --}}
+                  
 
                     </ul>
 
                 </div>
             </div>
-        </nav>
+        </nav> --}}
 
         <main class="py-4"> 
             @yield('content')

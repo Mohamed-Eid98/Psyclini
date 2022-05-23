@@ -17,6 +17,22 @@ return [
         'guard' => 'web',
         'passwords' => 'users',
     ],
+    'admin'=>[
+       'driver'=>'eloquent',
+       'model'=>App\Models\Admin::class,
+    ],
+    'doctor'=>[
+        'driver'=>'eloquent',
+        'model'=>App\Models\Doctor::class,
+     ],
+    'patient'=>[
+        'driver'=>'eloquent',
+        'model'=>App\Models\Patient::class,
+     ],
+    'secretary'=>[
+        'driver'=>'eloquent',
+        'model'=>App\Models\Secretary::class,
+     ],
 
     /*
     |--------------------------------------------------------------------------
@@ -31,7 +47,7 @@ return [
     | users are actually retrieved out of your database or other storage
     | mechanisms used by this application to persist your user's data.
     |
-    | Supported: "session"
+    | Supported: "session", "token"
     |
     */
 
@@ -40,28 +56,28 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        'patient' => [
-            'driver' => 'session',
-            'provider' => 'patients',
-        ],
-        'doctor' => [
-            'driver' => 'session',
-            'provider' => 'doctors',
-        ],
+
         'api' => [
             'driver' => 'token',
             'provider' => 'users',
+            'hash' => false,
         ],
-        'api' => [
-            'driver' => 'token',
-            'provider' => 'doctors',
+        'admin'=>[
+           'driver'=>'session',
+           'provider'=>'admins',
         ],
-        
-        'admin-api' => [
-            'driver' => 'token',
-            'provider' => 'admins',
-        ],
-        
+        'doctor'=>[
+            'driver'=>'session',
+            'provider'=>'doctors',
+         ],
+        'patient'=>[
+            'driver'=>'session',
+            'provider'=>'patients',
+         ],
+        'secretary'=>[
+            'driver'=>'session',
+            'provider'=>'secretaries',
+         ],
     ],
 
     /*
@@ -86,25 +102,28 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-        'patients' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\Patient::class,
-        ],
-        'doctors' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\Doctor::class,
-        ],
-        
-    ],
-
-
-
 
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
         // ],
-    
+        'admins'=>[
+           'driver'=>'eloquent',
+           'model'=>App\Models\Admin::class,
+        ],
+        'doctors'=>[
+            'driver'=>'eloquent',
+            'model'=>App\Models\Doctor::class,
+         ],
+        'patients'=>[
+            'driver'=>'eloquent',
+            'model'=>App\Models\Patient::class,
+         ],
+        'secretaries'=>[
+            'driver'=>'eloquent',
+            'model'=>App\Models\Secretary::class,
+         ],
+    ],
 
     /*
     |--------------------------------------------------------------------------
@@ -115,7 +134,7 @@ return [
     | than one user table or model in the application and you want to have
     | separate password reset settings based on the specific user types.
     |
-    | The expire time is the number of minutes that each reset token will be
+    | The expire time is the number of minutes that the reset token should be
     | considered valid. This security feature keeps tokens short-lived so
     | they have less time to be guessed. You may change this as needed.
     |
@@ -128,17 +147,21 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
-        'doctors' => [
-            'provider' => 'doctors',
-            'table' => 'password_resets',
-            'expire' => 60,
-            'throttle' => 60,
+        'admins'=>[
+            'driver'=>'eloquent',
+            'model'=>App\Models\Admin::class,
         ],
-        'admins' => [
-            'provider' => 'admins',
-            'table' => 'password_resets',
-            'expire' => 60,
-            'throttle' => 60,
+        'doctors'=>[
+            'driver'=>'eloquent',
+            'model'=>App\Models\Doctor::class,
+        ],
+        'patients'=>[
+            'driver'=>'eloquent',
+            'model'=>App\Models\Patient::class,
+        ],
+        'secretaries'=>[
+            'driver'=>'eloquent',
+            'model'=>App\Models\Secretary::class,
         ],
     ],
 

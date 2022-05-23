@@ -1,17 +1,17 @@
 <?php
 
-use App\Http\Controllers\CommentController;
-use App\Http\Controllers\ContactController;
-use App\Http\Controllers\DoctorController;
-use App\Http\Controllers\PatientController;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\SecretaryController;
-use App\Http\Controllers\TestController;
-use App\Models\Comment;
-use App\Models\Patient;
-use App\Models\Secretary;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\PatientController;
+use App\Http\Controllers\MyDoctorController;
+use App\Http\Controllers\SecretaryController;
+use App\Http\Controllers\User\UserController;
+use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Doctor\DoctorController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,7 +23,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 
 
 Route::get('/' , function(){
@@ -90,52 +89,117 @@ Route::get('blog/speciality=forensic', [PostController::class, 'forensic'] )->na
 Route::get('blog/speciality=general', [PostController::class, 'general'] )->name('general.posts');
 Route::get('blog/speciality=geriatric', [PostController::class, 'geriatric'] )->name('geriatric.posts');
 
+
 Route::get('blogPage/{id}', [CommentController::class, 'show'] )->name('blog.page');
-Route::post('comment post/{id}', [CommentController::class, 'store'])->middleware('isPatient')->name('comments.store');
-Route::get('doctors' , [DoctorController::class, 'index'])->name('doctors.index');
-Route::get('doctors/search' , [DoctorController::class, 'index'])->name('doctors.search');
-Route::get('logout' , [DoctorController::class, 'logout'])->name('doctors.logout');
-Route::get('doctors/{doctor:name}' , [DoctorController::class, 'show'])->name('doctor.profile');
-Route::get('doctors/profile/book' , [DoctorController::class, 'book'])->middleware('isPatient')->name('book.store');
-Route::get('doctors/search' , [DoctorController::class, 'search'])->name('doctors.search');
-Route::post('Patientdash' , [PatientController::class, 'PostRegisteration'])->name('patient.data');
+Route::post('comment post/{id}', [CommentController::class, 'store'])->middleware(['auth:doctor,patient'])->name('comments.store');
+Route::get('doctors' , [MyDoctorController::class, 'index'])->name('doctors.index');
+Route::get('doctors/search' , [MyDoctorController::class, 'index'])->name('doctors.search');
+Route::get('doctors/{doctor:name}' , [MyDoctorController::class, 'show'])->name('doctor.profile');
+Route::get('doctors/profile/book' , [MyDoctorController::class, 'book'])->middleware('isPatient')->name('book.store');
+Route::get('doctors/search' , [MyDoctorController::class, 'search'])->name('doctors.search');
 Route::get('Patientdash' , [PatientController::class, 'PostRegisteration']);
+Route::post('Patientdash' , [PatientController::class, 'PostRegisteration'])->name('patient.data');
 Route::post('loginhome' , [PatientController::class, 'postLogin'])->name('patient.login');
-Route::post('doctorlogin' , [DoctorController::class, 'postLogin'])->name('doctor.login');
-
-
 
 Auth::routes();
 
 
-//dashboard of doctor
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-// Route::middleware(['isDoctor'])->group(function () {
+Route::prefix('user')->name('user.')->group(function(){
+  
+    Route::middleware(['guest:web','PreventBackHistory'])->group(function(){
+          Route::view('/login','dashboard.user.login')->name('login');
+          Route::view('/register','dashboard.user.register')->name('register');
+          Route::post('/create',[UserController::class,'create'])->name('create');
+          Route::post('/check',[UserController::class,'check'])->name('check');
+    });
 
-Route::get('doctor-index', [DoctorController::class, 'doctor_index'])->name('doctor.index');
-Route::get('requests status', function(){
-    return view('doctor-dashboard.requests status');
-})->name('doctor.status');
-Route::get('requests modifications', function(){
-    return view('doctor-dashboard.request modifications');
-})->name('doctor.modifications');
-Route::get('create post', [DoctorController::class, 'create_post'])->name('doctor.post');
-Route::get('publish article', function(){
-    return view('doctor-dashboard.publish article');
-})->name('doctor.article');
-    
+    Route::middleware(['auth:web','PreventBackHistory'])->group(function(){
+          Route::view('/home','dashboard.user.home')->name('home');
+          Route::post('/logout',[UserController::class,'logout'])->name('logout');
+          Route::get('/add-new',[UserController::class,'add'])->name('add');
+    });
+
+});
+
+Route::prefix('admin')->name('admin.')->group(function(){
+       
+    Route::middleware(['guest:admin','PreventBackHistory'])->group(function(){
+          Route::view('/login','dashboard.admin.login')->name('login');
+          Route::post('/check',[AdminController::class,'check'])->name('check');
+    });
+
+    Route::middleware(['auth:admin','PreventBackHistory'])->group(function(){
+        Route::view('/home','dashboard.admin.home')->name('home');
+        Route::post('/logout',[AdminController::class,'logout'])->name('logout');
+    });
+
+});
+
+Route::prefix('doctor')->name('doctor.')->group(function(){
+
+       Route::middleware(['guest:doctor','PreventBackHistory'])->group(function(){
+            Route::view('/login','html.Sign In doctor')->name('login');
+            Route::view('/register','dashboard.doctor.register')->name('register');
+            Route::post('/create',[DoctorController::class,'create'])->name('create');
+            Route::post('/check',[DoctorController::class,'check'])->name('check');
+       });
+
+       Route::middleware(['auth:doctor','PreventBackHistory'])->group(function(){
+            Route::view('/home','dashboard.doctor.home')->name('home');
+            // Route::get('/index', [DoctorController::class, 'doctor_index'])->name('index');
+            Route::view('/index', 'doctor-dashboard.index')->name('index');
+            Route::view('/requests-status', 'doctor-dashboard.requests status')->name('status');
+            Route::view('/requests-modifications', 'doctor-dashboard.request modifications')->name('modifications');
+            Route::view('publish article', 'doctor-dashboard.publish article')->name('article');
+            Route::view('/create','doctor-dashboard.create post')->name('post');
+            Route::post('/created',[DoctorController::class,'create_post'])->name('create.post');
+            Route::get('logout',[DoctorController::class,'logout'])->name('logout');
+       });
+
+});
+
+
+// Route::prefix('admin')->name('secretary.')->group(function(){
+
+//        Route::middleware(['guest:admin','PreventBackHistory'])->group(function(){
+//             Route::view('/login', 'admin.login')->name('login');
+//             Route::post('/check',[SecretaryController::class,'check'])->name('loginn');
+//        });
+
+//        Route::middleware(['auth:admin','PreventBackHistory'])->group(function(){
+
+//         Route::view('/index', 'admin.ADMIN index' )->name('index');
+//         Route::get('/create', [SecretaryController::class, 'admin_create'])->name('createDRAccount');
+//         Route::get('/contact', [SecretaryController::class, 'admin_contact'])->name('contact.response');
+//         Route::get('/modify', [SecretaryController::class, 'modify_appoinment'])->name('modify.appoinments');
+//         Route::get('/posts', [SecretaryController::class, 'posts'])->name('posts');
+//         Route::get('/requests', [SecretaryController::class, 'admin_approve_requests'])->name('approve.requests');
+//         Route::post('/account',[SecretaryController::class, 'store'])->name('doctor.account');
+//        });
+
 // });
 
-/////// dashboard of admin
 
-Route::get('admin/index', [SecretaryController::class, 'index'])->name('admin.index');
-Route::get('admin/create', [SecretaryController::class, 'admin_create'])->name('admin.createDRAccount');
-Route::get('admin/contact', [SecretaryController::class, 'admin_contact'])->name('admin.contact.response');
-Route::get('admin/modify', [SecretaryController::class, 'modify_appoinment'])->name('admin.modify.appoinments');
-Route::get('admin/posts', [SecretaryController::class, 'posts'])->name('admin.posts');
-Route::get('admin/requests', [SecretaryController::class, 'admin_approve_requests'])->name('admin.approve.requests');
+ Route::prefix('secretary')->name('secretary.')->group(function(){
+
+    
+            Route::view('/login', 'admin.login')->name('login');
+            Route::post('/check',[SecretaryController::class,'check'])->name('loginn');
 
 
 
+        Route::view('/index', 'admin.ADMIN index' )->name('index');
+        Route::get('/create', [SecretaryController::class, 'admin_create'])->name('createDRAccount');
+        Route::get('/contact', [SecretaryController::class, 'admin_contact'])->name('contact.response');
+        Route::get('/modify', [SecretaryController::class, 'modify_appoinment'])->name('modify.appoinments');
+        Route::get('/posts', [SecretaryController::class, 'posts'])->name('posts');
+        Route::get('/requests', [SecretaryController::class, 'admin_approve_requests'])->name('approve.requests');
+        Route::post('/account',[SecretaryController::class, 'store'])->name('doctor.account');
+        Route::post('/posts',[SecretaryController::class, 'show_posts'])->name('show.posts');
+        Route::delete('/destroy/{id}',[SecretaryController::class, 'destroy'])->name('destroy');
 
+
+});
 

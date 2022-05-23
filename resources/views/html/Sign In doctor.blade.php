@@ -19,7 +19,7 @@
                                             <h3 class="mb-4">Therapist Sign In</h3>
                                         </div>          
                                     </div>
-                                    <form action="{{ route('doctor.login') }}" class="signin-form" method="POST">
+                                    <form action="{{ route('doctor.check') }}" class="signin-form" method="POST">
                                         @csrf
                                         <div class="form-group mt-3">
                                             <input type="text" class="form-control" name="email" required>

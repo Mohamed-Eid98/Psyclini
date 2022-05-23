@@ -41,7 +41,7 @@ class Patient extends Authenticatable
      */
     public function doctors()
     {
-        return $this->belongsToMany(Doctor::class, 'doctor_patient', 'patient_id', 'doctor_ssn', 'id' , 'ssn');
+        return $this->belongsToMany(Doctor::class, 'doctor_patient', 'patient_id', 'doctor_id', 'id' , 'id');
     }
     public function comments()
     {
@@ -51,6 +51,7 @@ class Patient extends Authenticatable
     {
         return $this->hasMany(Post::class);
     }
+
 
 
 }

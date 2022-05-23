@@ -18,17 +18,46 @@
               <div class="single-blog-item feature-item"><!--Post content begin-->
                 <div class="comment-area"><!--Post Owner-->
                   <div class="comment-area-box post-owner">
-                    @if ( $post->patient->img != NULL))
-                    <div class="comment-thumb float-left">
-                      <img alt="" src="{{ asset('images/patients/'. $post->patient->img) }}" class="img-fluid">
-                    </div>    
+                    @if ($post->doctor_id != NUll)
+                      @if ( ($post->doctor->img) != NULL)
+                        <div class="comment-thumb float-left">
+                          <img alt="" src="{{ asset('images/doc/'. $post->doctor->img) }}" class="img-fluid">
+                        </div>    
+                      @else
+                        <div class="comment-thumb float-left">
+                          <img alt="" src="{{ asset('images/patients/123.jpg') }}" class="img-fluid">
+                        </div>
+                      @endif
+                    @elseif ($post->patient_id != NUll)
+                        @if ( ($post->patient->img) != NULL)
+                          <div class="comment-thumb float-left">
+                            <img alt="" src="{{ asset('images/patients/'. $post->patient->img) }}" class="img-fluid">
+                          </div>    
+                        @else
+                          <div class="comment-thumb float-left">
+                            <img alt="" src="{{ asset('images/patients/123.jpg') }}" class="img-fluid">
+                          </div>
+                        @endif
                     @else
-                    <div class="comment-thumb float-left">
-                      <img alt="" src="{{ asset('images/patients/123.jpg') }}" class="img-fluid">
-                    </div>
-                    @endif
+                        @if ( ($post->secretary->img) != NULL)
+                          <div class="comment-thumb float-left">
+                            <img alt="" src="{{ asset('images/sec/'. $post->patient->img) }}" class="img-fluid">
+                          </div>    
+                        @else
+                          <div class="comment-thumb float-left">
+                            <img alt="" src="{{ asset('images/patients/123.jpg') }}" class="img-fluid">
+                          </div>
+                        @endif
+                  @endif
+                   
                     <div class="comment-info ">
-                      <h4 class="mb-1 ">{{ $post->patient->name }}</h4>
+                          @if ($post->patient_id != NUll)
+                              <h4 class="mb-1 ">{{ $post->patient->name}}</h4>
+                          @elseif ($post->doctor_id != NUll)
+                              <h4 class="mb-1 "> Dr {{ $post->doctor->name}}</h4>
+                          @else
+                          <h4 class="mb-1 "> {{ $post->secretary->name}}</h4>
+                          @endif
                     </div>
                   </div>
                 </div>
@@ -57,22 +86,52 @@
                 <ul class="comment-tree list-unstyled">
                   <li class="mb-5">
                     <div class="comment-area-box">
-                      @if ( $comment->patient->img != NULL)
-                      <div class="comment-thumb float-left">
-                        <img alt="" src="{{ asset('images/patients/'. $comment->patient->img) }}" class="img-fluid">
-                      </div>    
-                      @else
-                      <div class="comment-thumb float-left">
-                        <img alt="" src="{{ asset('images/patients/123.jpg') }}" class="img-fluid">
-                      </div>
-                      @endif
+                      @if ($comment->doctor_id != NUll)
+                          @if ( ($comment->doctor->img) != NULL)
+                            <div class="comment-thumb float-left">
+                              <img alt="" src="{{ asset('images/doc/'. $comment->doctor->img) }}" class="img-fluid">
+                            </div>    
+                          @else
+                            <div class="comment-thumb float-left">
+                              <img alt="" src="{{ asset('images/patients/123.jpg') }}" class="img-fluid">
+                            </div>
+                          @endif
+                    @elseif ($comment->patient_id != NUll)
+                             @if ( ($comment->patient->img) != NULL)
+                                <div class="comment-thumb float-left">
+                                  <img alt="" src="{{ asset('images/patients/'. $comment->patient->img) }}" class="img-fluid">
+                                </div>    
+                              @else
+                                <div class="comment-thumb float-left">
+                                <img alt="" src="{{ asset('images/patients/123.jpg') }}" class="img-fluid">
+                              </div>
+                            @endif
+                    @else
+                        @if ( ($comment->secretary->img) != NULL)
+                          <div class="comment-thumb float-left">
+                            <img alt="" src="{{ asset('images/sec/'. $comment->secretary->img) }}" class="img-fluid">
+                          </div>    
+                        @else
+                          <div class="comment-thumb float-left">
+                            <img alt="" src="{{ asset('images/patients/123.jpg') }}" class="img-fluid">
+                          </div>
+                        @endif
+                  @endif
                       <div class="comment-info">
-                        <h5 class="mb-1">{{ $comment->patient->name }}</h5>
+                            @if ($comment->patient_id != NUll)
+                                <h5 class="mb-1 ">{{ $comment->patient->name}}</h5>
+                            @elseif ($comment->doctor_id != NUll)
+                                <h5 class="mb-1 "> Dr {{ $comment->doctor->name}}</h5>
+                            @else
+                                <h5 class="mb-1 "> {{ $comment->secretary->name}}</h5>
+                            @endif
+
                         <span class="date-comm"> {{ $comment->comment_added_at }}</span>
                       </div>
                       <div class="comment-content mt-3">
                         <p>{!! nl2br($comment->body) !!} </p>
                       </div>
+                      <hr>
                     </div>
                   </li>
                 </ul>
