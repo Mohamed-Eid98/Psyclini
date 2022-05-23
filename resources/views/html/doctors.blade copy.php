@@ -17,7 +17,7 @@
   <header>
     <nav class="navbar navbar-expand-lg navigation" id="navbar">
       <div class="container">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="{{ url('/') }}">
           <img src="../img/logo.png" alt="" class="img-fluid" >
         </a>
 
@@ -413,7 +413,7 @@
         <span class="text-muted">&copy; 2022 Ain Shams Uni. , Faculty of Science,<br> Maths. Department. </span>
       </div>
       <div class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-        <a href="index.html" class="a-no-decor"><img src="../img/icon.png" width="45"></a>
+        <a href="{{ url('/') }}" class="a-no-decor"><img src="../img/icon.png" width="45"></a>
       </div>
   
       <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">

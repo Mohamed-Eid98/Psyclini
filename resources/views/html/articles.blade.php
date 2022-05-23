@@ -17,7 +17,7 @@
   <header>
     <nav class="navbar navbar-expand-lg navigation" id="navbar">
       <div class="container">
-        <a class="navbar-brand" href="index.html">
+        <a class="navbar-brand" href="{{ url('/') }}">
           <img src="../img/logo.png" alt="" class="img-fluid" >
         </a>
 
