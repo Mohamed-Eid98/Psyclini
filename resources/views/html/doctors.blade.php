@@ -20,8 +20,8 @@
           <div class=" doctors-sidebar bg-white position-sticky fixed-top" >
             <form action="{{ route('doctors.search') }}" method="GET">
             <ul class="list-unstyled ps-0 ">
-              <li class="mb-1">
-              <input type="text" class="form-control" name= 'doctorName' placeholder="Search By Name">
+              <li class="mb-2">
+              <input type="text" class="form-control " name= 'doctorName' placeholder="Search By Name">
               <i class="ti-search"></i>
               </li>
 

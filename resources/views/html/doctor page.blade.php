@@ -33,8 +33,8 @@
               <label class="doctor-title"> Speciality : <label> {{ $doctor->speciality}} </label></label><br>
               <label class="doctor-title"> Rating  : </label>
               <div class="row">
-                <div class="d-flex justify-content-between col-lg-5 list-unstyled rating">
-				{{$doctor->stars}}<i class="icofont-star full-star"></i>
+                <div class="col-lg-5 list-unstyled rating">
+				        {{$doctor->stars}}&nbsp; <i class="icofont-star full-star"></i>
                 
                 </div>
                 <div class="col-lg-7">

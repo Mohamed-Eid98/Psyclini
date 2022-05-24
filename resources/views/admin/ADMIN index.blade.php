@@ -10,15 +10,6 @@
     <link rel="stylesheet" href="../css/icofont.css">
     <link rel="icon" href="../img/icon.png">
     <title>Psyclini ADMIN/ Create Doctor's Account</title>
-   
-<style>
-  input[type= number]::-webkit-outer-spin-button,
-  input[type= number]::-webkit-inner-spin-button{
-    -webkit-appearance : none;
-    -moz-appearance : none;
-    margin :0;
-
-  }
 
 </style>
 </head>
@@ -128,9 +119,6 @@
     </div>
   </div>
 
-  <script src="../js/bootstrap.bundle.js"></script>
-  <script src="../js/admin main script.js"></script>
-  <script src="../js/date.js"></script>
 
 </body>
 </html> 

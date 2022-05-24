@@ -78,13 +78,6 @@
 
         <div class="col-lg-4"><!--Side Bar-->
           <div class="sidebar-wrap pl-lg-4 mt-5 mt-lg-0">
-            <div class="sidebar-widget search  mb-3 "><!--Search-->
-              <h4>Search Here</h4>
-              <form action="#" class="search-form">
-                <input type="text" class="form-control" placeholder="search">
-                <i class="ti-search"></i>
-              </form>
-            </div>
 
             <div class="sidebar-widget latest-post mb-3"><!--Popular Atricles-->
               <h4>Popular Articles</h4>

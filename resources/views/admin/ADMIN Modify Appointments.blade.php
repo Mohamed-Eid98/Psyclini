@@ -124,8 +124,7 @@
 
 
 
-  <script src="../js/bootstrap.bundle.js"></script> 
-  <script src="../js/admin main script.js"></script>
+
   <script src="../js/jquery.js"></script>
   <script src="../js/jquery.timepicker.js"></script>
   <script src="../js/date.js"></script>

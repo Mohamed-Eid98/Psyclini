@@ -131,7 +131,7 @@
 
 
   
-  <script src="../js/bootstrap.bundle.js"></script> 
+
   <script src="../js/admin main script.js"></script>
   <script src="../js/simple-datatables.js"></script>
   <script>
