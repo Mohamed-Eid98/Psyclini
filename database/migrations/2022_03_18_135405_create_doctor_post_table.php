@@ -1,4 +1,3 @@
-
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -14,15 +13,13 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('reviews', function (Blueprint $table) {
-			$table->increments('id');
-			$table->longText('review')->nullable();
-			$table->integer('star');
-            $table->integer('patient_id')->unsigned();
+        Schema::create('doctor_post', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('post_id')->unsigned();
             $table->bigInteger('doctor_id')->unsigned();
-            $table->foreign('patient_id')
+            $table->foreign('post_id')
                   ->references('id')
-                  ->on('patients')
+                  ->on('posts')
                   ->onDelete('cascade')
                   ->onUpdate('cascade');
             $table->foreign('doctor_id')
@@ -30,9 +27,9 @@ return new class extends Migration
                   ->on('doctors')
                   ->onDelete('cascade')
                   ->onUpdate('cascade');
-				$table->timestamps();  
         });
     }
+
 
     /**
      * Reverse the migrations.
@@ -41,8 +38,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('reviews', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('doctor_posts');
     }
 };

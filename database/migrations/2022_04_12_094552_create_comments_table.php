@@ -34,13 +34,6 @@ return new class extends Migration
                   ->on('patients')
                   ->onDelete('cascade')
                   ->onUpdate('cascade');
-            $table->bigInteger('secretary_ssn')->unsigned()->nullable();
-            $table->foreign('secretary_ssn')
-                ->references('ssn')
-                ->on('secretaries')
-                ->onDelete('cascade')
-                ->onUpdate('cascade');
-            
             $table->timestamps();
         });
     }
