@@ -2,17 +2,20 @@
 
 namespace App\Models;
 
+use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
-class Secretary extends Model
+class Secretary extends Authenticatable
 {
-    use HasFactory;
+    use HasFactory, Notifiable;
+    public $table = 'secretaries';
+    public $guard = 'secretary';
     public $fillable = [ 
         'ssn',
         'name', 
         'email',
-        'password',
         'birth_date',
         'img'
     ];
@@ -22,10 +25,7 @@ class Secretary extends Model
       *
       * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
       */
-     public function posts()
-     {
-         return $this->belongsToMany(Post::class, 'post_secretary', 'secretary_ssn', 'post_id', 'ssn', 'id');
-     }
+
      public function comments()
      {
          return $this->hasMany(Comment::class);

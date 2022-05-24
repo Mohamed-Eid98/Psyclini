@@ -22,10 +22,10 @@ return new class extends Migration
                   ->on('posts')
                   ->onDelete('cascade')
                   ->onUpdate('cascade');
-            $table->bigInteger('doctor_ssn')->unsigned()->nullable();
+            $table->bigInteger('doctor_id')->unsigned()->nullable();
             $table->integer('patient_id')->unsigned()->nullable();
-            $table->foreign('doctor_ssn')
-                  ->references('ssn')
+            $table->foreign('doctor_id')
+                  ->references('id')
                   ->on('doctors')
                   ->onDelete('cascade')
                   ->onUpdate('cascade');
@@ -34,6 +34,13 @@ return new class extends Migration
                   ->on('patients')
                   ->onDelete('cascade')
                   ->onUpdate('cascade');
+            $table->bigInteger('secretary_ssn')->unsigned()->nullable();
+            $table->foreign('secretary_ssn')
+                ->references('ssn')
+                ->on('secretaries')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+            
             $table->timestamps();
         });
     }

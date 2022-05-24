@@ -52,8 +52,18 @@ class CommentController extends Controller
         $comment->body = $request->input('comment');
         $idd = $post->id;
         $comment->post_id =$idd;
-        $user = Auth::guard('patient')->user()->id;
-        $comment->patient_id = $user; 
+        if ((Auth::guard('patient')->check())){
+            $user = (Auth::guard('patient')->user()->id);
+            $comment->patient_id = $user; 
+        }
+        elseif (Auth::guard('doctor')->check()){
+            $user = Auth::guard('doctor')->user()->id;
+            $comment->doctor_id = $user; 
+        }
+        else{
+            $user = Auth::guard('secretary')->user()->ssn;
+            $comment->secretary_ssn = $user;
+        } 
         $comment->save();
         return redirect()->route('blog.page', $post->id);
     }
@@ -66,8 +76,8 @@ class CommentController extends Controller
      */
     public function show($post_id)
     {
-        $post = Post::with('patient','comments')->find($post_id);
-        $comments = Comment::with('post','patient')->where('post_id', $post->id)->get();
+        $post = Post::with('patient','comments', 'doctor','secretary')->find($post_id);
+        $comments = Comment::with('post','patient','doctor','secretary')->where('post_id', $post->id)->get();
         // $comments = Post::with('patient','comments')->find($post_id);
         {
             $post->setAttribute('added_at',$post->created_at->diffForHumans());

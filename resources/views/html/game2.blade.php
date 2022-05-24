@@ -8,8 +8,6 @@
     <link rel="stylesheet" href="../css/home_style.css">
     <link rel="stylesheet" href="../css/icofont.css">
     <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/slick-theme.css">
-    <link rel="stylesheet" href="../css/slick.css">
     <link rel="icon" href="../img/icon.png">
     <title>Psyclini</title>
 </head>
@@ -22,7 +20,7 @@
 
 
 <section class="section game-wrap">
-    <div align="center"><iframe src="http://localhost:51472/" frameborder="0" height="650" width="1000" ></iframe></div>
+    <div align="center"><iframe src="https://itch.io/embed-upload/5841721?color=ffffff" frameborder="0" height="650" width="1000" ></iframe></div>
 </section>
 
 <!--footer begin-->
@@ -46,16 +44,9 @@
   <!--footer end-->
 
 
-
-
-
-
-
-<script src="../js/jquery.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<script src="../js/slick.min.js"></script>
-<script src="../js/script.js"></script> 
-
+    <script src="../js/jquery.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/script.js"></script> 
 
 </body>
 </html>

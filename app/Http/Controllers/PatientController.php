@@ -73,8 +73,7 @@ class PatientController extends Controller
     {
   
 
-
-    $patient = new Patient();
+        $patient = new Patient();
     if ($image = $request->file('patient-pic')){
         $path = 'images/patients';
         $ext = $image->getClientOriginalExtension();
@@ -82,7 +81,7 @@ class PatientController extends Controller
         $image->move($path , $imageName);
         $patient->img = $imageName; 
     }
- 
+    
     
     $patient->name = $request->input('name');   
     $patient->email = $request->input('email');   
@@ -92,13 +91,14 @@ class PatientController extends Controller
     $patient->save();
     
     if(Auth::guard('patient')->attempt(['email' => $request->email, 'password' => $request->password])){
-        return redirect()->intended(route('home'));
+        return redirect()->route('home');
+        // dd('test');
     }
     else{
         $this->validator($request);
         $credentials = $request->only('email', 'password');
         return redirect()->back()->withInput($credentials);
-
+        
     }
 
 }

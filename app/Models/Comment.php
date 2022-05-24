@@ -12,7 +12,8 @@ class Comment extends Model
     public $fillable = [
         'body',
         'post_id',
-        'patient_id'
+        'patient_id',
+        'doctor_id'
     ];
     /**
      * Get the user that owns the Comment
@@ -30,10 +31,11 @@ class Comment extends Model
     }
     public function doctor()
     {
-        return $this->belongsTo(Doctor::class, 'doctor_ssn', 'ssn');
+        return $this->belongsTo(Doctor::class);
     }
+ 
     public function secretary()
     {
-        return $this->belongsTo(Secretary::class, 'secretary_ssn', 'ssn');
+        return $this->belongsTo(Secretary::class);
     }
 }

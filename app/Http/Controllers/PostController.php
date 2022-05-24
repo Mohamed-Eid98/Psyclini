@@ -25,7 +25,7 @@ class PostController extends  Controller
      */
     public function index()
     {
-        $posts = Post::latest()->with('patient')->Paginate(3);
+        $posts = Post::latest()->with('patient','doctor', 'secretary')->Paginate(3);
         foreach($posts as $post){
             $post->setAttribute('added_at',$post->created_at->diffForHumans());
             $post->setAttribute('comments_count',$post->comments->count());
@@ -62,29 +62,45 @@ class PostController extends  Controller
     public function search(Request $request)
 {
     $text = $request->input('posts');
-        $posts = Post::where(function ($q) use ($text){
-            
-            $q->where('body' , 'LIKE' , '%'.$text.'%');
-        })->paginate(3);
-                foreach($posts as $post){
-            $post->setAttribute('added_at',$post->created_at->diffForHumans());
-            $post->setAttribute('comments_count',$post->comments->count());
-            $post->setAttribute('life_coach', Post::where('speciality' , 'Life Coach')->count()); 
-            $post->setAttribute('pid', Post::where('speciality' , 'Psychiatry of Intellectual Disability (PID)')->count());
-            $post->setAttribute('marital', Post::where('speciality' , 'Marital and Family Relations')->count()); 
-            $post->setAttribute('forensic', Post::where('speciality' , 'Forensic Psychiatry')->count()); 
-            $post->setAttribute('addiction', Post::where('speciality' , 'Addiction')->count()); 
-            $post->setAttribute('general', Post::where('speciality' , 'General Psychiatry')->count()); 
-            $post->setAttribute('geriatric', Post::where('speciality' , 'Geriatric Psychiatry')->count()); 
-            $post->setAttribute('child', Post::where('speciality' , 'Child and Adolescence Disorders')->count()); 
-        }
+    // $posts = Post::latest()->with('patient')->Paginate(3);
+    $posts = Post::where(function ($q) use ($text){
+        
+        $q->where('body' , 'LIKE' , '%'.$text.'%');
+    })->paginate(3);
+    
+    // foreach($posts as $post){
+        //     $post->setAttribute('added_at',$post->created_at->diffForHumans());
+        //     $post->setAttribute('comments_count',$post->comments->count());
+        //     $post->setAttribute('life_coach', Post::where('speciality' , 'Life Coach')->count()); 
+        //     $post->setAttribute('pid', Post::where('speciality' , 'Psychiatry of Intellectual Disability (PID)')->count());
+        //     $post->setAttribute('marital', Post::where('speciality' , 'Marital and Family Relations')->count()); 
+        //     $post->setAttribute('forensic', Post::where('speciality' , 'Forensic Psychiatry')->count()); 
+        //     $post->setAttribute('addiction', Post::where('speciality' , 'Addiction')->count()); 
+        //     $post->setAttribute('general', Post::where('speciality' , 'General Psychiatry')->count()); 
+        //     $post->setAttribute('geriatric', Post::where('speciality' , 'Geriatric Psychiatry')->count()); 
+        //     $post->setAttribute('child', Post::where('speciality' , 'Child and Adolescence Disorders')->count()); 
+        // }
         if ($posts->count() == 0)
         {
-            return $this->index();
-            return redirect()->route('blog')->with('status2', 'Your Post Was Sent');
+            // return response()->json($posts);
+             $this->index();
+            return redirect()->route('blog')->with('status2', "Your Search Does Not Match Any Post ");
         }
-        return view('html.blog', compact('posts'))->with('status2', 'Your Post Was Sent');    
+            // return response()->json($posts);
 
+            $dub = Comment::all();
+            $collection = collect($dub);
+            $m = $collection->duplicates('post_id');
+            $mm = $m->duplicates()->max();
+            $mmm= $m->countBy()->keys()->get(0);
+            $mmmm = $m->countBy()->keys()->get(2);
+    
+            $p = Post::where('id', $mm)->get();
+            $pp = Post::where('id', $mmm)->get();
+            $ppp = Post::where('id', $mmmm)->get();
+    
+            return view('html.blog', compact('posts','p', 'pp','ppp')); 
+        
 }
 
 

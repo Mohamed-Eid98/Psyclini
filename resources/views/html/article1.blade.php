@@ -1,48 +1,15 @@
+@extends('layouts.app')
+@section('content')
+
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../css/home_style.css">
-    <link rel="stylesheet" href="../css/icofont.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/slick-theme.css">
-    <link rel="stylesheet" href="../css/slick.css">
-    <link rel="icon" href="../img/icon.png">
-    <title>الوسواس القهري</title>
+    <title>Psyclini</title>
     
 </head>
 <body id="bootstrap-overrides">
   
-  <!--nav bar begin-->
-  <header>
-    <nav class="navbar navbar-expand-lg navigation" id="navbar">
-      <div class="container">
-        <a class="navbar-brand" href="{{ url('/') }}">
-          <img src="../img/logo.png" alt="" class="img-fluid" >
-        </a>
-
-        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarmain" aria-controls="navbarmain" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="icofont-navigation-menu"></span>
-        </button>
-    
-        <div class="collapse navbar-collapse" id="navbarmain">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ url('doctors/') }}">Doctors</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ url('articles/') }}">Articles</a></li>    
-            <li class="nav-item"><a class="nav-link" href="{{ url('test/') }}">Tests</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ url('blog/') }}">Blog</a></li>    
-            <li class="nav-item"><a class="nav-link" href="{{ url('') }}">Games</a></li>      
-            <li class="nav-item"><a class="nav-link" href="#contact-us">Contact Us</a></li>
-            <a class="btn btn-outline-primary rounded-pill order-1 order-lg-0 ms-lg-4" href="{{ url('sign in/') }}">Sign In</a>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
-  <!--nav bar End-->
-
-  <section class="section blog-wrap">
+<section class="section blog-wrap">
     <div class="container">
       <div class="row">
         <section class="section blog-wrap">
@@ -238,5 +205,4 @@
 </html>
 
 
-
-
+@endsection 

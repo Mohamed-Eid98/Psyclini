@@ -10,13 +10,12 @@
 </head>
 <body id="bootstrap-overrides">
   
-
 <section class="section blog-wrap">
     <div class="container">
       <div class="row">
         <section class="section blog-wrap">
           <div class="container">
-            <div class="row" >
+            <div class="row">
               <div class="col-lg-8"><!--Article begin-->
                 <div class="row">
                   <div class="col-lg-12 mb-5">

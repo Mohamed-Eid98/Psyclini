@@ -1,7 +1,3 @@
-@extends('layouts.doctorApp')
-@section('content')
-
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,7 +16,7 @@
 <body>
   <div id="app">
     <div id="sidebar" class="active">
-      <div class="sidebar-wrapper active">
+      <div class="sidebar-wrapper">
         <div class="sidebar-header">
           <div class="d-flex justify-content-between">
             <div class="logo">
@@ -33,21 +29,21 @@
         </div>
         <div class="sidebar-menu">
           <ul class="menu">            
-            <li class="sidebar-item active ">
+            <li class="sidebar-item {{ Request::is('doctor-index') ? 'active' : '' }} ">
               <a href="{{ route('doctor.index') }}" class='sidebar-link'>
                 <span>Dashboard</span>
               </a>
             </li>
               
-            <li class="sidebar-item has-sub active ">
+            <li class="sidebar-item has-sub">
               <a href="#" class='sidebar-link'>
                 <span>Appointments</span>
               </a>
-              <ul class="submenu active ">
-                <li class="submenu-item active">
+              <ul class="submenu ">
+                <li class="submenu-item {{ Request::is('requests modifications') ? 'active' : '' }} ">
                   <a href="{{ route('doctor.modifications') }}">Request Modifications</a>
                 </li>
-                <li class="submenu-item ">
+                <li class="submenu-item {{ Request::is('requests status') ? 'active' : '' }} ">
                   <a href="{{ route('doctor.status') }}">Requests' Status</a>
                 </li>
               </ul>
@@ -58,22 +54,23 @@
                 <span>Publish</span>
               </a>
               <ul class="submenu ">
-                <li class="submenu-item ">
+                <li class="submenu-item {{ Request::is('create post') ? 'active' : '' }} ">
                   <a href="{{ route('doctor.post') }}">Post</a>
                 </li>
-                <li class="submenu-item ">
+                <li class="submenu-item {{ Request::is('publish article') ? 'active' : '' }} ">
                   <a href="{{ route('doctor.article') }}">Article</a>
                 </li>
               </ul>
             </li>
 
-            <li class="sidebar-item ">
-              <a href="{{  route('home')}}" class="sidebar-link"> 
+            <li class="sidebar-item {{ Request::is('/') ? 'active' : '' }} ">
+              {{-- <a class="nav-link" href="{{ url('/') }}">Home</a> --}}
+              <a href="{{ url('/') }}" class="sidebar-link"> 
                 <span>Go to the Main Website <i class="icofont-simple-right"></i></span>
               </a>
             </li>
             <li class="sidebar-item log-out ">
-              <a href="#" class="text-muted">Log Out</a>
+              <a href="{{ route('doctor.logout') }}" class="text-muted">Log Out</a>
             </li>
             
           </ul>           
@@ -155,4 +152,3 @@
 </body>
 
 </html>
-@endsection
