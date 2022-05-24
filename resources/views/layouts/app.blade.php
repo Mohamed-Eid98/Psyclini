@@ -17,15 +17,10 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
- {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="../css/icofont.css">
-<link rel="stylesheet" href="../css/signin_signup_style.css">
-<link rel="stylesheet" href="../css/slick-theme.css">
-<link rel="stylesheet" href="../css/slick.css">
-<link rel="stylesheet" href="../css/home_style.css"> 
- <link rel="stylesheet" href="../css/bootstrap.min.css"> 
-<link rel="icon" href="../img/icon.png">
+      <link rel="stylesheet" href="../css/home_style.css"> 
+      <link rel="stylesheet" href="../css/bootstrap.min.css"> 
+      <link rel="stylesheet" href="../css/icofont.css">
+      <link rel="icon" href="../img/icon.png">
 
 
 </head>

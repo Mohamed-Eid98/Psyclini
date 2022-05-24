@@ -39,7 +39,7 @@
                         <div lang="ar" dir="rtl" >
                           <h2 class="mb-4 text-md"><a href="{{route('article3')}}">طرق دعم مصاب الرهاب الاجتماعي</a></h2>
 
-                          <h3 class="article-subtitle">المحتوي</h3>
+                          <h3 class="article-subtitle" class="title-color">المحتوي</h3>
                           <ul class="list-unstyled article-parag" >
                             <li><a href="{{ url('/article3'.'#المرض') }}">أمور يجب أن تتوقف عن قولها</a></li>
                             <li><a href="{{ url('/article3'.'#الاعراض') }} ">طرق دعم مصاب الرهاب الاجتماعي</a></li>
@@ -186,7 +186,11 @@
                       </li>
                       <li class="align-items-center">
                         <a href="#">General Psychiatry</a>
+<<<<<<< HEAD
                         <span>(2)</span>
+=======
+                        <span>(3)</span>
+>>>>>>> 862c9114b35ac2ddf5698e5826052abd3a97a226
                       </li>
                       <li class="align-items-center">
                         <a href="#">Psychiatry of Intellectual Disability (PID)</a>
