@@ -29,7 +29,7 @@
                                         </div>
                                         @endif
                                         <div class="form-group mt-3">
-                                            <input type="text" class="form-control" name="email" required>
+                                            <input type="text" class="form-control" name="email" value="{{ old('email') }}" required>
                                             <label class="form-control-placeholder" for="Username" >E-mail</label> 
 										</div>
                                         <div class="form-group">

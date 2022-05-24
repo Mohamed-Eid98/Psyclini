@@ -1,6 +1,5 @@
 {{-- @extends('layouts.doctorApp')
 @section('content') --}}
-{{-- @if (Auth::guard('doctor')->check()){ --}}
 
   <!DOCTYPE html>
   <html lang="en">
@@ -33,18 +32,18 @@
           </div>
           <div class="sidebar-menu">
             <ul class="menu">            
-              <li class="sidebar-item active ">
+              <li class="sidebar-item {{ Request::is('doctor-index') ? 'active' : '' }} ">
                 <a href="{{ route('doctor.index') }}" class='sidebar-link'>
                   <span>Dashboard</span>
                 </a>
               </li>
                 
-              <li class="sidebar-item has-sub">
+              <li class="sidebar-item has-sub active">
                 <a href="#" class='sidebar-link'>
                   <span>Appointments</span>
                 </a>
-				<ul class="submenu ">
-                  <li class="submenu-item {{ Request::is('doctor-index') ? 'active' : '' }}">
+				        <ul class="submenu active">
+                  <li class="submenu-item active">
                     <a href="{{ route('dHistory') }}">History</a>
                   </li>
                   <li class="submenu-item{{ Request::is('doctor-index') ? 'active' : '' }}">
@@ -90,7 +89,7 @@
           <!-- DataTales Example -->
           <div class="card shadow mb-4 ml-3">
             <div class="card-body">
-              <h4 class="mb-3 mt-2 pb-2">Your Booked Appointments This Week</h4>
+              <h4 class="mb-3 mt-2 pb-2">Your Appointments This Week</h4>
               <div class="table-responsive ">
                 <table class="table" id="table1">
                   <thead> 
@@ -99,7 +98,7 @@
                       <th>Date</th>
                       <th>At</th>
                       <th>Message</th>
-						<th>Cancel</th>
+						
                     </tr>
                   </thead>
                   <tbody>
@@ -109,9 +108,7 @@
                       <td>{{$appointment->date}}</td>
                       <td>{{$appointment->time}} </td>
                       <td>{{$appointment->message}} </td>
-                      <td >
-					<button  class="btn btn-outline-danger"><a href="{{url('deleteApp/'.$appointment->id)}}">Cancel</a></button>
-					</td>
+
                     </tr>
                     @endforeach
                   </tbody>
@@ -138,22 +135,10 @@
         ]
       });
     </script>
-	
-<script src="../js/sweetalert.min.js"></script>
-    
-    <!-- Scripts -->
-    @if (Session('status2'))
-    <script>
-        swal("{{ Session('status2') }}");
-    </script>
-	@endif
   </body>
   
   </html>
   
-{{-- 
-}
-   
- @endif --}}
-
+{{-- }
+@endif --}}
 {{-- @endsection --}}

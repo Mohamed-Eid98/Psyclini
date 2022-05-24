@@ -70,7 +70,7 @@ public function appup($app )
 				$var->aoppintment_status=0;
 				$var->save();
 				$p=Appointment::updateOrCreate(['id'=>$app],['doctor_status'=>0],['patient_status'=>1]);				
-				return back()->with('status2', 'The appointment has been reserved');
+				return back()->with('status2', 'The appointment has been reserved at');
 				
 			}
 				
@@ -95,34 +95,12 @@ public function pHistory()
 		$appointment = AppointmentDoctor::where('patient_id',$s)->where('date','<=',$d)->orderBy('date','asc')->get();
 		return view('html.patient history', compact('appointment'));
     }
-//Doctor
-public function dUpcom()
-    {
-		$s=Auth::guard('doctor')->user()->id;
-		$d=date("Y.m.d");
-		$appointment = AppointmentDoctor::where('doctor_id',$s)->where('date','>=',$d)->orderBy('date','asc')->get();
-		return view('doctor-dashboard.index', compact('appointment'));
-    }
-	
-public function dHistory()
-    {
 
-        $s=Auth::guard('doctor')->user()->id;
-		$d=date("Y.m.d");
-		$appointment = AppointmentDoctor::where('doctor_id',$s)->where('date','<=',$d)->orderBy('date','asc')->get();
-		return view('doctor-dashboard.history appointments', compact('appointment'));
-    }
-public function dAvilable()
-    {
-		$s=Auth::guard('doctor')->user()->id;
 
-		$appointment = Appointment::where('doctor_id',$s)->where('patient_status',0)->get();
-		return view('doctor-dashboard.Avilable appointments', compact('appointment'));
-    }
 	
 
 	
-public function deleteApp( $id  )
+public function deleteApp($id)
     {
 		
        $d=AppointmentDoctor::where('id',$id)->first()->appointment_id;
@@ -134,6 +112,7 @@ public function deleteApp( $id  )
 		$appointment1->save();
 		return back()->with('status2', 'The appointment has been canceled');
     }
+	
 }
 
 		?>

@@ -64,5 +64,15 @@ class CommentSeeder extends Seeder
             'post_id' => '1',
             'patient_id'=> '3'
             ]);
+        \App\Models\Comment::create([
+            'body'=>'a new comment',
+            'post_id' => '3',
+            'patient_id'=> '2'
+            ]);
+        \App\Models\Comment::create([
+            'body'=>'second comment',
+            'post_id' => '3',
+            'patient_id'=> '3'
+            ]);
     }
 }

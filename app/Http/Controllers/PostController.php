@@ -68,18 +68,18 @@ class PostController extends  Controller
         $q->where('body' , 'LIKE' , '%'.$text.'%');
     })->paginate(3);
     
-    // foreach($posts as $post){
-        //     $post->setAttribute('added_at',$post->created_at->diffForHumans());
-        //     $post->setAttribute('comments_count',$post->comments->count());
-        //     $post->setAttribute('life_coach', Post::where('speciality' , 'Life Coach')->count()); 
-        //     $post->setAttribute('pid', Post::where('speciality' , 'Psychiatry of Intellectual Disability (PID)')->count());
-        //     $post->setAttribute('marital', Post::where('speciality' , 'Marital and Family Relations')->count()); 
-        //     $post->setAttribute('forensic', Post::where('speciality' , 'Forensic Psychiatry')->count()); 
-        //     $post->setAttribute('addiction', Post::where('speciality' , 'Addiction')->count()); 
-        //     $post->setAttribute('general', Post::where('speciality' , 'General Psychiatry')->count()); 
-        //     $post->setAttribute('geriatric', Post::where('speciality' , 'Geriatric Psychiatry')->count()); 
-        //     $post->setAttribute('child', Post::where('speciality' , 'Child and Adolescence Disorders')->count()); 
-        // }
+    foreach($posts as $post){
+            $post->setAttribute('added_at',$post->created_at->diffForHumans());
+            $post->setAttribute('comments_count',$post->comments->count());
+            $post->setAttribute('life_coach', Post::where('speciality' , 'Life Coach')->count()); 
+            $post->setAttribute('pid', Post::where('speciality' , 'Psychiatry of Intellectual Disability (PID)')->count());
+            $post->setAttribute('marital', Post::where('speciality' , 'Marital and Family Relations')->count()); 
+            $post->setAttribute('forensic', Post::where('speciality' , 'Forensic Psychiatry')->count()); 
+            $post->setAttribute('addiction', Post::where('speciality' , 'Addiction')->count()); 
+            $post->setAttribute('general', Post::where('speciality' , 'General Psychiatry')->count()); 
+            $post->setAttribute('geriatric', Post::where('speciality' , 'Geriatric Psychiatry')->count()); 
+            $post->setAttribute('child', Post::where('speciality' , 'Child and Adolescence Disorders')->count()); 
+        }
         if ($posts->count() == 0)
         {
             // return response()->json($posts);

@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Doctor;
 
 use App\Models\Post;
 use App\Models\Doctor;
-
+use App\Models\Appointment;
+use App\Models\AppointmentDoctor;
+use App\Http\Controllers\AppointmentController;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -43,7 +45,7 @@ class DoctorController extends Controller
            'email'=>'required|email|exists:doctors,email',
            'password'=>'required|min:5|max:30'
         ],[
-            'email.exists'=>'This email is not exist'
+            'email.exists'=>'This email is not exists in doctors table'
         ]);
 
         $creds = $request->only('email','password');
@@ -51,7 +53,7 @@ class DoctorController extends Controller
         if( Auth::guard('doctor')->attempt($creds) ){
             return redirect()->route('doctor.index');
         }else{
-            return redirect()->route('doctor.login')->with('fail','Incorrect Password');
+            return redirect()->route('doctor.login')->with('fail','Incorrect Credentials');
         }
     }
 
@@ -80,5 +82,43 @@ class DoctorController extends Controller
      return redirect()->back()->with('status', 'Your Post Was Sent');
      
 
-    } 
+    }
+	public function index()
+    {
+		$s=Auth::guard('doctor')->user()->id;
+		$d=date("Y.m.d");
+		$appointment = AppointmentDoctor::where('doctor_id',$s)->where('date','>=',$d)->orderBy('date','asc')->get();
+		return view('doctor-dashboard.index', compact('appointment'));
+    }
+	
+public function dHistory()
+    {
+
+        $s=Auth::guard('doctor')->user()->id;
+		$d=date("Y.m.d");
+		$appointment = AppointmentDoctor::where('doctor_id',$s)->where('date','<=',$d)->orderBy('date','asc')->get();
+		return view('doctor-dashboard.history appointments', compact('appointment'));
+    }
+public function dAvilable()
+    {
+		$s=Auth::guard('doctor')->user()->id;
+
+		$appointment = Appointment::where('doctor_id',$s)->where('patient_status',0)->get();
+		return view('doctor-dashboard.avillable appointments', compact('appointment'));
+    }
+public function AApp($id)
+    {
+		$appointment1=Appointment::where('id',$id)->first();
+		$appointment1->doctor_status=1;
+		$appointment1->save();
+		return back()->with('status2', 'Availlable done');
+    }
+public function NAApp($id)
+    {
+		
+		$appointment1=Appointment::where('id',$id)->first();
+		$appointment1->doctor_status=0;
+		$appointment1->save();
+		return back()->with('status2', 'Not Availlable done');
+    }	
 }

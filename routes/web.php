@@ -175,7 +175,7 @@ Route::prefix('doctor')->name('doctor.')->group(function(){
        Route::middleware(['auth:doctor','PreventBackHistory'])->group(function(){
             Route::view('/home','dashboard.doctor.home')->name('home');
             // Route::get('/index', [DoctorController::class, 'doctor_index'])->name('index');
-            Route::view('/index', 'doctor-dashboard.index')->name('index');
+            // Route::view('/index', 'doctor-dashboard.index')->name('index');
             Route::view('/requests-status', 'doctor-dashboard.requests status')->name('status');
             Route::view('/requests-modifications', 'doctor-dashboard.request modifications')->name('modifications');
             Route::view('publish article', 'doctor-dashboard.publish article')->name('article');
@@ -188,3 +188,10 @@ Route::prefix('doctor')->name('doctor.')->group(function(){
 
 
 
+Route::get('deleteApp/{id}' ,[AppointmentController::class, 'deleteApp'] )->name('deleteApp');
+
+Route::get('/dAvilable' ,[DoctorController::class, 'dAvilable'] )->name('dAvilable');
+Route::get('/dHistory' ,[DoctorController::class, 'dHistory'] )->name('dHistory');
+Route::get('/index',[DoctorController::class, 'index'])->name('doctor.index');
+Route::get('AApp/{id}' ,[DoctorController::class, 'AApp'] )->name('AApp');
+Route::get('NAApp/{id}' ,[DoctorController::class, 'NAApp'] )->name('NAApp');

@@ -39,12 +39,10 @@ class ReviewController extends Controller
 			$review->doctor_id=$a;
 		    $review->save();
 			
-			$docu=Doctor::where('id',$a)->first();
-			$rat=$docu->rating;
-			$s=$docu->ratting_times+1;	
-			$docu->rating=$rat+$star;
-			$docu->stars=$rat/$s;
-			$docu->save();
+			$rat=$doc->rating;
+			$s=$doc->ratting_times+1;
+			$docu=Doctor::updateOrCreate(['id'=>$a],['rating'=>$rat+$star],['stars'=>$rat/$s]);
+			
 		
 			return back()->with('status2', 'Your review Was added');
 		}
@@ -57,13 +55,11 @@ class ReviewController extends Controller
 			$review1->save();
 			
 			$b=$r1->star;
-			$docu=Doctor::where('id',$a)->first()->id;
+			$rat=$doc->rating;
+			$s=$doc->ratting_times;
+			$docu=Doctor::updateOrCreate(['id'=>$a],['rating'=>$rat+$star-$b],['stars'=>$rat/$s]);
 		
-			$rat=$docu->rating;
-			$s=$docu->ratting_times;
-			$docu->rating=$rat+$star-$b+0.0;
-			$docu->stars=$rat/$s;
-			$docu->save();
+		
 
 			
         return  back()->with('status2', 'Your review Was updated');
