@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
@@ -204,3 +205,5 @@ Route::post('/review', [ReviewController::class, 'store'] )->middleware('isPatie
 
 });
 
+Route::get('/send-notification', [NotificationController::class, 'sendCancelNotification']);
+Route::post('/review', [ReviewController::class, 'store'] )->middleware('isPatient')->name('reviews.store');
