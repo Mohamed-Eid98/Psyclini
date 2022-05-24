@@ -4,40 +4,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-<<<<<<< HEAD
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../css/home_style.css">
-    <link rel="stylesheet" href="../css/icofont.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/slick-theme.css">
-    <link rel="stylesheet" href="../css/slick.css">
-    <link rel="icon" href="../img/icon.png">
-    <title>Psyclini</title>
-=======
 
     <title>مرض الفصام</title>
->>>>>>> 862c9114b35ac2ddf5698e5826052abd3a97a226
     
 </head>
 <body id="bootstrap-overrides">
   
-<<<<<<< HEAD
-
-  <!--nav bar End-->
-
-  <section class="section blog-wrap">
-=======
 <section class="section blog-wrap">
->>>>>>> 862c9114b35ac2ddf5698e5826052abd3a97a226
     <div class="container">
       <div class="row">
         <section class="section blog-wrap">
           <div class="container">
-<<<<<<< HEAD
-            <div class="row" >
-=======
             <div class="row">
->>>>>>> 862c9114b35ac2ddf5698e5826052abd3a97a226
               <div class="col-lg-8"><!--Article begin-->
                 <div class="row">
                   <div class="col-lg-12 mb-5">
@@ -48,18 +26,6 @@
                           <span class="text-color-2 text-capitalize mr-3"><i class="icofont-book-mark mr-2"></i>General Psychiatry</span>
                           <span class="text-black text-muted text-capitalize mr-3"><i class="icofont-calendar mr-2"></i> 06th February 2022</span>
                         </div> 
-<<<<<<< HEAD
-                        <div lang="ar" dir="rtl" >
-                          <h2 class="mb-4 text-md"><a href="{{ route('article2') }}">انفصام الشخصيه</a></h2>
-
-                          <h3 class="article-subtitle">المحتوي</h3>
-                          <ul class="list-unstyled article-parag" >
-                            <li><a href="{{ url('/article2'.'#المرض') }}">الشيزوفرينيا أو انفصام الشخصية  </a></li>
-                            <li><a href="{{ url('/article2'.'#الاعراض') }}">علامات وأعراض الإصابة بالفصام</a></li>
-                            <li><a href="{{ url('/article2'.'#التشخيص') }}">تشخيص الإصابة بالفصام </a></li>
-                            <li><a href="{{ url('/article2'.'#التعامل') }}">التعامل مع مرض الفصام </a></li>
-                            <li><a href="{{ url('/article2'.'#المرجع') }}"> المراجع</a></li>
-=======
                         <div class="dir-rtl"  >
                           <h2 class="mb-4 text-md"><a href="article 2 page.html">انفصام الشخصيه</a></h2>
 
@@ -70,7 +36,6 @@
                             <li><a href="#التشخيص">تشخيص الإصابة بالفصام </a></li>
                             <li><a href="#التعامل">التعامل مع مرض الفصام </a></li>
                             <li><a href="#المرجع"> المراجع</a></li>
->>>>>>> 862c9114b35ac2ddf5698e5826052abd3a97a226
                           </ul>
 
                           <h3 class="article-subtitle" id="المرض"> الشيزوفرينيا أو انفصام الشخصية </h3>
@@ -150,21 +115,13 @@
 
               <div class="col-lg-4"><!--Side Bar-->
                 <div class="sidebar-wrap pl-lg-4 mt-5 mt-lg-0">
-<<<<<<< HEAD
-                  {{-- <div class="sidebar-widget search  mb-3 "><!--Search-->
-=======
                   <div class="sidebar-widget search  mb-3 "><!--Search-->
->>>>>>> 862c9114b35ac2ddf5698e5826052abd3a97a226
                     <h4>Search Here</h4>
                     <form action="#" class="search-form">
                       <input type="text" class="form-control" placeholder="search">
                       <i class="ti-search"></i>
                     </form>
-<<<<<<< HEAD
-                  </div> --}}
-=======
                   </div>
->>>>>>> 862c9114b35ac2ddf5698e5826052abd3a97a226
       
                   <div class="sidebar-widget latest-post mb-3"><!--Popular Atricles-->
                     <h4>Popular Articles</h4>
@@ -184,11 +141,7 @@
                     </div>                       
                   </div>
       
-<<<<<<< HEAD
-                  {{-- <div class="sidebar-widget category mb-3"><!--Department -->
-=======
                   <div class="sidebar-widget category mb-3"><!--Department -->
->>>>>>> 862c9114b35ac2ddf5698e5826052abd3a97a226
                     <h4>Departments</h4>
                     <ul class="list-unstyled">
                       <li class="align-items-center">
@@ -201,11 +154,7 @@
                       </li>
                       <li class="align-items-center">
                         <a href="#">General Psychiatry</a>
-<<<<<<< HEAD
-                        <span>(2)</span>
-=======
                         <span>(3)</span>
->>>>>>> 862c9114b35ac2ddf5698e5826052abd3a97a226
                       </li>
                       <li class="align-items-center">
                         <a href="#">Psychiatry of Intellectual Disability (PID)</a>
@@ -228,11 +177,7 @@
                         <span>(0)</span>
                       </li>                
                     </ul>
-<<<<<<< HEAD
-                  </div> --}}
-=======
                   </div>
->>>>>>> 862c9114b35ac2ddf5698e5826052abd3a97a226
                   
                    
                 </div>
@@ -244,28 +189,13 @@
     </div>
   </section>
 
-<<<<<<< HEAD
-  <div class="container"><!--footer-->
-=======
  <!--footer begin-->
  <div class="container">
->>>>>>> 862c9114b35ac2ddf5698e5826052abd3a97a226
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top my-footer">
       <div class="col-md-4 d-flex align-items-center">
         <span class="text-muted">&copy; 2022 Ain Shams Uni. , Faculty of Science,<br> Maths. Department. </span>
       </div>
       <div class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-<<<<<<< HEAD
-        <a href="{{ route('home') }}" class="a-no-decor"><img src="../img/icon.png" width="45"></a>
-      </div>
-  
-      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-        <li class="ms-3"><a class="text-muted a-no-decor bi" href="https://github.com/AlyaaRushdy/Psyclini"><i class="icofont-github"></i></a></li>
-        <li class="ms-3"><a class="text-muted a-no-decor bi" href="https://www.facebook.com/FacultyofScienceASU/"><i class="icofont-facebook"></i></a></li>
-      </ul>
-    </footer>
-  </div>
-=======
         <a href="{{ url('/') }}" class="a-no-decor"><img src="../img/icon.png" width="45"></a>
       </div>
   
@@ -278,7 +208,6 @@
     </footer>
   </div>
   <!--footer end-->
->>>>>>> 862c9114b35ac2ddf5698e5826052abd3a97a226
 
 
         
@@ -288,15 +217,6 @@
 
   <script src="../js/jquery.js"></script>
   <script src="../js/bootstrap.min.js"></script>
-<<<<<<< HEAD
-  <script src="../js/slick.min.js"></script>
-  <script src="../js/script.js"></script>
-</body>
-</html>
-
-
-@endsection
-=======
    <script src="../js/script.js"></script>
 </body>
 </html>
@@ -304,4 +224,3 @@
 @endsection
 
 
->>>>>>> 862c9114b35ac2ddf5698e5826052abd3a97a226

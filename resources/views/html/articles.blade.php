@@ -1,10 +1,6 @@
 @extends('layouts.app')
 @section('content')
-<<<<<<< HEAD
-    
-=======
 
->>>>>>> 862c9114b35ac2ddf5698e5826052abd3a97a226
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,41 +9,7 @@
 </head>
 <body id="bootstrap-overrides">
   
-<<<<<<< HEAD
-  {{-- <!--nav bar begin-->
-  <header>
-    <nav class="navbar navbar-expand-lg navigation" id="navbar">
-      <div class="container">
-        <a class="navbar-brand" href="index.html">
-          <img src="../img/logo.png" alt="" class="img-fluid" >
-        </a>
-
-        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarmain" aria-controls="navbarmain" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="icofont-navigation-menu"></span>
-        </button>
-    
-        <div class="collapse navbar-collapse" id="navbarmain">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item"><a class="nav-link" href="{{ url('/') }}">Home</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ url('doctors/') }}">Doctors</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ url('articles/') }}">Articles</a></li>    
-            <li class="nav-item"><a class="nav-link" href="{{ url('test/') }}">Tests</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ url('blog/') }}">Blog</a></li>    
-            <li class="nav-item"><a class="nav-link" href="{{ url('') }}">Games</a></li>      
-            <li class="nav-item"><a class="nav-link" href="#contact-us">Contact Us</a></li>
-            <a class="btn btn-outline-primary rounded-pill order-1 order-lg-0 ms-lg-4" href="{{ url('sign in/') }}">Sign In</a>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </header>
-  <!--nav bar End--> --}}
-
-  
-  <section class="section blog-wrap">
-=======
 <section class="section blog-wrap">
->>>>>>> 862c9114b35ac2ddf5698e5826052abd3a97a226
     <div class="container">
       <div class="row">
         <div class="col-lg-8"><!--articles -->
@@ -62,11 +24,7 @@
                     <span class="text-color-2 text-capitalize mr-3"><i class="icofont-book-mark mr-2"></i>General Psychiatry</span>
                     <span class="text-black text-capitalize text-muted mr-3"><i class="icofont-calendar mr-1"></i> 28th January</span>
                   </div>
-<<<<<<< HEAD
-                  <div lang="ar" dir="rtl">
-=======
                   <div class="dir-rtl">
->>>>>>> 862c9114b35ac2ddf5698e5826052abd3a97a226
                     <h2 class="mt-3 mb-3"><a href="{{ route('article1') }}">الوسواس القهري</a></h2>
                     <p class="mb-4">هو أحد الاضطرابات النفسية العقلية التي قد تُصيب البعض و هو عبارة عن أفكار
                       و صور تدخل إلى عقل الإنسان بطريقة مكررة ويحاول جاهداً مقاومتها دون جدوى
@@ -88,11 +46,7 @@
                     <span class="text-color-2 text-capitalize mr-3"><i class="icofont-book-mark mr-2"></i>General Psychiatry</span>
                     <span class="text-black text-capitalize text-muted mr-3"><i class="icofont-calendar mr-1"></i> 28th January</span>
                   </div>
-<<<<<<< HEAD
-                  <div lang="ar" dir="rtl">
-=======
                   <div class="dir-rtl">
->>>>>>> 862c9114b35ac2ddf5698e5826052abd3a97a226
                     <h2 class="mt-3 mb-3"><a href="{{ route('article2') }}">الشيزوفرينيا أو انفصام الشخصية</a></h2>
                     <p class="mb-4">تُعّرف الشيزوفرينيا، أو الفصام، أو الفُصام العقلي، أو السكيزوفرينيا، أو السكيتسوفرينيا بأنه اضطراب نفسي مزمن يفسّر فيه المصاب الواقع بشكل غير طبيعي، وتسبب الإصابة بفصام الشخصية الهلوسة، وحدوث مشاكل في التركيز، والتفكير، وطريقة التعبير عن المشاعر، بالإضافة الي... </p>
                   </div>
@@ -104,22 +58,14 @@
             <div class="col-lg-12 col-md-12 mb-5"><!--article 3-->
               <div class="blog-item">
                 <div class="blog-thumb">
-<<<<<<< HEAD
-                  <img src="../img/الرهاب الاجتماعي.jpg" alt="" class="img-fluid ">
-=======
                   <a href="{{ route('article3') }}"><img src="../img/الرهاب الاجتماعي.jpg" alt="" class="img-fluid "></a>
->>>>>>> 862c9114b35ac2ddf5698e5826052abd3a97a226
                 </div>
                 <div class="blog-item-content">
                   <div class="blog-item-meta mb-3 mt-4">
                     <span class="text-color-2 text-capitalize mr-3"><i class="icofont-book-mark mr-2"></i>General Psychiatry</span>
                     <span class="text-black text-capitalize text-muted mr-3"><i class="icofont-calendar mr-1"></i> 28th January</span>
                   </div> 
-<<<<<<< HEAD
-                  <div lang="ar" dir="rtl">
-=======
                   <div class="dir-rtl">
->>>>>>> 862c9114b35ac2ddf5698e5826052abd3a97a226
                   <h2 class="mt-3 mb-3"><a href="{{ route('article3') }}">طرق دعم مصاب الرهاب الاجتماعي</a></h2>
                   <p class="mb-4">إن مسئولية دعم مصاب الرهاب الاجتماعي تقع بشكل أساسي على عاتق المقربين والأحباء، وفي هذا المقال سنتعرف على طرق فعالة لدعم مصاب الرهاب الاجتماعي، وكذلك بعض الطرق التي يمكن أن يعتمد عليها المصاب نفسه وتساعده في العلاج.</p>
                 </div>
@@ -132,13 +78,13 @@
 
         <div class="col-lg-4"><!--Side Bar-->
           <div class="sidebar-wrap pl-lg-4 mt-5 mt-lg-0">
-            {{-- <div class="sidebar-widget search  mb-3 "><!--Search-->
+            <div class="sidebar-widget search  mb-3 "><!--Search-->
               <h4>Search Here</h4>
               <form action="#" class="search-form">
                 <input type="text" class="form-control" placeholder="search">
                 <i class="ti-search"></i>
               </form>
-            </div> --}}
+            </div>
 
             <div class="sidebar-widget latest-post mb-3"><!--Popular Atricles-->
               <h4>Popular Articles</h4>
@@ -157,7 +103,7 @@
                   <h6 class="my-2"><a href="{{ route('article3') }}">طرق دعم مصاب الرهاب الاجتماعي</a></h6>
               </div>                       
             </div>
-{{-- 
+
             <div class="sidebar-widget category mb-3"><!--Department -->
               <h4>Departments</h4>
               <ul class="list-unstyled">
@@ -171,11 +117,7 @@
                 </li>
                 <li class="align-items-center">
                   <a href="#">General Psychiatry</a>
-<<<<<<< HEAD
-                  <span>(2)</span>
-=======
                   <span>(3)</span>
->>>>>>> 862c9114b35ac2ddf5698e5826052abd3a97a226
                 </li>
                 <li class="align-items-center">
                   <a href="#">Psychiatry of Intellectual Disability (PID)</a>
@@ -198,20 +140,12 @@
                   <span>(0)</span>
                 </li>                
               </ul>
-<<<<<<< HEAD
-            </div> --}}
-=======
             </div>
->>>>>>> 862c9114b35ac2ddf5698e5826052abd3a97a226
 
           </div>
         </div>
       </div><!--end row-->
-<<<<<<< HEAD
-      {{-- <div class="row mt-5"><!--page numbers-->
-=======
       <!--<div class="row mt-5"> -- page numbers--
->>>>>>> 862c9114b35ac2ddf5698e5826052abd3a97a226
         <div class="col-lg-8">
           <nav class="pagination py-2 d-inline-block">
             <div class="nav-links">
@@ -222,36 +156,17 @@
             </div>
           </nav>
         </div>
-<<<<<<< HEAD
-      </div> --}}
-    </div>
-  </section>
-
-  <div class="container"><!--footer-->
-=======
       </div>-->
     </div>
   </section>
 
   <!--footer begin-->
   <div class="container">
->>>>>>> 862c9114b35ac2ddf5698e5826052abd3a97a226
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top my-footer">
       <div class="col-md-4 d-flex align-items-center">
         <span class="text-muted">&copy; 2022 Ain Shams Uni. , Faculty of Science,<br> Maths. Department. </span>
       </div>
       <div class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-<<<<<<< HEAD
-        <a href="{{ route('home') }}" class="a-no-decor"><img src="../img/icon.png" width="45"></a>
-      </div>
-  
-      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-        <li class="ms-3"><a class="text-muted a-no-decor bi" href="https://github.com/AlyaaRushdy/Psyclini"><i class="icofont-github"></i></a></li>
-        <li class="ms-3"><a class="text-muted a-no-decor bi" href="https://www.facebook.com/FacultyofScienceASU/"><i class="icofont-facebook"></i></a></li>
-      </ul>
-    </footer>
-  </div>
-=======
         <a href="{{ url('/') }}" class="a-no-decor"><img src="../img/icon.png" width="45"></a>
       </div>
   
@@ -264,20 +179,10 @@
     </footer>
   </div>
   <!--footer end-->
->>>>>>> 862c9114b35ac2ddf5698e5826052abd3a97a226
 
 
-
-
-  <script src="../js/jquery.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-  <script src="../js/script.js"></script>
 </body>
 </html>
 
-<<<<<<< HEAD
-@endsection
-=======
 
 @endsection 
->>>>>>> 862c9114b35ac2ddf5698e5826052abd3a97a226

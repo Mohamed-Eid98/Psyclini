@@ -1,35 +1,15 @@
 @extends('layouts.app')
 @section('content')
-<<<<<<< HEAD
-    
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../css/home_style.css">
-    <link rel="stylesheet" href="../css/icofont.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/slick-theme.css">
-    <link rel="stylesheet" href="../css/slick.css">
-    <link rel="icon" href="../img/icon.png">
-=======
 
 <!DOCTYPE html>
 <html>
 <head>
->>>>>>> 862c9114b35ac2ddf5698e5826052abd3a97a226
     <title>Psyclini</title>
     
 </head>
 <body id="bootstrap-overrides">
   
-<<<<<<< HEAD
-  <!--nav bar begin-->
-
-  <section class="section blog-wrap">
-=======
 <section class="section blog-wrap">
->>>>>>> 862c9114b35ac2ddf5698e5826052abd3a97a226
     <div class="container">
       <div class="row">
         <section class="section blog-wrap">
@@ -46,17 +26,6 @@
                           <span class="text-black text-muted text-capitalize mr-3"><i class="icofont-calendar mr-2"></i> 28th January 2022</span>
                         </div> 
 
-<<<<<<< HEAD
-                        <div lang="ar" dir="rtl">
-                          <h2 class="mb-4 text-md"><a href="{{ route('article1') }}">الوسواس القهري</a></h2>
-                          <h3>المحتوي</h3>
-                          <ul class="list-unstyled article-parag">
-                            <li><a href="{{ url('/article1'.'#المرض') }}"> ما هو مرض الوسواس القهري</a></li>
-                            <li><a href="{{ url('/article1'.'#الاعراض') }}"> أعراض الإصابة بالوسواس القهري</a></li>
-                            <li><a href="{{ url('/article1'.'#العلاج') }}">علاج الوسواس القهري</a></li>
-                            <li><a href="{{ url('/article1'.'#الفيديو') }}">فيديو عن الوسواس القهري</a></li>
-                            <li><a href="{{ url('/article1'.'#المرجع') }}">المراجع</a></li>
-=======
                         <div class="dir-rtl">
                           <h2 class="mb-4 text-md"><a href="article page.html">الوسواس القهري</a></h2>
                           <h3 class="title-color">المحتوي</h3>
@@ -66,7 +35,6 @@
                             <li><a href="#العلاج">علاج الوسواس القهري</a></li>
                             <li><a href="#الفيديو">فيديو عن الوسواس القهري</a></li>
                             <li><a href="#المرجع">المراجع</a></li>
->>>>>>> 862c9114b35ac2ddf5698e5826052abd3a97a226
                           </ul>
 
                           <h3 class="article-subtitle" id="المرض"> ما هو مرض الوسواس القهري </h3>
@@ -115,16 +83,7 @@
                           </ul>
                         </div>
 
-<<<<<<< HEAD
-                        <div class="mt-5 clearfix">
-                          <ul class="float-left list-inline tag-option"> 
-                            <li class="list-inline-item"><a href="#">OCD</a></li>
-                            <li class="list-inline-item"><a href="#">Anxiety</a></li>
-                            <li class="list-inline-item"><a href="#">Neurodivergent</a></li>
-                          </ul>        
-=======
                         <div class="mt-5 clearfix">    
->>>>>>> 862c9114b35ac2ddf5698e5826052abd3a97a226
                           <ul class="float-right list-inline">
                             <li class="list-inline-item"> Share: </li>
                             <li class="list-inline-item"><a href="#" target="_blank"><i class="icofont-facebook" aria-hidden="true"></i></a></li>
@@ -141,21 +100,13 @@
 
               <div class="col-lg-4"><!--Side Bar-->
                 <div class="sidebar-wrap pl-lg-4 mt-5 mt-lg-0">
-<<<<<<< HEAD
-                  {{-- <div class="sidebar-widget search  mb-3 "><!--Search-->
-=======
                   <div class="sidebar-widget search  mb-3 "><!--Search-->
->>>>>>> 862c9114b35ac2ddf5698e5826052abd3a97a226
                     <h4>Search Here</h4>
                     <form action="#" class="search-form">
                       <input type="text" class="form-control" placeholder="search">
                       <i class="ti-search"></i>
                     </form>
-<<<<<<< HEAD
-                  </div> --}}
-=======
                   </div>
->>>>>>> 862c9114b35ac2ddf5698e5826052abd3a97a226
       
                   <div class="sidebar-widget latest-post mb-3"><!--Popular Atricles-->
                     <h4>Popular Articles</h4>
@@ -174,11 +125,7 @@
                         <h6 class="my-2"><a href="{{ route('article3') }}">طرق دعم مصاب الرهاب الاجتماعي</a></h6>
                     </div>                       
                   </div>
-<<<<<<< HEAD
-{{--       
-=======
       
->>>>>>> 862c9114b35ac2ddf5698e5826052abd3a97a226
                   <div class="sidebar-widget category mb-3"><!--Department -->
                     <h4>Departments</h4>
                     <ul class="list-unstyled">
@@ -192,11 +139,7 @@
                       </li>
                       <li class="align-items-center">
                         <a href="#">General Psychiatry</a>
-<<<<<<< HEAD
-                        <span>(2)</span>
-=======
                         <span>(3)</span>
->>>>>>> 862c9114b35ac2ddf5698e5826052abd3a97a226
                       </li>
                       <li class="align-items-center">
                         <a href="#">Psychiatry of Intellectual Disability (PID)</a>
@@ -219,11 +162,7 @@
                         <span>(0)</span>
                       </li>                
                     </ul>
-<<<<<<< HEAD
-                  </div> --}}
-=======
                   </div>
->>>>>>> 862c9114b35ac2ddf5698e5826052abd3a97a226
                 </div>
               </div>
             </div><!--end row-->
@@ -233,30 +172,13 @@
     </div>
   </section>
 
-<<<<<<< HEAD
-  <div class="container"><!--footer-->
-=======
   <!--footer begin-->
   <div class="container">
->>>>>>> 862c9114b35ac2ddf5698e5826052abd3a97a226
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top my-footer">
       <div class="col-md-4 d-flex align-items-center">
         <span class="text-muted">&copy; 2022 Ain Shams Uni. , Faculty of Science,<br> Maths. Department. </span>
       </div>
       <div class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-<<<<<<< HEAD
-        <a href="{{ route('home') }}" class="a-no-decor"><img src="../img/icon.png" width="45"></a>
-      </div>
-  
-      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
-        <li class="ms-3"><a class="text-muted a-no-decor bi" href="https://github.com/AlyaaRushdy/Psyclini"><i class="icofont-github"></i></a></li>
-        <li class="ms-3"><a class="text-muted a-no-decor bi" href="https://www.facebook.com/FacultyofScienceASU/"><i class="icofont-facebook"></i></a></li>
-      </ul>
-    </footer>
-  </div>        
-
-
-=======
         <a href="{{ url('/') }}" class="a-no-decor"><img src="../img/icon.png" width="45"></a>
       </div>
   
@@ -269,23 +191,13 @@
     </footer>
   </div>
   <!--footer end-->
->>>>>>> 862c9114b35ac2ddf5698e5826052abd3a97a226
 
 
   <script src="../js/jquery.js"></script>
   <script src="../js/bootstrap.min.js"></script>
-<<<<<<< HEAD
-  <script src="../js/slick.min.js"></script>
-  <script src="../js/script.js"></script>
-=======
    <script src="../js/script.js"></script>
->>>>>>> 862c9114b35ac2ddf5698e5826052abd3a97a226
 </body>
 </html>
 
 
-<<<<<<< HEAD
-@endsection
-=======
 @endsection 
->>>>>>> 862c9114b35ac2ddf5698e5826052abd3a97a226
