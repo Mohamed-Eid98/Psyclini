@@ -61,7 +61,7 @@ class CommentController extends Controller
             $comment->doctor_id = $user; 
         }
         else{
-            $user = Auth::guard('secretary')->user()->ssn;
+            $user = Auth::guard('admin')->user()->ssn;
             $comment->secretary_ssn = $user;
         } 
         $comment->save();

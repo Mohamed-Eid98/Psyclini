@@ -76,7 +76,7 @@
                     @else
                         @if ( ($post->secretary->img) != NULL)
                           <div class="comment-thumb float-left">
-                            <img alt="" src="{{ asset('images/sec/'. $post->patient->img) }}" class="img-fluid">
+                            <img alt="" src="{{ asset('images/sec/'. $post->secretary->img) }}" class="img-fluid">
                           </div>    
                         @else
                           <div class="comment-thumb float-left">
@@ -91,7 +91,7 @@
                           @elseif ($post->doctor_id != NUll)
                               <h4 class="mb-1 "> Dr {{ $post->doctor->name}}</h4>
                           @else
-                          <h4 class="mb-1 "> {{ $post->secretary->name}}</h4>
+                          <h4 class="mb-1 "> Admin </h4>
                           @endif
                     </div>
                   </div>
@@ -211,7 +211,7 @@
         <span class="text-muted">&copy; 2022 Ain Shams Uni. , Faculty of Science,<br> Maths. Department. </span>
       </div>
       <div class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-        <a href="index.html" class="a-no-decor"><img src="../img/icon.png" width="45"></a>
+        <a href="{{ route('home') }}" class="a-no-decor"><img src="../img/icon.png" width="45"></a>
       </div>
   
       <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">

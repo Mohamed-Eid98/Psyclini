@@ -65,7 +65,7 @@
         </div>
       </div>
 
-      <div class="row mt-5"><!--page numbers-->
+      {{-- <div class="row mt-5"><!--page numbers-->
         <div class="col-lg-8">
           <nav class="pagination py-2 d-inline-block">
             <div class="nav-links">
@@ -76,7 +76,7 @@
             </div>
           </nav>
         </div>
-      </div>
+      </div> --}}
 
     </div>
   </section>

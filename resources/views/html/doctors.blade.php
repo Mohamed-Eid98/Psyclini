@@ -92,11 +92,6 @@
                         <input type="radio" name="gender" value="female" class="radio" id="female">Female
                       </label>
                     </li>
-                    <li class="disp-inline">
-                      <label class="sidebar-subitem">
-                        <input type="radio" name="gender" value="other" class="radio" id="either">Either
-                      </label>
-                    </li>
                   </ul>
                 </div>
               </li>

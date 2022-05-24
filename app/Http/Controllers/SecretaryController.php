@@ -136,7 +136,7 @@ class SecretaryController extends Controller
          if($done)
          {
              
-             return redirect()->route('secretary.createDRAccount')->with('status2', 'doctor Added Successfully');
+             return redirect()->route('admin.index')->with('status2', 'doctor Added Successfully');
          }
          else
          {

@@ -59,7 +59,7 @@ input[type= number]::-webkit-inner-spin-button{
           <div class=" pl-4 mt-4 mt-lg-0">
             <h2 class="title-color">Easy, Fast<br>& Efficient</h2>
             <p class="mt-4 mb-5 font-large-p">Choose your therapist and book an appointment from the comfort of your home.</p>
-            <a href="{{ route('home') }}" class="btn btn-sm btn-outline-primary rounded-pill order-1 order-lg-0 ms-lg-4">Book an Appointment<i class="icofont-simple-right ml-3"></i></a>
+            <a href="{{ url('doctors/') }}" class="btn btn-sm btn-outline-primary rounded-pill order-1 order-lg-0 ms-lg-4">Book an Appointment<i class="icofont-simple-right ml-3"></i></a>
           </div>
         </div>
       </div>
@@ -96,12 +96,12 @@ input[type= number]::-webkit-inner-spin-button{
               <span>Timing schedule</span>
               <h4 class="mb-3">Doctors Working Days</h4>
               <ul class="w-hours list-unstyled">
-                <li class="d-flex justify-content-between">Sat <span class="vr inv"></span> <span class="morning-sch"><span><a href="#">Mohammad Adel</a></span></span> <span class="vr"></span> <span class="morning-sch"><span><a href="#">Walaa Mohammad</a></span></span> <span class="vr"></span> <span class="morning-sch"><span><a href="#">Ahmed Abd El Ghane</a></span></span> <span class="vr"></span> <span class="afternoon-sch"><span><a href="#">Amira Ali</a></span></span> <span class="vr"></span> <span class="afternoon-sch"><span><a href="#">Amir Karim</a></span></span> <span class="vr"></span> <span class="afternoon-sch"><span><a href="#">Amin Ali</a></span></span></li>
-                <li class="d-flex justify-content-between">Sun <span class="vr inv"></span> <span class="morning-sch"><span><a href="#">Samir Mohammad</a></span></span> <span class="vr"></span> <span class="morning-sch"><span><a href="#">Marina Kamil</a></span></span> <span class="vr"></span> <span class="morning-sch"><span><a href="#">Said Ali</a></span></span> <span class="vr"></span> <span class="afternoon-sch"><span><a href="#">Manar Ahmed</a></span></span> <span class="vr"></span> <span class="afternoon-sch"><span><a href="#">Samar Said</a></span></span> <span class="vr"></span> <span class="afternoon-sch"><span><a href="#">Moustafa Said</a></span></span></li>
-                <li class="d-flex justify-content-between">Mon <span class="vr inv"></span> <span class="morning-sch"><span><a href="#">Ahmed Abbas</a></span></span> <span class="vr"> </span> <span class="morning-sch"><span><a href="#">Nader Ali</a></span></span> <span class="vr"> </span> <span class="afternoon-sch"><span><a href="#">Salah Abd Alah</a></span></span> <span class="vr"> </span> <span class="afternoon-sch"><span><a href="#">Kamal Mohammad</a></span></span></li>
-                <li class="d-flex justify-content-between">Tue <span class="vr inv"></span> <span class="morning-sch"><span><a href="#">Mohammad Adel</a></span></span> <span class="vr"></span> <span class="morning-sch"><span><a href="#">Mohammad Adel</a></span></span> <span class="vr"></span> <span class="morning-sch"><span><a href="#">Ahmed Abd El Ghane</a></span></span> <span class="vr"></span> <span class="afternoon-sch"><span><a href="#">Amira Ali</a></span></span> <span class="vr"></span> <span class="afternoon-sch"><span><a href="#">Amir Karim</a></span></span> <span class="vr"></span> <span class="afternoon-sch"><span><a href="#">Amin Ali</a></span></span></li>
-                <li class="d-flex justify-content-between">Wed <span class="vr inv"></span> <span class="morning-sch"><span><a href="#">Samir Mohammad</a></span></span> <span class="vr"></span> <span class="morning-sch"><span><a href="#">Marina Kamil</a></span></span> <span class="vr"></span> <span class="morning-sch"><span><a href="#">Said Ali</a></span></span> <span class="vr"></span> <span class="afternoon-sch"><span><a href="#">Manar Ahmed</a></span></span> <span class="vr"></span> <span class="afternoon-sch"><span><a href="#">Samar Said</a></span></span> <span class="vr"></span> <span class="afternoon-sch"><span><a href="#">Moustafa Said</a></span></span></li>
-                <li class="d-flex justify-content-between">Thu <span class="vr inv"></span> <span class="morning-sch"><span><a href="#">Ahmed Abbas</a></span></span> <span class="vr"> </span> <span class="morning-sch"><span><a href="#">Nader Ali</a></span></span> <span class="vr"> </span> <span class="afternoon-sch"><span><a href="#">Salah Abd Alah</a></span></span> <span class="vr"> </span> <span class="afternoon-sch"><span><a href="#">Kamal Mohammad</a></span></span></li>
+                <li class="d-flex justify-content-between">Sat <span class="vr inv"></span> <span class="morning-sch"><span><a href="{{ url('doctors/'. 'Mohammad Adel') }}{ url('doctors/'. 'Mohammad Adel') }}">Mohammad Adel</a></span></span> <span class="vr"></span> <span class="morning-sch"><span><a href="{{ url('doctors/'. 'Mohammad Adel') }}">Walaa Mohammad</a></span></span> <span class="vr"></span> <span class="morning-sch"><span><a href="{{ url('doctors/'. 'Ahmed Abd El Ghane') }}">Ahmed Abd El Ghane</a></span></span> <span class="vr"></span> <span class="afternoon-sch"><span><a href="{{ url('doctors/'. 'Amira Ali') }}">Amira Ali</a></span></span> <span class="vr"></span> <span class="afternoon-sch"><span><a href="{{ url('doctors/'. 'Amir Karim') }}">Amir Karim</a></span></span> <span class="vr"></span> <span class="afternoon-sch"><span><a href="{{ url('doctors/'. 'Mohammad Adel') }}">Amin Ali</a></span></span></li>
+                <li class="d-flex justify-content-between">Sun <span class="vr inv"></span> <span class="morning-sch"><span><a href="{{ url('doctors/'. 'Samir Mohammad') }}">Samir Mohammad</a></span></span> <span class="vr"></span> <span class="morning-sch"><span><a href="{{ url('doctors/'. 'Marina Kamil') }}">Marina Kamil</a></span></span> <span class="vr"></span> <span class="morning-sch"><span><a href="{{ url('doctors/'. 'Said Ali') }}">Said Ali</a></span></span> <span class="vr"></span> <span class="afternoon-sch"><span><a href="{{ url('doctors/'. 'Manar Ahmed') }}">Manar Ahmed</a></span></span> <span class="vr"></span> <span class="afternoon-sch"><span><a href="{{ url('doctors/'. 'Samar Said') }}">Samar Said</a></span></span> <span class="vr"></span> <span class="afternoon-sch"><span><a href="{{ url('doctors/'. 'Moustafa Said') }}">Moustafa Said</a></span></span></li>
+                <li class="d-flex justify-content-between">Mon <span class="vr inv"></span> <span class="morning-sch"><span><a href="{{ url('doctors/'. 'Ahmed Abbas') }}">Ahmed Abbas</a></span></span> <span class="vr"> </span> <span class="morning-sch"><span><a href="{{ url('doctors/'. 'Nader Ali') }}">Nader Ali</a></span></span> <span class="vr"> </span> <span class="afternoon-sch"><span><a href="{{ url('doctors/'. 'Salah Abd Alah') }}">Salah Abd Alah</a></span></span> <span class="vr"> </span> <span class="afternoon-sch"><span><a href="{{ url('doctors/'. 'Kamal Mohammad') }}">Kamal Mohammad</a></span></span></li>
+                <li class="d-flex justify-content-between">Tue <span class="vr inv"></span> <span class="morning-sch"><span><a href="{{ url('doctors/'. 'Mohammad Adel') }}">Mohammad Adel</a></span></span> <span class="vr"></span> <span class="morning-sch"><span><a href="{{ url('doctors/'. 'Mohammad Adel') }}">Mohammad Adel</a></span></span> <span class="vr"></span> <span class="morning-sch"><span><a href="{{ url('doctors/'. 'Ahmed Abd El Ghane') }}">Ahmed Abd El Ghane</a></span></span> <span class="vr"></span> <span class="afternoon-sch"><span><a href="{{ url('doctors/'. 'Amira Ali') }}">Amira Ali</a></span></span> <span class="vr"></span> <span class="afternoon-sch"><span><a href="{{ url('doctors/'. 'Amir Karim') }}">Amir Karim</a></span></span> <span class="vr"></span> <span class="afternoon-sch"><span><a href="{{ url('doctors/'. 'Amin Ali') }}">Amin Ali</a></span></span></li>
+                <li class="d-flex justify-content-between">Wed <span class="vr inv"></span> <span class="morning-sch"><span><a href="{{ url('doctors/'. 'Samir Mohammad') }}">Samir Mohammad</a></span></span> <span class="vr"></span> <span class="morning-sch"><span><a href="{{ url('doctors/'. 'Marina Kamil') }}">Marina Kamil</a></span></span> <span class="vr"></span> <span class="morning-sch"><span><a href="{{ url('doctors/'. 'Said Ali') }}">Said Ali</a></span></span> <span class="vr"></span> <span class="afternoon-sch"><span><a href="{{ url('doctors/'. 'Manar Ahmed') }}">Manar Ahmed</a></span></span> <span class="vr"></span> <span class="afternoon-sch"><span><a href="{{ url('doctors/'. 'Samar Said') }}">Samar Said</a></span></span> <span class="vr"></span> <span class="afternoon-sch"><span><a href="{{ url('doctors/'. 'Moustafa Said') }}">Moustafa Said</a></span></span></li>
+                <li class="d-flex justify-content-between">Thu <span class="vr inv"></span> <span class="morning-sch"><span><a href="{{ url('doctors/'. 'Ahmed Abbas') }}">Ahmed Abbas</a></span></span> <span class="vr"> </span> <span class="morning-sch"><span><a href="{{ url('doctors/'. 'Nader Ali') }}">Nader Ali</a></span></span> <span class="vr"> </span> <span class="afternoon-sch"><span><a href="{{ url('doctors/'. 'Salah Abd Alah') }}">Salah Abd Alah</a></span></span> <span class="vr"> </span> <span class="afternoon-sch"><span><a href="{{ url('doctors/'. 'Manar Ahmed') }}">Kamal Mohammad</a></span></span></li>
                 <li class="d-flex justify-content-between">Fri <span>Open</span></li>
               </ul>
             </div>
@@ -137,7 +137,7 @@ input[type= number]::-webkit-inner-spin-button{
               <span>Azza Shawky</span>
               <p>knowledgeable, patient, committed, kind, great listener. Couldn't ask for more from a therapist. </p>
             </div>
-            <h5>To Doctor : <a href="#"> Marina Kamil</a></h5>
+            <h5>To Doctor : <a href="{{ url('doctors/'. 'Marina Kamil') }}"> Marina Kamil</a></h5>
           </div>
   
           <div class="testimonial-block style-2  gray-bg"><!--Testimonial 2-->
@@ -151,7 +151,7 @@ input[type= number]::-webkit-inner-spin-button{
                 Would highly recommend him. 
               </p>
             </div>
-            <h5>To Doctor : <a href="#"> Moustafa Said</a></h5>
+            <h5>To Doctor : <a href="{{ url('doctors/'. 'Moustafa Said') }}"> Moustafa Said</a></h5>
             <i class="icofont-quote-right"></i>
           </div>
   
@@ -166,7 +166,7 @@ input[type= number]::-webkit-inner-spin-button{
                 Thanks Dr.Ahmed for your time and for listening to me. Best regards.
               </p>
             </div>
-            <h5>To Doctor : <a href="#"> Ahmed Abd El Ghane</a></h5>
+            <h5>To Doctor : <a href="{{ url('doctors/'. 'Ahmed Abd El Ghane') }}"> Ahmed Abd El Ghane</a></h5>
             <i class="icofont-quote-right"></i>
           </div>
   
@@ -180,7 +180,7 @@ input[type= number]::-webkit-inner-spin-button{
               <p class="mt-4 dir-rtl">مريح جدا في التعامل و قدرت اتكلم معاه براحتي وبصدق</p>
             </div>
             <i class="icofont-quote-right"></i>
-            <h5>To Doctor : <a href="#">Samir Mohammad</a></h5>
+            <h5>To Doctor : <a href="{{ url('doctors/'. 'Samir Mohammad') }}">Samir Mohammad</a></h5>
           </div>
   
           <div class="testimonial-block style-2  gray-bg"><!--Testimonial 5-->
@@ -194,7 +194,7 @@ input[type= number]::-webkit-inner-spin-button{
                 د كمال مخلص جدا ومنظم واسلوبه جميل ساعدني كتير في فهم مشاعري وازاي اتعامل معها بطريقة مختلفة غيرت عندي حاجات كتيرة شكرا جدا               </p>
             </div>
             <i class="icofont-quote-right"></i>
-            <h5>To Doctor : <a href="#">Kamal Mohammad</a></h5>
+            <h5>To Doctor : <a href="{{ url('doctors/'. 'Kamal Mohammad') }}">Kamal Mohammad</a></h5>
           </div>
 
         </div>
@@ -280,7 +280,7 @@ input[type= number]::-webkit-inner-spin-button{
         <span class="text-muted">&copy; 2022 Ain Shams Uni. , Faculty of Science,<br> Maths. Department. </span>
       </div>
       <div class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-        <a href="index.html" class="a-no-decor"><img src="../img/icon.png" width="45"></a>
+        <a href="{{ route('home') }}" class="a-no-decor"><img src="../img/icon.png" width="45"></a>
       </div>
   
       <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
