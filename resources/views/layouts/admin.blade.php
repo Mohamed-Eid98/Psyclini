@@ -16,7 +16,7 @@
           <div class="sidebar-header">
             <div class="d-flex justify-content-between">
               <div class="logo">
-                <a href="{{ route('secretary.index') }}"><img src="../img/logo.png" alt="Logo" srcset=""></a>
+                <a href="{{ route('admin.index') }}"><img src="../img/logo.png" alt="Logo" srcset=""></a>
               </div>
               <div class="toggler">
                 <a href="#" class="sidebar-hide d-xl-none d-block"></a>
@@ -26,7 +26,7 @@
           <div class="sidebar-menu">
             <ul class="menu">            
               <li class="sidebar-item active ">
-                <a href="{{ route('secretary.index') }}" class='sidebar-link'>
+                <a href="{{ route('admin.index') }}" class='sidebar-link'>
                   <span>Dashboard</span>
                 </a>
               </li>
@@ -37,7 +37,7 @@
                 </a>
                 <ul class="submenu ">
                    <li class="submenu-item ">
-                    <a href="{{ route('secretary.modify.appoinments') }}">Modify Appointments</a>
+                    <a href="{{ route('admin.modify.appoinments') }}">Modify Appointments</a>
                   </li>
                 </ul>
               </li>
@@ -48,22 +48,22 @@
                 </a>
                 <ul class="submenu ">
                   <li class="submenu-item ">
-                    <a href="{{ route('secretary.show.posts') }}">Posts</a>
+                    <a href="{{ route('admin.show.posts') }}">Posts</a>
                   </li>
                   <li class="submenu-item ">
-                    <a href="{{ route('secretary.approve.requests') }}">Doctors' Requests</a>
+                    <a href="{{ route('admin.approve.requests') }}">Doctors' Requests</a>
                   </li>
                 </ul>
               </li>
   
               <li class="sidebar-item ">
-                <a href="{{ route('secretary.contact.response') }}" class="sidebar-link"> 
+                <a href="{{ route('admin.contact.response') }}" class="sidebar-link"> 
                   <span>Contact Us Responses</span>
                 </a>
               </li>
               
               <li class="sidebar-item">
-                <a href="{{ route('secretary.createDRAccount') }}" class="sidebar-link"> 
+                <a href="{{ route('admin.createDRAccount') }}" class="sidebar-link"> 
                   <span>Create Doctor's Account</span>
                 </a>
               </li>
@@ -72,6 +72,9 @@
                 <a href="{{ route('home') }}" class="sidebar-link"> 
                   <span>Go to the Main Website <i class="icofont-simple-right"></i></span>
                 </a>
+              </li>
+              <li class="sidebar-item log-out ">
+                <a href="{{ route('admin.logout') }}" class="text-muted">Log Out</a>
               </li>
   
   

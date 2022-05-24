@@ -22,7 +22,8 @@ class DatabaseSeeder extends Seeder
             SecretarySeeder::class,
             PatientSeeder::class, 
             PostSeeder::class,      
-            CommentSeeder::class
+            CommentSeeder::class,
+            AdminSeeder::class,
         ]);
 
         // $this->call(PostSeeder::class);

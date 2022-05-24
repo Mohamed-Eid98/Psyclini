@@ -22,7 +22,7 @@ class AdminController extends Controller
          $creds = $request->only('email','password');
 
          if( Auth::guard('admin')->attempt($creds) ){
-             return redirect()->route('admin.home');
+             return redirect()->route('admin.index');
          }else{
              return redirect()->route('admin.login')->with('fail','Incorrect credentials');
          }
@@ -30,6 +30,6 @@ class AdminController extends Controller
 
     function logout(){
         Auth::guard('admin')->logout();
-        return redirect('/');
+        return redirect()->route('admin.login');
     }
 }

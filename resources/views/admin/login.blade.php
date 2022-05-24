@@ -28,7 +28,7 @@
                                             <h3 class="mb-4">Secretary Sign In</h3>
                                         </div>          
                                     </div>
-                                    <form action="{{ route('secretary.loginn') }}" class="signin-form" method="POST">
+                                    <form action="{{ route('admin.check') }}" class="signin-form" method="POST">
                                         @csrf
                                         <div class="form-group mt-3">
                                             <input type="text" class="form-control" name="email" required>
