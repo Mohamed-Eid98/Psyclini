@@ -27,7 +27,7 @@
                                             <div class="alert alert-danger">
                                                 {{ Session::get('fail') }}
                                             </div>
-                                        @endi
+                                        @endif
                                         <div class="form-group mt-3">
                                         <input type="text" class="form-control" name="email" value="{{ old('email') }}" required>
                                             <input type="text" class="form-control" name="email" required>
