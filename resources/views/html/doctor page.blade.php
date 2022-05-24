@@ -59,6 +59,7 @@
                   <h4 class="">Experience</h4>
                   <h5 class="pl-4 fw-normal">{{ $doctor->experince_years}} years</h5>
                 </div>
+                -->
                 <div class="experience-section">
                   <h4 class="">Education</h4>
                   <h5 class="pl-4 fw-normal">{{ $doctor->education}} </h5>
