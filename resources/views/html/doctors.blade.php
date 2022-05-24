@@ -26,6 +26,10 @@
           <div class=" doctors-sidebar bg-white position-sticky fixed-top" >
             <form action="{{ route('doctors.search') }}" method="GET">
             <ul class="list-unstyled ps-0 ">
+              <li class="mb-1">
+              <input type="text" class="form-control" name= 'doctorName' placeholder="Search By Name">
+              <i class="ti-search"></i>
+              </li>
 
               <li class="mb-1"><!--speciality button and list-->
                 <a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#specialities-collapse" aria-expanded="true">
