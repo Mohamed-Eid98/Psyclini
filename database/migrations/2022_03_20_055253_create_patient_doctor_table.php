@@ -1,4 +1,3 @@
-
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -14,23 +13,24 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('reviews', function (Blueprint $table) {
-			$table->increments('id');
-			$table->longText('review')->nullable();
-			$table->integer('star');
-            $table->integer('patient_id')->unsigned();
+        Schema::create('patient_doctor', function (Blueprint $table) {
+            $table->increments('id');
+            $table->boolean('status')->default('0');
+            $table->boolean('reserve')->default('0');
+            $table->dateTime('appointment');
             $table->bigInteger('doctor_id')->unsigned();
-            $table->foreign('patient_id')
-                  ->references('id')
-                  ->on('patients')
-                  ->onDelete('cascade')
-                  ->onUpdate('cascade');
+            $table->integer('patient_id')->unsigned();
             $table->foreign('doctor_id')
                   ->references('id')
                   ->on('doctors')
                   ->onDelete('cascade')
                   ->onUpdate('cascade');
-				$table->timestamps();  
+            $table->foreign('patient_id')
+                  ->references('id')
+                  ->on('patients')
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');
+            $table->timestamps();
         });
     }
 
@@ -41,8 +41,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::table('reviews', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('patient_doctor');
     }
 };

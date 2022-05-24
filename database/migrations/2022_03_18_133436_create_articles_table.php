@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('articles', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('type');
             $table->string('title');
             $table->longText('body');
             $table->string('path');

@@ -6,7 +6,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
-class SecretarySeeder extends Seeder
+class AdminSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,7 +16,7 @@ class SecretarySeeder extends Seeder
     public function run()
     {
         //
-        \App\Models\Secretary::create([
+        \App\Models\Admin::create([
             'ssn'=>'88812017',
             'name'=>'Marwa Mohammad',
             'birth_date'=>'1988-8-17',
@@ -24,7 +24,7 @@ class SecretarySeeder extends Seeder
             'password'=>Hash::make('1988812MM'),
             'email'=>'marwamohammad88@gmail.com',
             ]);
-        \App\Models\Secretary::create([
+        \App\Models\Admin::create([
             'ssn'=>'91128018',
             'name'=>'Aliaa Ahmed',
             'birth_date'=>'1991-1-29',
