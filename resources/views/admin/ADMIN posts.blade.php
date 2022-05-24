@@ -25,7 +25,7 @@
     <div id="main">
 
       <header class="mb-4">
-        <a href="#" class="burger-btn d-block d-xl-none"><i class="icofont-navigation-menu fs-3"></i></a>
+        <button href="#" class="burger-btn d-block d-xl-none"><i class="icofont-navigation-menu fs-3"></i></a>
       </header>
 
       <div class=" admin-approve-posts">
@@ -44,138 +44,31 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Marwa Mohammad</td>
-                    <td>Patient</td>
-                    <td>13/4/2022</td>
+                    @foreach ($posts as $post)
+                    <tr>
+                    @if ($post->doctor_id != Null )
+                    <td> {{ $post->doctor->name }}</td>
+                       <td>Doctor</td>
+                       <td>{{ $post->created_at->diffForHumans() }}</td>
+                       @elseif ($post->patient_id != Null )
+                       <td>{{ $post->patient->name }}</td>
+                       <td>Patient</td>
+                       <td>{{ $post->created_at->diffForHumans() }}</td>
+                    @endif
                     <td>
                       <button type="button" class="btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#post-modal"> View </button>
                     </td>
                     <td>
-                      <button class="btn btn-outline-success mb-2 mr-2">Approve</button>
-                      <button class="btn btn-outline-danger mb-2">Disapprove</button>
+                      <form action="{{ route('secretary.destroy' , $post->id) }}" method="POST" enctype="multipart/form-data">
+                        @method('DELETE')
+                        @csrf
+                        <a class="btn btn-outline-success mb-2 mr-2">Approve</a>
+                      <button type="submit" class="btn btn-outline-danger mb-2"> Disapprove</button>
+                      </form>
                     </td>
                   </tr>
-                  <tr>
-                    <td>Mohammed Mostafa </td>
-                    <td>Doctor</td>
-                    <td>13/9/2022</td>
-                    <td>
-                      <button type="button" class="btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#post-modal"> View </button>
-                    </td>
-                    <td>
-                      <button class="btn btn-outline-success mb-2 mr-2">Approve</button>
-                      <button class="btn btn-outline-danger mb-2">Disapprove</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Alyaa Ahmed</td>
-                    <td>Patient</td>
-                    <td>7/5/2022</td>
-                    <td>
-                      <button type="button" class="btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#post-modal"> View </button>
-                    </td>
-                    <td>
-                      <button class="btn btn-outline-success mb-2 mr-2">Approve</button>
-                      <button class="btn btn-outline-danger mb-2">Disapprove</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Sahar Khaled</td>
-                    <td>Patient</td>
-                    <td>22/4/2022</td>
-                    <td>
-                      <button type="button" class="btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#post-modal"> View </button>
-                    </td>
-                    <td>
-                      <button class="btn btn-outline-success mb-2 mr-2">Approve</button>
-                      <button class="btn btn-outline-danger mb-2">Disapprove</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Mohammad Eid</td>
-                    <td>Patient</td>
-                    <td>15/4/2022</td>
-                    <td>
-                      <button type="button" class="btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#post-modal"> View </button>
-                    </td>
-                    <td>
-                      <button class="btn btn-outline-success mb-2 mr-2">Approve</button>
-                      <button class="btn btn-outline-danger mb-2">Disapprove</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Marwa Mohammad</td>
-                    <td>Patient</td>
-                    <td>13/4/2022</td>
-                    <td>
-                      <button type="button" class="btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#post-modal"> View </button>
-                    </td>
-                    <td>
-                      <button class="btn btn-outline-success mb-2 mr-2">Approve</button>
-                      <button class="btn btn-outline-danger mb-2">Disapprove</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Marwa Mohammad</td>
-                    <td>Patient</td>
-                    <td>13/4/2022</td>
-                    <td>
-                      <button type="button" class="btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#post-modal"> View </button>
-                    </td>
-                    <td>
-                      <button class="btn btn-outline-success mb-2 mr-2">Approve</button>
-                      <button class="btn btn-outline-danger mb-2">Disapprove</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Marwa Mohammad</td>
-                    <td>Patient</td>
-                    <td>13/4/2022</td>
-                    <td>
-                      <button type="button" class="btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#post-modal"> View </button>
-                    </td>
-                    <td>
-                      <button class="btn btn-outline-success mb-2 mr-2">Approve</button>
-                      <button class="btn btn-outline-danger mb-2">Disapprove</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Marwa Mohammad</td>
-                    <td>Patient</td>
-                    <td>13/4/2022</td>
-                    <td>
-                      <button type="button" class="btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#post-modal"> View </button>
-                    </td>
-                    <td>
-                      <button class="btn btn-outline-success mb-2 mr-2">Approve</button>
-                      <button class="btn btn-outline-danger mb-2">Disapprove</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Marwa Mohammad</td>
-                    <td>Patient</td>
-                    <td>13/4/2022</td>
-                    <td>
-                      <button type="button" class="btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#post-modal"> View </button>
-                    </td>
-                    <td>
-                      <button class="btn btn-outline-success mb-2 mr-2">Approve</button>
-                      <button class="btn btn-outline-danger mb-2">Disapprove</button>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Marwa Mohammad</td>
-                    <td>Patient</td>
-                    <td>13/4/2022</td>
-                    <td>
-                      <button type="button" class="btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#post-modal"> View </button>
-                    </td>
-                    <td>
-                      <button class="btn btn-outline-success mb-2 mr-2">Approve</button>
-                      <button class="btn btn-outline-danger mb-2">Disapprove</button>
-                    </td>
-                  </tr>
+                  @endforeach
+
                 </tbody>
               </table>
             </div>

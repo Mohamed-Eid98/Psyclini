@@ -18,10 +18,10 @@ return new class extends Migration
             $table->boolean('status')->default('0');
             $table->boolean('reserve')->default('0');
             $table->dateTime('appointment');
-            $table->bigInteger('doctor_ssn')->unsigned();
+            $table->bigInteger('doctor_id')->unsigned();
             $table->integer('patient_id')->unsigned();
-            $table->foreign('doctor_ssn')
-                  ->references('ssn')
+            $table->foreign('doctor_id')
+                  ->references('id')
                   ->on('doctors')
                   ->onDelete('cascade')
                   ->onUpdate('cascade');

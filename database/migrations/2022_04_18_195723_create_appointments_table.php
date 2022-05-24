@@ -18,7 +18,7 @@ return new class extends Migration
             $table->time('time');
             $table->string('day');
 			$table->string('hall');
-			$table->bigInteger('doctor_ssn')->unsigned();
+			$table->bigInteger('doctor_id')->unsigned();
             $table->boolean('patient_status1');
 			$table->boolean('patient_status2');
 			$table->boolean('patient_status3');
@@ -29,8 +29,8 @@ return new class extends Migration
             $table->boolean('doctor_status3');
             $table->boolean('doctor_status4');
             $table->boolean('doctor_status5');
-			   $table->foreign('doctor_ssn')
-                  ->references('ssn')
+			   $table->foreign('doctor_id')
+                  ->references('id')
                   ->on('doctors')
                   ->onDelete('cascade')
                   ->onUpdate('cascade');

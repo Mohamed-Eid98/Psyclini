@@ -21,7 +21,7 @@
           <!--Basic info Section-->
           <div class="row feature-item"> 
             <div class="doctor-img-block col-lg-4">
-              <img src="{{ asset('').$doctor->img }}" alt="" class="img-fluid w-100">
+              <img src="{{ url('images/doc/' .$doctor->img ) }}" alt="" class="img-fluid w-100">
               <div class="info-block mt-4">
                 <h4 class="mb-0" id="doctor_name">{{ $doctor->name}}</h4>
               </div>

@@ -2,8 +2,9 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
 class SecretarySeeder extends Seeder
 {
@@ -20,7 +21,7 @@ class SecretarySeeder extends Seeder
             'name'=>'Marwa Mohammad',
             'birth_date'=>'1988-8-17',
             'phone'=>'011999999',
-            'password'=>'1988812MM',
+            'password'=>Hash::make('1988812MM'),
             'email'=>'marwamohammad88@gmail.com',
             ]);
         \App\Models\Secretary::create([
@@ -28,7 +29,7 @@ class SecretarySeeder extends Seeder
             'name'=>'Aliaa Ahmed',
             'birth_date'=>'1991-1-29',
             'phone'=>'011122222',
-            'password'=>'1991128AA',
+            'password'=>Hash::make('1991128AA'),
             'email'=>'aliaaahmed91@gmail.com',
             ]);
     }

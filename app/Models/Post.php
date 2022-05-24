@@ -29,18 +29,22 @@ class Post extends Model
     {
         return $this->belongsTo(Patient::class);
     }
-    public function doctors()
+    public function doctor()
     {
-        return $this->belongsToMany(Doctor::class, 'doctor_post', 'post_id' , 'doctor_ssn' , 'id' , 'ssn');
+        return $this->belongsTo(Doctor::class);
     }
+    // public function doctors()
+    // {
+    //     return $this->belongsToMany(Doctor::class, 'doctor_post', 'post_id' , 'doctor_id' , 'id' , 'id');
+    // }
     /**
      * The roles that belong to the Post
      *
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function secretaries()
+    public function secretary()
     {
-        return $this->belongsToMany(Secretary::class, 'post_secretary', 'Post_id', 'secretary_ssn', 'id', 'ssn');
+        return $this->belongsTo(Secretary::class);
     }
     /**
      * Get all of the comments for the Post

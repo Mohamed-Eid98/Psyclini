@@ -1,5 +1,5 @@
-@extends('layouts.app')
-@section('content')
+{{-- @extends('layouts.app')
+@section('content') --}}
 
 <!DOCTYPE html>
 <html>
@@ -171,7 +171,7 @@
               <div class="position-relative doctor-inner-box">
                 <div class="doctor-profile">
                   <div class="doctor-img">
-                    <a href="{{ route('doctor.profile' , $doctor->name) }}"><img src="{{ asset(''). $doctor->img }}" alt="doctor-image" class="img-fluid w-100 "></a>
+                    <a href="{{ route('doctor.profile' , $doctor->name) }}"><img src="{{ url('images/doc/' . $doctor->img ) }}" alt="doctor-image" class="img-fluid w-100 "></a>
                   </div>
                 </div>
                 <div class="content mt-3">
@@ -232,5 +232,5 @@
 
 </body>
 </html>
-@endsection
+{{-- @endsection --}}
 

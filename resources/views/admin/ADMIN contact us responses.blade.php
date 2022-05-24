@@ -37,127 +37,51 @@
                         </tr>
                     </thead>
                     <tbody>
+                      @foreach ($contacts as $contact)  
                       <tr>
-                        <td>Marwa Mohammad</td>
-                        <td>01123456789</td>
-                        <td>mohammed_mostafa@gmail.com</td>
+                        <td>{{ $contact->name }}</td>
+                        <td>{{ $contact->phone }}</td>
+                        <td>{{ $contact->email }}</td>
                         <td>
                           <button type="button" class="btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#post-modal"> View </button>
                         </td>
                       </tr>
-                      <tr>
-                        <td>Mohammed Mostafa </td>
-                        <td>01112334533</td>
-                        <td>esraa_adel@gmail.com</td>
-                        <td>
-                          <button type="button" class="btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#post-modal"> View </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Alyaa Ahmed</td>
-                        <td>01123456789</td>
-                        <td>esraa_adel@gmail.com</td>
-                        <td>
-                          <button type="button" class="btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#post-modal"> View </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Sahar Khaled</td>
-                        <td>01123456789</td>
-                        <td>esraa_adel@gmail.com</td>
-                        <td>
-                          <button type="button" class="btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#post-modal"> View </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Mohammad Eid</td>
-                        <td>01123456789</td>
-                        <td>esraa_adel@gmail.com</td>
-                        <td>
-                          <button type="button" class="btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#post-modal"> View </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Marwa Mohammad</td>
-                        <td>01123456789</td>
-                        <td>mohammed_emad@gmail.com</td>
-                        <td>
-                          <button type="button" class="btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#post-modal"> View </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Marwa Mohammad</td>
-                        <td>01123456789</td>
-                        <td>mohammed_emad@gmail.com</td>
-                        <td>
-                          <button type="button" class="btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#post-modal"> View </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Marwa Mohammad</td>
-                        <td>01123456789</td>
-                        <td>mohammed_emad@gmail.com</td>
-                        <td>
-                          <button type="button" class="btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#post-modal"> View </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Marwa Mohammad</td>
-                        <td>01123456789</td>
-                        <td>mohammed_emad@gmail.com</td>
-                        <td>
-                          <button type="button" class="btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#post-modal"> View </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Marwa Mohammad</td>
-                        <td>01123456789</td>
-                        <td>mohammed_emad@gmail.com</td>
-                        <td>
-                          <button type="button" class="btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#post-modal"> View </button>
-                        </td>
-                      </tr>
-                      <tr>
-                        <td>Marwa Mohammad</td>
-                        <td>01123456789</td>
-                        <td>mohammed_emad@gmail.com</td>
-                        <td>
-                          <button type="button" class="btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#post-modal"> View </button>
-                        </td>
-                      </tr>
+                      @endforeach
                     </tbody>
                 </table>
             </div>
 
             <div class="modal fade" id="post-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
-                  <div class="modal-content">
-                    <div class="modal-header ">
-                        <h5 class="modal-title " id="exampleModalCenterTitle"> Message Content </h5>
-                    </div>
-                    <div class="modal-body">
-                      <div class="row">
-                        <div class="col-lg-3 pl-2">
-                          <label > Message : </label>
-                        </div>
-                        <div class="col-lg-9 pb-1">
-                          <label >
-                            Some consultants are employed indirectly by the client via a consultancy staffing company, a company that provides consultants on an agency basis.
-                            Non illo quas blanditiis repellendus laboriosam minima animi. Consectetur accusantium pariatur repudiandae!
-                          </label>
-                        </div>
+              <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                  <div class="modal-header ">
+                    <h5 class="modal-title " id="exampleModalCenterTitle"> Message Content </h5>
+                  </div>
+                  <div class="modal-body">
+                    <div class="row">
+                      <div class="col-lg-3 pl-2">
+                        <label > Message : </label>
                       </div>
+                      @foreach ($contacts as $contact)
+                      
+                      <div class="col-lg-9 pb-1">
+                        <label >
+                          {{ $contact->message }}
+                        </label>
+                      </div>
+                      @endforeach
                     </div>
                     <div class="modal-footer">
                       <button type="button" class="btn btn-primary ml-1" data-bs-dismiss="modal">
-                        <span class="d-none d-sm-block">OK</span>
-                      </button>
+                          <span class="d-none d-sm-block">OK</span>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-
-          </div>
+              
+            </div>
         </div>
       </div>
 

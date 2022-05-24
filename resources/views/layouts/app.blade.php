@@ -17,14 +17,14 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-<link href="{{ asset('css/app.css') }}" rel="stylesheet">   
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+ <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+ <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="../css/icofont.css">
 <link rel="stylesheet" href="../css/signin_signup_style.css">
 <link rel="stylesheet" href="../css/slick-theme.css">
 <link rel="stylesheet" href="../css/slick.css">
-<link rel="stylesheet" href="../css/home_style.css">
-<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/home_style.css"> 
+ <link rel="stylesheet" href="../css/bootstrap.min.css"> 
 <link rel="icon" href="../img/icon.png">
 
 
@@ -92,30 +92,36 @@
                   </ul>
                 </li>
 
+                @elseif (Auth::guard('doctor')->check() )
+                <li class="nav-item dropdown user-dropdown">
+                  <a class="nav-link dropdown-toggle" href="{{ route('home') }}"  id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    @if(Auth::guard('doctor')->user()->img == NUll)
+                    
+                      <span><img src="{{ asset('images/patients/123.jpg') }}" width="50" height="50" alt=""></span>
+                    
+                    @else
+
+                      <span><img src="{{ url('images/doc/' . Auth::guard('doctor')->user()->img) }}" width="50" height="50" alt=""></span>
+                    
+                    @endif
+                </a>
+                  <ul class="dropdown-menu " aria-labelledby="dropdown03">
+                    <li><a href="{{route('home')}}" class="dropdown-item">Welcome, {{ Auth::guard('doctor')->user()->name}}</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="event.preventDefault();document.querySelector('#logout-form').submit();">
+                      Logout
+                        </a>
+                    </li>
+                    <form id="logout-form" action="{{ route('doctor.logout') }}" method="GET" style="display: none;">
+                      @csrf
+                  </form>
+                  </ul>
+                </li>
+           
                     @else               
                     
                     <a class="btn btn-outline-primary rounded-pill order-1 order-lg-0 ms-lg-4"  href="{{ url('sign in/') }}">Sign In</a>
-                   
                   @endif
                   
-                @if (Auth::guard('doctor')->check() )
-                  
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::guard('doctor')->user()->name}}
-                        </a>
-        
-                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="adminDropdown">
-                          <a href="{{route('doctor.index')}}" class="dropdown-item">Dashboard</a>
-                          <a class="dropdown-item" href="#" onclick="event.preventDefault();document.querySelector('#admin-logout-form').submit();">
-                              Logout
-                          </a>
-                          <form id="admin-logout-form" action="{{ route('doctors.logout') }}" method="POST" style="display: none;">
-                              @csrf
-                          </form>
-                      </div>
-                    </li>         
-                @endif 
           </ul>
            
         </div>

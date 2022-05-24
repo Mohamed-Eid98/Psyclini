@@ -20,9 +20,9 @@ return new class extends Migration
             $table->longText('body');
             $table->string('path');
             $table->string('speciality');
-            $table->bigInteger('doctor_ssn')->unsigned();
-            $table->foreign('doctor_ssn')
-                  ->references('ssn')
+            $table->bigInteger('doctor_id')->unsigned();
+            $table->foreign('doctor_id')
+                  ->references('id')
                   ->on('doctors')
                   ->onDelete('cascade')
                   ->onUpdate('cascade');
