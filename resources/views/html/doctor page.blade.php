@@ -113,7 +113,7 @@
                 </div>
                 <!--Rate Stars-->
                 <div class="container review-meta d-flex align-items-center mt-3 mb-2">
-                  <h5 class="pr-5 title-color"> Rate :</h5>
+                  <h5 class="pr-5 blue-title"> Rate :</h5>
                   <div class="starrating risingstar d-flex justify-content-center flex-row-reverse list-unstyled mt-0">
                     <input type="radio" id="star5" name="rating" value="5" /><label for="star5" title="5 Stars"></label>
                     <input type="radio" id="star4" name="rating" value="4" /><label for="star4" title="4 Stars"></label>
@@ -127,7 +127,7 @@
                   <form action="{{ route('reviews.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="review">
-                      <h5 class="mb-3 title-color">Write a Review :</h5> 
+                      <h5 class="mb-3 blue-title">Write a Review :</h5> 
                       <div class="ml-2 mr-2">
                       <textarea class="form-control pr-2 mb-4" name="rev" id="comment" cols="30" rows="3" placeholder="What is your opinion??"></textarea>
                       </div>

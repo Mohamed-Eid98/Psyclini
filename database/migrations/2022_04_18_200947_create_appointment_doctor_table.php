@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('appointment_doctor', function (Blueprint $table) {
             $table->increments('id');
             $table->date('date');
-			$table->boolean('aoopintment_status');
             $table->integer('patient_id')->unsigned();
             $table->integer('appointment_id')->unsigned();
             $table->bigInteger('doctor_ssn')->unsigned();

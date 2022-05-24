@@ -27,7 +27,7 @@ return new class extends Migration
            $table->integer('session_fees');
 		   $table->integer('experince_years');
 		    $table->string('education');
-			$table->string('gender');
+			 $table->string('gender');
             
         });
     }
