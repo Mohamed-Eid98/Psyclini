@@ -22,13 +22,15 @@ return new class extends Migration
             $table->string('password');
             $table->integer('phone')->unique();
             $table->date('birth_date');
-            $table->float('rating')->nullable();
             $table->string('img')->nullable();
             $table->string('speciality');
-           $table->integer('session_fees');
+           $table->integer('session_fees')->nullable();
 		   $table->integer('experince_years');
 		    $table->string('education');
 			 $table->string('gender')->nullable();
+            $table->float('stars')->nullable();
+			$table->float('rating')->nullable();
+			$table->float('ratting_times')->nullable();
             
         });
     }

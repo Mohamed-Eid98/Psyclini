@@ -11,6 +11,16 @@
         <link rel="stylesheet" href="../css/home_style.css">
         <link rel="stylesheet" href="../css/bootstrap.min.css">
         <link rel="icon" href="../img/icon.png">
+<style>
+    input[type= number]::-webkit-outer-spin-button,
+    input[type= number]::-webkit-inner-spin-button{
+        -webkit-appearance : none;
+        -moz-appearance : none;
+        margin :0;
+    
+    }
+    
+</style>
  	<body>  
 
         <section class="ftco-section">
@@ -28,42 +38,48 @@
 
                                     <form action="{{ route('patient.data') }}"  method="POST" class="signup-form" enctype="multipart/form-data">
                                         @csrf
+                                        @if (Session::get('fail'))
+                                        <div class="alert alert-danger">
+                                            {{ Session::get('fail') }}
+                                        </div>
+                                      @endif
                                         <div class="form-group mt-3">
                                             <input type="text" class="form-control"  name = "name" required>
-                                            <label class="form-control-placeholder" for="Username" >Name </label>
-                                            @if ($errors->has('name'))
-                                                <span class="text-danger">{{ $errors->first('name') }}
-                                             @endif  
-                                        </div>
-                                        
-                                        <div class="form-group mt-3">
-                                            <input type="tel" class="form-control" name="phone" required>
-                                            <label class="form-control-placeholder" for="phone">Phone Number</label>
-                                            @if ($errors->has('phone'))
-                                                <span class="text-danger">{{ $errors->first('phone') }}
-                                            @endif
-                                        </div>
-                                        <div class="form-group mt-4">
-                                            <input type="text" class="form-control" name="dob" onfocus="(this.type='date')" onblur="(this.type='text')"  max="2022-04-30" required>
-                                            <label class="form-control-placeholder" for="dob">Date of Birth</label>
-                                            @if ($errors->has('dob'))
-                                                 <span class="text-danger">{{ $errors->first('dob') }}
-                                             @endif
+                                            <label class="form-control-placeholder" for="Username" >Name<span class="red-color">*</span></label>
+                                            <span class="text-danger">@error('name'){{ $message }}@enderror</span>
                                         </div>
                                         <div class="form-group mt-3">
                                             <input type="email" class="form-control" name="email" required>
-                                            <label class="form-control-placeholder" for="email" >E-mail</label>
-                                            @if ($errors->has('email'))
-                                                <span class="text-danger">{{ $errors->first('email') }}
-                                            @endif
+                                            <label class="form-control-placeholder" for="email" >E-mail<span class="red-color">*</span></label>
+                                            <span class="text-danger">@error('email'){{ $message }}@enderror</span>
+
+                                        </div>
+                                        
+                                        <div class="form-group mt-3">
+                                            <input type="number" class="form-control" name="phone" required>
+                                            <label class="form-control-placeholder" for="phone">Phone Number<span class="red-color">*</span></label>
+                                            <span class="text-danger">@error('phone'){{ $message }}@enderror</span>
+
+                                        </div>
+                                        <div class="form-group mt-3">
+                                            <select class="form-control" name="gender" id="gender-select" >
+                                                <option value="_none"  class="form-control-placeholder required" disabled selected>Gender</option>
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group mt-4">
+                                            <input type="text" class="form-control" name="dob" onfocus="(this.type='date')" onblur="(this.type='text')"  max="2022-04-30" required>
+                                            <label class="form-control-placeholder" for="dob">Date of Birth<span class="red-color">*</span></label>
+                                            <span class="text-danger">@error('dob'){{ $message }}@enderror</span>
+
                                         </div>
                                         <div class="form-group">
                                             <input id="password-field" type="password" name = "password" class="form-control" required>
-                                            <label class="form-control-placeholder" for="password">Password</label>
+                                            <label class="form-control-placeholder" for="password">Password <span class="red-color">*</span></label>
                                             <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
-                                            @if ($errors->has('password'))
-                                                <span class="text-danger">{{ $errors->first('password') }}
-                                             @endif
+                                            <span class="text-danger">@error('password'){{ $message }}@enderror</span>
+
                                         </div>
                                         <div class="form-group mt-4 profile-pic">
                                             {{-- <label class="lbl" >Add a Profile Picture</label> --}}

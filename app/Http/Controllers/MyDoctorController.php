@@ -2,12 +2,14 @@
 
 namespace App\Http\Controllers;
 use App\Models\Doctor;
+use App\Models\Review;
+use App\Models\Appointment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Validator;
+use Database\Seeders\AppointmentSeeder;
 use App\Http\Requests\StoreDoctorRequest;
 use App\Http\Requests\UpdateDoctorRequest;
-use Database\Seeders\AppointmentSeeder;
 use Symfony\Component\Console\Input\Input;
 
 class MyDoctorController extends Controller
@@ -166,7 +168,17 @@ public function create_post()
         // $doctors = Doctor::where('ssn',$ssn)->get();
         // return response()->json($doctors);
         // $appointments = Appointment::with('doctor');
-        return view('html.doctor Page', compact('doctor'));
+        $s=$doctor->id;
+		
+		$d= Appointment::where('doctor_id',$s)->where('doctor_status',1)->first()->day;
+        // dd($dd);		
+		$appointment1 = Appointment::where('doctor_id',$s)->where('doctor_status',1)->orderBy('time','asc')->where('day',$d)->get();
+		
+		$appointment2 = Appointment::where('doctor_id',$s)->where('doctor_status',1)->where('day', '!=',$d)->orderBy('time','asc')->get();
+		
+		$review = Review::where('doctor_id',$s)->take(5)->get();
+	
+		return view('html.doctor Page', compact('doctor','review','appointment2','appointment1'));
     }
 
     /**

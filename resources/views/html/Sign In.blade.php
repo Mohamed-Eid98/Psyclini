@@ -21,35 +21,25 @@
                                     </div>
                                     <form action="{{ route('patient.login') }}" class="signin-form" method="POST">
                                         @csrf
+                                            @if (Session::get('fail'))
+                                            <div class="alert alert-danger">
+                                                {{ Session::get('fail') }}
+                                            </div>
+                                          @endif
                                         <div class="form-group mt-3">
-                                            <input type="text" class="form-control" name="email" required>
+                                            <input type="text" class="form-control" name="email" value="{{ old('email') }}" required>
                                             <label class="form-control-placeholder" for="Username" >E-mail</label> 
-                                            @if ($errors->has('email'))
-                                                <span class="invalid-feedback" role="alert">
-                                                    <strong>{{ $errors->first('email') }}</strong>
-                                                </span>
-                                            @endif
+                                            <span class="text-danger">@error('email'){{ $message }}@enderror</span>
+
 										</div>
                                         <div class="form-group">
                                             <input id="password-field" type="password" class="form-control" name = 'password' required>
                                             <label class="form-control-placeholder" for="password">Password</label>
                                             <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
-                                            @if ($errors->has('password'))
-                                            <span class="invalid-feedback" role="alert">
-                                                <strong>{{ $errors->first('password') }}</strong>
-                                            </span>
-                                        @endif
+                                            <span class="text-danger">@error('password'){{ $message }}@enderror</span>
                                         </div>
                                         <div class="form-group">
                                             <button type="submit" class="form-control btn btn-primary rounded-pill submit px-3">Sign In</button>
-                                        </div>
-                                        <div class="form-group d-md-flex">
-                                            <div class="w-50 text-left">
-                                                <label class="checkbox-wrap checkbox-primary mb-0"> Remember Me
-                                                    <input type="checkbox" >
-                                                    <span class="checkmark"></span>
-                                                </label>
-                                            </div>          
                                         </div>
                                     </form>
                                     <p class="text-center sign-color" >You Are a Therapist ?<a href="{{ route('doctor.signin') }}"> Sign In Here</a></p>

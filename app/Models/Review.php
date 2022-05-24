@@ -5,9 +5,13 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class patientDoctor extends Model
+class Review extends Model
 {
     use HasFactory;
-    public $table ='patient_doctor';
-    // public $timestamps = false;
+	    public $fillable = [ 
+        'id',
+        'star',
+        'review',
+		'hall',
+    ];
 }

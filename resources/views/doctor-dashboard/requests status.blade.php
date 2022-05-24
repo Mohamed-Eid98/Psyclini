@@ -29,21 +29,21 @@
       </div>
       <div class="sidebar-menu">
         <ul class="menu">            
-          <li class="sidebar-item {{ Request::is('doctor-index') ? 'active' : '' }} ">
+          <li class="sidebar-item">
             <a href="{{ route('doctor.index') }}" class='sidebar-link'>
               <span>Dashboard</span>
             </a>
           </li>
             
-          <li class="sidebar-item has-sub">
+          <li class="sidebar-item has-sub active ">
             <a href="#" class='sidebar-link'>
               <span>Appointments</span>
             </a>
-            <ul class="submenu ">
-              <li class="submenu-item {{ Request::is('requests modifications') ? 'active' : '' }} ">
+            <ul class="submenu active ">
+              <li class="submenu-item ">
                 <a href="{{ route('doctor.modifications') }}">Request Modifications</a>
               </li>
-              <li class="submenu-item {{ Request::is('requests status') ? 'active' : '' }} ">
+              <li class="submenu-item active ">
                 <a href="{{ route('doctor.status') }}">Requests' Status</a>
               </li>
             </ul>
@@ -54,10 +54,10 @@
               <span>Publish</span>
             </a>
             <ul class="submenu ">
-              <li class="submenu-item {{ Request::is('create post') ? 'active' : '' }} ">
+              <li class="submenu-item">
                 <a href="{{ route('doctor.post') }}">Post</a>
               </li>
-              <li class="submenu-item {{ Request::is('publish article') ? 'active' : '' }} ">
+              <li class="submenu-item">
                 <a href="{{ route('doctor.article') }}">Article</a>
               </li>
             </ul>
@@ -335,5 +335,3 @@
 </body>
 
 </html>
-
-@endsection

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\CommentController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\PatientController;
@@ -10,6 +11,7 @@ use App\Http\Controllers\MyDoctorController;
 use App\Http\Controllers\SecretaryController;
 use App\Http\Controllers\User\UserController;
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\Doctor\DoctorController;
 
 
@@ -102,6 +104,18 @@ Route::post('Patientdash' , [PatientController::class, 'PostRegisteration'])->na
 Route::post('loginhome' , [PatientController::class, 'postLogin'])->name('patient.login');
 
 Auth::routes();
+
+Route::get('/send-notification', [NotificationController::class, 'sendCancelNotification']);
+Route::post('/review', [ReviewController::class, 'store'] )->middleware('isPatient')->name('review.store');
+Route::post('/reserve', [AppointmentController::class, 'reserve'] )->middleware('isPatient')->name('appointment.reserve');
+Route::get('/pHistory' ,[AppointmentController::class, 'pHistory'] )->middleware('isPatient')->name('pHistory');
+Route::get('/patientUp' ,[AppointmentController::class, 'Upcom'] )->middleware('isPatient')->name('Upcom');
+
+Route::get('deleteApp/{id}' ,[AppointmentController::class, 'deleteApp'] )->middleware('isPatient')->name('deleteApp');
+
+Route::get('/dAvilable' ,[AppointmentController::class, 'dAvilable'] )->middleware('isPatient')->name('dAvilable');
+Route::get('/dHistory' ,[AppointmentController::class, 'dHistory'] )->middleware('isPatient')->name('dHistory');
+Route::get('/doctorUp' ,[AppointmentController::class, 'dUpcom'] )->middleware('isDoctor')->name('dUpcom');
 
 
 

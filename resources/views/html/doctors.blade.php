@@ -1,5 +1,5 @@
-{{-- @extends('layouts.app')
-@section('content') --}}
+@extends('layouts.app')
+@section('content')
 
 <!DOCTYPE html>
 <html>
@@ -230,5 +230,5 @@
 
 </body>
 </html>
-{{-- @endsection --}}
+@endsection
 

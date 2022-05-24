@@ -35,15 +35,15 @@
               </a>
             </li>
               
-            <li class="sidebar-item has-sub">
+            <li class="sidebar-item has-sub active ">
               <a href="#" class='sidebar-link'>
-                <span>Appointments</span>
+                 <span>Appointments</span>
               </a>
-              <ul class="submenu ">
-                <li class="submenu-item {{ Request::is('requests modifications') ? 'active' : '' }} ">
+              <ul class="submenu active ">
+                <li class="submenu-item active ">
                   <a href="{{ route('doctor.modifications') }}">Request Modifications</a>
                 </li>
-                <li class="submenu-item {{ Request::is('requests status') ? 'active' : '' }} ">
+                <li class="submenu-item ">
                   <a href="{{ route('doctor.status') }}">Requests' Status</a>
                 </li>
               </ul>

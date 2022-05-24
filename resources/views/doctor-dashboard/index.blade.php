@@ -33,21 +33,21 @@
           </div>
           <div class="sidebar-menu">
             <ul class="menu">            
-              <li class="sidebar-item {{ Request::is('doctor-index') ? 'active' : '' }} ">
+              <li class="sidebar-item {{ Request::is('doctor/index') ? 'active' : '' }} ">
                 <a href="{{ route('doctor.index') }}" class='sidebar-link'>
                   <span>Dashboard</span>
                 </a>
               </li>
                 
-              <li class="sidebar-item has-sub">
+              <li class="sidebar-item has-sub  {{ Request::is('doctor/requests-status') ? 'active' : '' }}">
                 <a href="#" class='sidebar-link'>
                   <span>Appointments</span>
                 </a>
                 <ul class="submenu ">
-                  <li class="submenu-item {{ Request::is('requests modifications') ? 'active' : '' }} ">
+                  <li class="submenu-item {{ Request::is('doctor/requests-modifications') ? 'active' : '' }} ">
                     <a href="{{ route('doctor.modifications') }}">Request Modifications</a>
                   </li>
-                  <li class="submenu-item {{ Request::is('requests status') ? 'active' : '' }} ">
+                  <li class="submenu-item {{ Request::is('doctor/requests status') ? 'active' : '' }} ">
                     <a href="{{ route('doctor.status') }}">Requests' Status</a>
                   </li>
                 </ul>
