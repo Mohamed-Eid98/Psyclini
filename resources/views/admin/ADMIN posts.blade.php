@@ -59,7 +59,7 @@
                       <button type="button" class="btn btn-outline-primary block" data-bs-toggle="modal" data-bs-target="#post-modal"> View </button>
                     </td>
                     <td>
-                      <form action="{{ route('secretary.destroy' , $post->id) }}" method="POST" enctype="multipart/form-data">
+                      <form action="{{ route('admin.destroy' , $post->id) }}" method="POST" enctype="multipart/form-data">
                         @method('DELETE')
                         @csrf
                         <a class="btn btn-outline-success mb-2 mr-2">Approve</a>

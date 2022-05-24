@@ -105,41 +105,35 @@ Route::post('loginhome' , [PatientController::class, 'postLogin'])->name('patien
 Auth::routes();
 
 
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::prefix('user')->name('user.')->group(function(){
-  
-    Route::middleware(['guest:web','PreventBackHistory'])->group(function(){
-          Route::view('/login','dashboard.user.login')->name('login');
-          Route::view('/register','dashboard.user.register')->name('register');
-          Route::post('/create',[UserController::class,'create'])->name('create');
-          Route::post('/check',[UserController::class,'check'])->name('check');
-    });
+Route::prefix('admin')->group(function(){
 
-    Route::middleware(['auth:web','PreventBackHistory'])->group(function(){
-          Route::view('/home','dashboard.user.home')->name('home');
-          Route::post('/logout',[UserController::class,'logout'])->name('logout');
-          Route::get('/add-new',[UserController::class,'add'])->name('add');
-    });
-
-});
-
-Route::prefix('admin')->name('admin.')->group(function(){
-       
+    
     Route::middleware(['guest:admin','PreventBackHistory'])->group(function(){
-          Route::view('/login','dashboard.admin.login')->name('login');
-          Route::post('/check',[AdminController::class,'check'])->name('check');
+          Route::view('/login','admin.login')->name('admin.login');
+          Route::post('/check',[AdminController::class,'check'])->name('admin.check');
     });
 
     Route::middleware(['auth:admin','PreventBackHistory'])->group(function(){
-        Route::view('/home','dashboard.admin.home')->name('home');
-        Route::post('/logout',[AdminController::class,'logout'])->name('logout');
+        Route::view('/home','dashboard.admin.home')->name('admin.home');
+        Route::get('/logout',[AdminController::class,'logout'])->name('admin.logout');
+        
+        Route::view('/index', 'admin.ADMIN index' )->name('admin.index');
+        Route::get('/create', [SecretaryController::class, 'admin_create'])->name('admin.createDRAccount');
+        Route::get('/contact', [SecretaryController::class, 'admin_contact'])->name('admin.contact.response');
+        Route::get('/modify', [SecretaryController::class, 'modify_appoinment'])->name('admin.modify.appoinments');
+        Route::get('/posts', [SecretaryController::class, 'posts'])->name('admin.posts');
+        Route::get('/requests', [SecretaryController::class, 'admin_approve_requests'])->name('admin.approve.requests');
+        Route::post('/account',[SecretaryController::class, 'store'])->name('admin.doctor.account');
+        Route::post('/posts',[SecretaryController::class, 'show_posts'])->name('admin.show.posts');
+        Route::delete('/destroy/{id}',[SecretaryController::class, 'destroy'])->name('admin.destroy');
     });
+
 
 });
 
 Route::prefix('doctor')->name('doctor.')->group(function(){
-
+    
        Route::middleware(['guest:doctor','PreventBackHistory'])->group(function(){
             Route::view('/login','html.Sign In doctor')->name('login');
             Route::view('/register','dashboard.doctor.register')->name('register');
@@ -162,48 +156,6 @@ Route::prefix('doctor')->name('doctor.')->group(function(){
 });
 
 
-// Route::prefix('admin')->name('secretary.')->group(function(){
-
-//        Route::middleware(['guest:admin','PreventBackHistory'])->group(function(){
-//             Route::view('/login', 'admin.login')->name('login');
-//             Route::post('/check',[SecretaryController::class,'check'])->name('loginn');
-//        });
-
-//        Route::middleware(['auth:admin','PreventBackHistory'])->group(function(){
-
-//         Route::view('/index', 'admin.ADMIN index' )->name('index');
-//         Route::get('/create', [SecretaryController::class, 'admin_create'])->name('createDRAccount');
-//         Route::get('/contact', [SecretaryController::class, 'admin_contact'])->name('contact.response');
-//         Route::get('/modify', [SecretaryController::class, 'modify_appoinment'])->name('modify.appoinments');
-//         Route::get('/posts', [SecretaryController::class, 'posts'])->name('posts');
-//         Route::get('/requests', [SecretaryController::class, 'admin_approve_requests'])->name('approve.requests');
-//         Route::post('/account',[SecretaryController::class, 'store'])->name('doctor.account');
-//        });
-
-// });
-
-
- Route::prefix('secretary')->name('secretary.')->group(function(){
-
-    
-            Route::view('/login', 'admin.login')->name('login');
-            Route::post('/check',[SecretaryController::class,'check'])->name('loginn');
-
-Route::get('/send-notification', [NotificationController::class, 'sendCancelNotification']);
-Route::post('/review', [ReviewController::class, 'store'] )->middleware('isPatient')->name('reviews.store');
-
-        Route::view('/index', 'admin.ADMIN index' )->name('index');
-        Route::get('/create', [SecretaryController::class, 'admin_create'])->name('createDRAccount');
-        Route::get('/contact', [SecretaryController::class, 'admin_contact'])->name('contact.response');
-        Route::get('/modify', [SecretaryController::class, 'modify_appoinment'])->name('modify.appoinments');
-        Route::get('/posts', [SecretaryController::class, 'posts'])->name('posts');
-        Route::get('/requests', [SecretaryController::class, 'admin_approve_requests'])->name('approve.requests');
-        Route::post('/account',[SecretaryController::class, 'store'])->name('doctor.account');
-        Route::post('/posts',[SecretaryController::class, 'show_posts'])->name('show.posts');
-        Route::delete('/destroy/{id}',[SecretaryController::class, 'destroy'])->name('destroy');
-
-
-});
 
 Route::get('/send-notification', [NotificationController::class, 'sendCancelNotification']);
 Route::post('/review', [ReviewController::class, 'store'] )->middleware('isPatient')->name('reviews.store');

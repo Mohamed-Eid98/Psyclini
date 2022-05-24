@@ -37,7 +37,7 @@
     </div>
     <div class="justify-content-center col-lg-8 d-flex mt-2">
       <div class="col-lg-9 col-md-9 ">
-        <form action="{{ route('secretary.doctor.account') }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.doctor.account') }}" method="POST" enctype="multipart/form-data">
           @if (Session::get('fail'))
             <div class="alert alert-danger">
                 {{ Session::get('fail') }}
