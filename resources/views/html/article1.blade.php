@@ -17,17 +17,11 @@
             <div class="row">
               <div class="col-lg-8"><!--Article begin-->
                 <div class="row">
-                  <div class="col-lg-12 mb-5">
-                    <div class="single-blog-item">
-                      <img src="../img/الوسواس القهري.jpg" alt="" class="img-fluid">
-                      <div class="blog-item-content mt-3">
-                        <div class="blog-item-meta mb-3">
                           <span class="text-color-2 text-capitalize mr-3"><i class="icofont-book-mark mr-2"></i>General Psychiatry</span>
-                          <span class="text-black text-muted text-capitalize mr-3"><i class="icofont-calendar mr-2"></i> 28th January 2022</span>
                         </div> 
 
                         <div class="dir-rtl">
-                          <h2 class="mb-4 text-md"><a href="article page.html">الوسواس القهري</a></h2>
+                          <h2 class="mb-4 text-md"><a href="{{ route('article1') }}">الوسواس القهري</a></h2>
                           <h3 class="title-color">المحتوي</h3>
                           <ul class="list-unstyled article-parag">
                             <li><a href="#المرض"> ما هو مرض الوسواس القهري</a></li>
@@ -191,11 +185,6 @@
     </footer>
   </div>
   <!--footer end-->
-
-
-  <script src="../js/jquery.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-   <script src="../js/script.js"></script>
 </body>
 </html>
 

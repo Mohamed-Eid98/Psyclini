@@ -4,11 +4,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../css/home_style.css">
-    <link rel="stylesheet" href="../css/icofont.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="icon" href="../img/icon.png">
     <title>Psyclini</title>
     
 </head>
@@ -35,10 +30,10 @@
 
                           <h3 class="article-subtitle" class="title-color">المحتوي</h3>
                           <ul class="list-unstyled article-parag" >
-                            <li><a href="#المرض">أمور يجب أن تتوقف عن قولها</a></li>
-                            <li><a href="#الاعراض">طرق دعم مصاب الرهاب الاجتماعي</a></li>
-                            <li><a href="#التشخيص">نصائح لمصاب القلق الاجتماعي</a></li>
-                            <li><a href="#المرجع"> المراجع</a></li>
+                            <li><a href="{{ url('/article3'.'#المرض') }}">أمور يجب أن تتوقف عن قولها</a></li>
+                            <li><a href="{{ url('/article3'.'#الاعراض') }} ">طرق دعم مصاب الرهاب الاجتماعي</a></li>
+                            <li><a href="{{ url('/article3'.'#التشخيص') }}">نصائح لمصاب القلق الاجتماعي</a></li>
+                            <li><a href="{{ url('/article3'.'#المرجع') }}"> المراجع</a></li>
                           </ul>
                           <p class="article-parag">
                             إذا كنت والدًا وكان طفلي يعاني ويحتاج إلى دعم، فسأكون في أمس الحاجة إلى المساعدة، فمن أكبر المشاكل المتعلقة بالأمراض العقلية تتعلق بنقص التوجيه، على عكس المشاكل الجسدية، مثل الخلل في المعدة أو الكسر في العظام، فلا توجد أي تعليمات واضحة لضمان الشفاء من المشاكل النفسية، يمكن للأطباء المتخصصين هنا تقديم الاقتراحات الجيدة لك فقط، لتعتمد عليها في دعم مصاب الرهاب الاجتماعي.
@@ -119,7 +114,7 @@
                             <li><a href="https://www.mayoclinic.org/diseases-conditions/social-anxiety-disorder/symptoms-causes/syc-20353561" target="_blank">Social phobia</a></li>
                           </ul>
                         </div>
-                        <div class="mt-5 clearfix">     
+                        <div class="mt-5 clearfix">   
                           <ul class="float-right list-inline">
                             <li class="list-inline-item"> Share: </li>
                             <li class="list-inline-item"><a href="#" target="_blank"><i class="icofont-facebook" aria-hidden="true"></i></a></li>
@@ -216,7 +211,7 @@
         <span class="text-muted">&copy; 2022 Ain Shams Uni. , Faculty of Science,<br> Maths. Department. </span>
       </div>
       <div class="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
-        <a href="index.html" class="a-no-decor"><img src="../img/icon.png" width="45"></a>
+        <a href="{{ url('/') }}" class="a-no-decor"><img src="../img/icon.png" width="45"></a>
       </div>
   
       <ul class="nav col-md-4  justify-content-end d-flex">
@@ -230,14 +225,6 @@
   <!--footer end-->
 
 
-        
-
-
-
-
-  <script src="../js/jquery.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-  <script src="../js/script.js"></script>
 </body>
 </html>
 

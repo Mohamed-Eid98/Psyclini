@@ -7,8 +7,9 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Psyclini</title> 
-    
+    <title>Psyclini</title>
+    <link rel="stylesheet" href="../css/slick.css">
+    <link rel="stylesheet" href="../css/slick-theme.css">    
 </head>
 <body id="bootstrap-overrides top">
   
@@ -84,7 +85,7 @@
 			<form action="{{ route('review.store') }}" method="POST" enctype="multipart/form-data">
                @csrf
 			   <div class="container review-meta d-flex align-items-center mt-3 mb-2">
-                  <h5 class="pr-5 title-color"> Rate :</h5>
+                  <h5 class="pr-5 blue-title"> Rate :</h5>
                   <div class="starrating risingstar d-flex justify-content-center flex-row-reverse list-unstyled mt-0">
                     <input type="radio" id="star5" name="star" value="5" /><label for="star5" title="5 Stars"></label>
                     <input type="radio" id="star4" name="star" value="4" /><label for="star4" title="4 Stars"></label>
@@ -97,7 +98,7 @@
                 <div class="col-lg-12 mb-5 ">
                   
 					<div class="review">
-                      <h5 class="mb-3 title-color">Write a Review :</h5> 
+                      <h5 class="mb-3 blue-title">Write a Review :</h5> 
                       <div class="ml-2 mr-2">
                         <textarea class="form-control pr-2 mb-4" name="rev" id="comment" cols="30" rows="3" placeholder="What is your opinion??"></textarea>
                       </div>
@@ -146,7 +147,7 @@
                   <div class="col-lg-11 border">
 				@foreach($appointment1 as $appointment1)
                     <h5 class="w-100 appt-day bg-gray">{{$appointment1->day}}</h5>
-					<label class="single-appt col-lg-12">
+					          <label class="single-appt col-lg-12">
                       <input type="radio" class="appts-radio" name="app" value="{{$appointment1->id}}" id="appt-1">
                       <span> {{$appointment1->time}}</span>
                     </label>
@@ -193,14 +194,6 @@
   </div>
   <!--footer end-->
 
-
-
-
-  <script src="../js/jquery.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-  <script src="../js/popper.js"></script>
-  <script src="../js/slick.min.js"></script>
-  <script src="../js/script.js"></script>
 </body>
 </html>
 
