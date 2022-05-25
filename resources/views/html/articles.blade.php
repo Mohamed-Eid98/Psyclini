@@ -17,7 +17,7 @@
             <div class="col-lg-12 col-md-12 mb-5"><!--article 1-->
               <div class="blog-item">
                 <div class="blog-thumb">
-                  <img src="../img/الوسواس القهري.jpg" alt="" class="img-fluid ">
+                  <a href="{{ route('article1') }}"><img src="../img/الوسواس القهري.jpg" alt="" class="img-fluid "></a>
                 </div>
                 <div class="blog-item-content">
                   <div class="blog-item-meta mb-3 mt-4">
@@ -25,13 +25,13 @@
                     <span class="text-black text-capitalize text-muted mr-3"><i class="icofont-calendar mr-1"></i> 28th January</span>
                   </div>
                   <div class="dir-rtl">
-                    <h2 class="mt-3 mb-3"><a href="article1.html">الوسواس القهري</a></h2>
+                    <h2 class="mt-3 mb-3"><a href="{{ route('article1') }}">الوسواس القهري</a></h2>
                     <p class="mb-4">هو أحد الاضطرابات النفسية العقلية التي قد تُصيب البعض و هو عبارة عن أفكار
                       و صور تدخل إلى عقل الإنسان بطريقة مكررة ويحاول جاهداً مقاومتها دون جدوى
                       و... 
                     </p>
                   </div>
-                  <a href="article1.html" target="_blank" class="btn btn-primary rounded-pill">Read More <i class="icofont-simple-right ml-2  "></i></a>
+                  <a href="{{ route('article1') }}" target="_blank" class="btn btn-primary rounded-pill">Read More <i class="icofont-simple-right ml-2  "></i></a>
                 </div>
               </div>
             </div>
@@ -39,7 +39,7 @@
             <div class="col-lg-12 col-md-12 mb-5"><!--article 2-->
               <div class="blog-item">
                 <div class="blog-thumb">
-                  <img src="../img/الفصام.jpg" alt="" class="img-fluid ">
+                  <a href="{{ route('article2') }}"><img src="../img/الفصام.jpg" alt="" class="img-fluid "></a>
                 </div>
                 <div class="blog-item-content">
                   <div class="blog-item-meta mb-3 mt-4">
@@ -47,10 +47,10 @@
                     <span class="text-black text-capitalize text-muted mr-3"><i class="icofont-calendar mr-1"></i> 28th January</span>
                   </div>
                   <div class="dir-rtl">
-                    <h2 class="mt-3 mb-3"><a href="article2.html">الشيزوفرينيا أو انفصام الشخصية</a></h2>
+                    <h2 class="mt-3 mb-3"><a href="{{ route('article2') }}">الشيزوفرينيا أو انفصام الشخصية</a></h2>
                     <p class="mb-4">تُعّرف الشيزوفرينيا، أو الفصام، أو الفُصام العقلي، أو السكيزوفرينيا، أو السكيتسوفرينيا بأنه اضطراب نفسي مزمن يفسّر فيه المصاب الواقع بشكل غير طبيعي، وتسبب الإصابة بفصام الشخصية الهلوسة، وحدوث مشاكل في التركيز، والتفكير، وطريقة التعبير عن المشاعر، بالإضافة الي... </p>
                   </div>
-                  <a href="article2.html" target="_blank" class="btn btn-primary rounded-pill">Read More <i class="icofont-simple-right ml-2  "></i></a>
+                  <a href="{{ route('article2') }}" target="_blank" class="btn btn-primary rounded-pill">Read More <i class="icofont-simple-right ml-2  "></i></a>
                 </div>
               </div>
             </div>
@@ -58,7 +58,7 @@
             <div class="col-lg-12 col-md-12 mb-5"><!--article 3-->
               <div class="blog-item">
                 <div class="blog-thumb">
-                  <img src="../img/الرهاب الاجتماعي.jpg" alt="" class="img-fluid ">
+                  <a href="{{ route('article3') }}"><img src="../img/الرهاب الاجتماعي.jpg" alt="" class="img-fluid "></a>
                 </div>
                 <div class="blog-item-content">
                   <div class="blog-item-meta mb-3 mt-4">
@@ -66,10 +66,10 @@
                     <span class="text-black text-capitalize text-muted mr-3"><i class="icofont-calendar mr-1"></i> 28th January</span>
                   </div> 
                   <div class="dir-rtl">
-                  <h2 class="mt-3 mb-3"><a href="article3.html">طرق دعم مصاب الرهاب الاجتماعي</a></h2>
+                  <h2 class="mt-3 mb-3"><a href="{{ route('article3') }}">طرق دعم مصاب الرهاب الاجتماعي</a></h2>
                   <p class="mb-4">إن مسئولية دعم مصاب الرهاب الاجتماعي تقع بشكل أساسي على عاتق المقربين والأحباء، وفي هذا المقال سنتعرف على طرق فعالة لدعم مصاب الرهاب الاجتماعي، وكذلك بعض الطرق التي يمكن أن يعتمد عليها المصاب نفسه وتساعده في العلاج.</p>
                 </div>
-                  <a href="article3.html" target="_blank" class="btn btn-primary rounded-pill">Read More <i class="icofont-simple-right ml-2  "></i></a>
+                  <a href="{{ route('article3') }}" target="_blank" class="btn btn-primary rounded-pill">Read More <i class="icofont-simple-right ml-2  "></i></a>
                 </div>
               </div>
             </div>
@@ -90,17 +90,17 @@
               <h4>Popular Articles</h4>
               <div class="py-2">
                 <span class="text-sm text-muted">28 Jan 2022</span>
-                <h6 class="my-2"><a href="article1.html">الوسواس القهري</a></h6>
+                <h6 class="my-2"><a href="{{ route('article1') }}">الوسواس القهري</a></h6>
               </div>
 
               <div class="py-2">
                 <span class="text-sm text-muted">06 Feb 2022</span>
-                <h6 class="my-2"><a href="article2.html">مرض الفصام</a></h6>
+                <h6 class="my-2"><a href="{{ route('article2') }}">مرض الفصام</a></h6>
               </div>
 
               <div class="py-2">
                 <span class="text-sm text-muted">03 Mar 2018</span>
-                  <h6 class="my-2"><a href="article3.html">طرق دعم مصاب الرهاب الاجتماعي</a></h6>
+                  <h6 class="my-2"><a href="{{ route('article3') }}">طرق دعم مصاب الرهاب الاجتماعي</a></h6>
               </div>                       
             </div>
 
@@ -171,7 +171,7 @@
       </div>
   
       <ul class="nav col-md-4  justify-content-end d-flex">
-        <li class="ms-3"><a class="text-muted a-no-decor " href="https://github.com/AlyaaRushdy/Psyclini"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-github" viewBox="0 0 18 18">
+        <li class="ms-3"><a class="text-muted a-no-decor " href="https://github.com/AlyaaRushdy/Psyclini/tree/Final"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-github" viewBox="0 0 18 18">
           <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
           </svg></a></li>
         <li class="ms-3"><a class="text-muted a-no-decor " href="https://www.facebook.com/FacultyofScienceASU/"><i class="icofont-facebook"></i></a></li>
