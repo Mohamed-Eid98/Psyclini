@@ -23,9 +23,16 @@
                                     </div>
                                     <form action="{{ route('patient.login') }}" class="signin-form" method="POST">
                                         @csrf
+                                        @if (Session::get('fail'))
+                                            <div class="alert alert-danger">
+                                                {{ Session::get('fail') }}
+                                            </div>
+                                        @endi
                                         <div class="form-group mt-3">
+                                        <input type="text" class="form-control" name="email" value="{{ old('email') }}" required>
                                             <input type="text" class="form-control" name="email" required>
                                             <label class="form-control-placeholder" for="Username" >E-mail</label> 
+                                            <span class="text-danger">@error('email'){{ $message }}@enderror</span>
                                             @if ($errors->has('email'))
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $errors->first('email') }}</strong>
@@ -36,6 +43,7 @@
                                             <input id="password-field" type="password" class="form-control" name = 'password' required>
                                             <label class="form-control-placeholder" for="password">Password</label>
                                             <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
+                                            <span class="text-danger">@error('password'){{ $message }}@enderror</span>
                                             @if ($errors->has('password'))
                                             <span class="invalid-feedback" role="alert">
                                                 <strong>{{ $errors->first('password') }}</strong>
@@ -54,6 +62,7 @@
                                             </div>          
                                         </div>
                                     </form>
+                                    <p class="text-center sign-color" >You Are a Therapist ?<a href="{{ route('doctor.signin') }}"> Sign In Here</a></p>
                                     <p class="text-center sign-color" >You're a Therapist ?<a href="{{ route('doctor.signin') }}"> Sign In Here</a></p>
                                     <p class="text-center sign-color" >Not a Member ?<a href="{{ route('signUp') }}"> Sign Up</a></p>
                                 </div>

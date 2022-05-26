@@ -4,9 +4,24 @@
 <!doctype html>
 <html lang="en">
     <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/icofont.css">
         <title>Sign Up - Psyclini</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="stylesheet" href="../css/signin_signup_style.css">
+        <link rel="stylesheet" href="../css/home_style.css">
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="icon" href="../img/icon.png">
+<style>
+    input[type= number]::-webkit-outer-spin-button,
+    input[type= number]::-webkit-inner-spin-button{
+        -webkit-appearance : none;
+        -moz-appearance : none;
+        margin :0;
+    
+    }
+    
+</style>
         <link href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/flick/jquery-ui.css" rel="stylesheet">
  	<body>  
 
@@ -25,8 +40,20 @@
 
                                     <form action="{{ route('patient.data') }}"  method="POST" class="signup-form" enctype="multipart/form-data">
                                         @csrf
+                                        @if (Session::get('fail'))
+                                        <div class="alert alert-danger">
+                                            {{ Session::get('fail') }}
+                                        </div>
+                                      @endif
                                         <div class="form-group mt-3">
                                             <input type="text" class="form-control"  name = "name" required>
+                                            <label class="form-control-placeholder" for="Username" >Name<span class="red-color">*</span></label>
+                                            <span class="text-danger">@error('name'){{ $message }}@enderror</span>
+                                        </div>
+                                        <div class="form-group mt-3">
+                                            <input type="email" class="form-control" name="email" required>
+                                            <label class="form-control-placeholder" for="email" >E-mail<span class="red-color">*</span></label>
+                                            <span class="text-danger">@error('email'){{ $message }}@enderror</span>
                                             <label class="form-control-placeholder required" for="Username" >Name </label>
                                             @if ($errors->has('name'))
                                                 <span class="text-danger">{{ $errors->first('name') }}
@@ -34,6 +61,17 @@
                                         </div>
                                         
                                         <div class="form-group mt-3">
+                                        <input type="number" class="form-control" name="phone" required>
+                                            <label class="form-control-placeholder" for="phone">Phone Number<span class="red-color">*</span></label>
+                                            <span class="text-danger">@error('phone'){{ $message }}@enderror</span>
+
+                                        </div>
+                                        <div class="form-group mt-3">
+                                            <select class="form-control" name="gender" id="gender-select" >
+                                                <option value="_none"  class="form-control-placeholder required" disabled selected>Gender</option>
+                                                <option value="Male">Male</option>
+                                                <option value="Female">Female</option>
+                                            </select>
                                         <input type="tel" class="form-control" name="phone" required>
                                             <label class="form-control-placeholder required" for="phone">Phone Number</label>
                                             @if ($errors->has('phone'))
@@ -41,6 +79,9 @@
                                             @endif
                                         </div>
                                         <div class="form-group mt-4">
+                                        <input type="text" class="form-control" name="dob" onfocus="(this.type='date')" onblur="(this.type='text')"  max="2022-04-30" required>
+                                            <label class="form-control-placeholder" for="dob">Date of Birth<span class="red-color">*</span></label>
+                                            <span class="text-danger">@error('dob'){{ $message }}@enderror</span>  
                                         <input class="form-control " name="dob" id="my_date" required>
                                             <label class="form-control-placeholder required " for="dob">Date of Birth</label>
                                             @if ($errors->has('dob'))
@@ -55,14 +96,19 @@
                                             @endif
                                         </div>
                                         <div class="form-group">
-                                        <input id="password-field" type="password" class="form-control" required>
-                                            <label class="form-control-placeholder required " for="password">Password</label>
+                                        <input id="password-field" type="password" name = "password" class="form-control" required>
+                                            <label class="form-control-placeholder required " for="password">Password<span class="red-color">*</span></label>
+                                            
+                                            
                                             <span toggle="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></span>
                                             @if ($errors->has('password'))
                                                 <span class="text-danger">{{ $errors->first('password') }}
                                              @endif
                                         </div>
                                         <div class="form-group mt-4 profile-pic">
+                                        <input type="text" class="form-control" name="dob" onfocus="(this.type='date')" onblur="(this.type='text')"  max="2022-04-30" required>
+                                            <label class="form-control-placeholder" for="dob">Date of Birth<span class="red-color">*</span></label>
+                                            <span class="text-danger">@error('dob'){{ $message }}@enderror</span>
                                             {{-- <label class="lbl" >Add a Profile Picture</label> --}}
                                             {{-- <label class="btn btn-outline-primary w-50 ml-4">Add<input type="file" name= "patient_image" class="ml-2" placeholder="Browse" accept="image/*"> </label> --}}
                                             <label class="text-muted add-img">
@@ -102,7 +148,8 @@
             </footer>
         </div>
         <!--footer end-->
-
+        <script src="../js/jquery.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script><!--لينك jquery الرئيسي -->
 	    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script><!--لينك المكتبه بتاعه التاريخ نفسه-->
         <script src="../js/singin_signup.js"></script>
