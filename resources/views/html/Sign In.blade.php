@@ -27,10 +27,9 @@
                                             <div class="alert alert-danger">
                                                 {{ Session::get('fail') }}
                                             </div>
-                                        @endi
+                                        @endif
                                         <div class="form-group mt-3">
                                         <input type="text" class="form-control" name="email" value="{{ old('email') }}" required>
-                                            <input type="text" class="form-control" name="email" required>
                                             <label class="form-control-placeholder" for="Username" >E-mail</label> 
                                             <span class="text-danger">@error('email'){{ $message }}@enderror</span>
                                             @if ($errors->has('email'))
@@ -62,7 +61,6 @@
                                             </div>          
                                         </div>
                                     </form>
-                                    <p class="text-center sign-color" >You Are a Therapist ?<a href="{{ route('doctor.signin') }}"> Sign In Here</a></p>
                                     <p class="text-center sign-color" >You're a Therapist ?<a href="{{ route('doctor.signin') }}"> Sign In Here</a></p>
                                     <p class="text-center sign-color" >Not a Member ?<a href="{{ route('signUp') }}"> Sign Up</a></p>
                                 </div>

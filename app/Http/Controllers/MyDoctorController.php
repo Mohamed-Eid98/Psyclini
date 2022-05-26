@@ -31,12 +31,14 @@ class MyDoctorController extends Controller
     $rating = $request->input('rating');
     $gender = $request->input('gender');
     $fees = $request->input('fees');
+    $name = $request->input('doctorName');
     
-        $doctors = Doctor::where(function ($q) use ($rating, $specialization, $gender, $fees){
+        $doctors = Doctor::where(function ($q) use ($rating, $specialization, $gender, $fees, $name){
             
 
             $q->where('speciality' , 'LIKE' , '%'.$specialization.'%')
                 ->Where('rating' , "LIKE" , $rating.'%')
+                ->where('name' , "LIKE" , '%'. $name.'%')
                 ->Where('gender' , "LIKE" , $gender);
             if ($fees == 'Less Than 150'){
                 $q->Where('session_fees' , '<' , 150);
