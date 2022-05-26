@@ -37,7 +37,16 @@ Route::get('department' , function(){
 
 Route::get('articles' , function(){
     return view('html.articles');
-});
+})->name('articles');
+Route::get('article1' , function(){
+    return view('html.article1');
+})->name('article1');
+Route::get('article2' , function(){
+    return view('html.article2');
+})->name('article2');
+Route::get('article3' , function(){
+    return view('html.article3');
+})->name('article3');
 Route::get('games' , function(){
     return view('html.games');
 })->name('games');
@@ -89,7 +98,7 @@ Route::get('/signUp' , function(){
 Route::post('contact', [ContactController::class, 'store'] )->name('contact.store');
 
 Route::get('blog', [PostController::class, 'index'] )->name('blog');
-Route::post('blog', [PostController::class, 'store'] )->middleware('isPatient')->name('posts.store');
+Route::post('blog', [PostController::class, 'store'] )->middleware(['auth:doctor,patient,admin'])->name('posts.store');
 Route::get('blog/search', [PostController::class, 'search'] )->name('post.search');
 Route::get('blog/speciality=addiction', [PostController::class, 'addiction_posts'] )->name('addiction.posts');
 Route::get('blog/speciality=life_coach', [PostController::class, 'life_posts'] )->name('life.posts');
@@ -102,7 +111,7 @@ Route::get('blog/speciality=geriatric', [PostController::class, 'geriatric'] )->
 
 
 Route::get('blogPage/{id}', [CommentController::class, 'show'] )->name('blog.page');
-Route::post('comment post/{id}', [CommentController::class, 'store'])->middleware(['auth:doctor,patient'])->name('comments.store');
+Route::post('comment post/{id}', [CommentController::class, 'store'])->middleware(['auth:doctor,patient,admin'])->name('comments.store');
 Route::get('doctors' , [MyDoctorController::class, 'index'])->name('doctors.index');
 Route::get('doctors/search' , [MyDoctorController::class, 'index'])->name('doctors.search');
 Route::get('doctors/{doctor:name}' , [MyDoctorController::class, 'show'])->name('doctor.profile');

@@ -75,7 +75,7 @@
               <span>Azza Shawky</span>
               <p>knowledgeable, patient, committed, kind, great listener. Couldn't ask for more from a therapist. </p>
             </div>
-            <h5>To Doctor : <a href="#"> Marina Kamil</a></h5>
+            <h5>To Doctor : <a href="{{ url('doctors/'. 'Marina Kamil') }}"> Marina Kamil</a></h5>
           </div>
   
           <div class="testimonial-block style-2  gray-bg"><!--Testimonial 2-->
@@ -89,7 +89,7 @@
                 Would highly recommend him. 
               </p>
             </div>
-            <h5>To Doctor : <a href="#"> Moustafa Said</a></h5>
+            <h5>To Doctor : <a href="{{ url('doctors/'. 'Moustafa Said') }}"> Moustafa Said</a></h5>
             <i class="icofont-quote-right"></i>
           </div>
   
@@ -104,7 +104,7 @@
                 Thanks Dr.Ahmed for your time and for listening to me. Best regards.
               </p>
             </div>
-            <h5>To Doctor : <a href="#"> Ahmed Abd El Ghane</a></h5>
+            <h5>To Doctor : <a href="{{ url('doctors/'. 'Ahmed Abd El Ghane') }}"> Ahmed Abd El Ghane</a></h5>
             <i class="icofont-quote-right"></i>
           </div>
   
@@ -118,7 +118,7 @@
               <p class="mt-4 dir-rtl">مريح جدا في التعامل و قدرت اتكلم معاه براحتي وبصدق</p>
             </div>
             <i class="icofont-quote-right"></i>
-            <h5>To Doctor : <a href="#">Samir Mohammad</a></h5>
+            <h5>To Doctor : <a href="{{ url('doctors/'. 'Samir Mohammad') }}">Samir Mohammad</a></h5>
           </div>
   
           <div class="testimonial-block style-2  gray-bg"><!--Testimonial 5-->
@@ -132,7 +132,7 @@
                 د كمال مخلص جدا ومنظم واسلوبه جميل ساعدني كتير في فهم مشاعري وازاي اتعامل معها بطريقة مختلفة غيرت عندي حاجات كتيرة شكرا جدا               </p>
             </div>
             <i class="icofont-quote-right"></i>
-            <h5>To Doctor : <a href="#">Kamal Mohammad</a></h5>
+            <h5>To Doctor : <a href="{{ url('doctors/'. 'Kamal Mohammad') }}">Kamal Mohammad</a></h5>
           </div>
 
         </div>

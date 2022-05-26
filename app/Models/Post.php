@@ -44,7 +44,7 @@ class Post extends Model
      */
     public function secretary()
     {
-        return $this->belongsTo(Secretary::class);
+        return $this->belongsTo(Secretary::class, 'secretary_ssn' , 'ssn');
     }
     /**
      * Get all of the comments for the Post

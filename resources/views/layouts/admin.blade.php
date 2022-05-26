@@ -31,7 +31,7 @@
                 </a>
               </li>
                 
-              <li class="sidebar-item has-sub {{ Request::is('admin/modify') ? 'active' : '' }}">
+              {{-- <li class="sidebar-item has-sub {{ Request::is('admin/modify') ? 'active' : '' }}">
                 <a href="#" class='sidebar-link'>
                   <span>Appointments</span>
                 </a>
@@ -40,7 +40,7 @@
                     <a href="{{ route('admin.modify.appoinments') }}">Modify Appointments</a>
                   </li>
                 </ul>
-              </li>
+              </li> --}}
               
               <li class="sidebar-item has-sub {{ Request::is('admin/posts') ? 'active' : ''}} {{Request::is('admin/requests') ? 'active' : '' }} ">
                 <a href="#" class='sidebar-link'>
@@ -50,23 +50,23 @@
                   <li class="submenu-item  {{ Request::is('admin/posts') ? 'active' : ''}} ">
                     <a href="{{ route('admin.show.posts') }}">Posts</a>
                   </li>
-                  <li class="submenu-item {{Request::is('admin/requests') ? 'active' : '' }} ">
+                  {{-- <li class="submenu-item {{Request::is('admin/requests') ? 'active' : '' }} ">
                     <a href="{{ route('admin.approve.requests') }}">Doctors' Requests</a>
-                  </li>
+                  </li> --}}
                 </ul>
               </li>
-  
+
               <li class="sidebar-item {{ Request::is('admin/contact') ? 'active' : ''}} ">
                 <a href="{{ route('admin.contact.response') }}" class="sidebar-link"> 
                   <span>Contact Us Responses</span>
                 </a>
               </li>
               
-              <li class="sidebar-item {{ Request::is('admin/create') ? 'active' : ''}} ">
+              {{-- <li class="sidebar-item {{ Request::is('admin/create') ? 'active' : ''}} ">
                 <a href="{{ route('admin.createDRAccount') }}" class="sidebar-link"> 
                   <span>Create Doctor's Account</span>
                 </a>
-              </li>
+              </li> --}}
   
               <li class="sidebar-item ">
                 <a href="{{ route('home') }}" class="sidebar-link"> 
