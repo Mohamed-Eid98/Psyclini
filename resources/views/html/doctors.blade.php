@@ -6,12 +6,6 @@
 <head>
 
     <title>Psyclini</title>
-    <link rel="stylesheet" href="../css/home_style.css">
-    <link rel="stylesheet" href="../css/icofont.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/slick-theme.css">
-    <link rel="stylesheet" href="../css/slick.css">
-    <link rel="icon" href="../img/icon.png">
   
 </head>
 <body id="bootstrap-overrides top">
@@ -28,7 +22,7 @@
             <ul class="list-unstyled ps-0 ">
 
               <li class="mb-1"><!--speciality button and list-->
-                <a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#specialities-collapse" aria-expanded="true">
+                <a class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#specialities-collapse" aria-expanded="false">
                   Specialities
                 </a>
                 <div class="collapse " id="specialities-collapse">
@@ -220,9 +214,6 @@
     </footer>
   </div>
   <!--footer end-->
-
-  <script src="../js/bootstrap.bundle.js"></script>
-
 </body>
 </html>
 @endsection
