@@ -193,6 +193,6 @@ class SecretaryController extends Controller
             unlink('images/'. $post->image);
         }
         $post->delete();
-        return redirect()->route('secretary.show.posts')->with('status1', 'The Post Was Deleted Successfully');
+        return redirect()->route('admin.show.posts')->with('status1', 'The Post Was Deleted Successfully');
     }
 }
