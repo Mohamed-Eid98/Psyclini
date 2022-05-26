@@ -103,6 +103,7 @@
                 </a>
                   <ul class="dropdown-menu " aria-labelledby="dropdown03">
                     <li><a href="{{route('home')}}" class="dropdown-item">Welcome, {{ Auth::guard('doctor')->user()->name}}</a></li>
+                        <li><a href="{{route('doctor.index')}}" class="dropdown-item">Dashboard</a></li>
                     <li><a class="dropdown-item" href="#" onclick="event.preventDefault();document.querySelector('#logout-form').submit();">
                       Logout
                         </a>
@@ -128,6 +129,7 @@
                 </a>
                   <ul class="dropdown-menu " aria-labelledby="dropdown03">
                     <li><a href="{{route('home')}}" class="dropdown-item">Welcome, {{ Auth::guard('admin')->user()->name}}</a></li>
+                    <li><a href="{{route('admin.index')}}" class="dropdown-item">Dashboard</a></li>
                     <li><a class="dropdown-item" href="#" onclick="event.preventDefault();document.querySelector('#logout-form').submit();">
                       Logout
                         </a>
