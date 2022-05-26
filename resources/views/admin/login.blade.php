@@ -8,12 +8,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="../css/icofont.css">
         <link rel="stylesheet" href="../css/signin_signup_style.css">
-        <link rel="stylesheet" href="../css/home_style.css">
-        <link rel="icon" href="../img/icon.png">
-        <link rel="stylesheet" href="{{ asset('bootstrap.min.css') }}">
-        <link rel="stylesheet" href="../css/bootstrap.min.css">
     </head>
 	<body>
       
@@ -47,8 +42,6 @@
                                         </div>       
                                         </div>
                                     </form>
-                                    <p class="text-center sign-color" >You Are a Therapist ?<a href="{{ route('doctor.signin') }}"> Sign In Here</a></p>
-                                    <p class="text-center sign-color" >Not a Member ?<a href="{{ route('signUp') }}"> Sign Up</a></p>
                                 </div>
                         </div>
                     </div>
@@ -72,10 +65,6 @@
             </footer>
         </div>
 
-        
-        <script src="../js/jquery.js"></script>
-        <script src="../js/bootstrap.min.js"></script>
-        <script src="../js/singin_signup.js"></script>
 	</body>
 </html>
 @endsection
