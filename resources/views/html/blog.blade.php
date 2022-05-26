@@ -76,7 +76,7 @@
                     @else
                         @if ( ($post->secretary->img) != NULL)
                           <div class="comment-thumb float-left">
-                            <img alt="" src="{{ asset('images/sec/'. $post->patient->img) }}" class="img-fluid">
+                            <img alt="" src="{{ asset('images/sec/'. $post->secretary->img) }}" class="img-fluid">
                           </div>    
                         @else
                           <div class="comment-thumb float-left">
@@ -91,7 +91,7 @@
                           @elseif ($post->doctor_id != NUll)
                               <h4 class="mb-1 "> Dr {{ $post->doctor->name}}</h4>
                           @else
-                          <h4 class="mb-1 "> {{ $post->secretary->name}}</h4>
+                          <h4 class="mb-1 "> Admin </h4>
                           @endif
                     </div>
                   </div>

@@ -415,9 +415,18 @@ public function general(Request $request)
         }
 
          $post->body = $request->input('comment');   
-        $post->speciality = $request->input('cate');   
-        $patientId = Auth::guard('patient')->user()->id ;
-        $post->patient_id = $patientId;
+        $post->speciality = $request->input('cate');  
+        if( Auth::guard('patient')->user()) 
+        {
+            $patientId = Auth::guard('patient')->user()->id ;
+            $post->patient_id = $patientId;
+        }
+        elseif( Auth::guard('admin')->user()) 
+        {
+            $adminssn = Auth::guard('admin')->user()->ssn ;
+            $post->secretary_ssn = $adminssn;
+        }
+    
         $post->save();
      return redirect()->route('blog')->with('status', 'Your Post Was Sent');
      

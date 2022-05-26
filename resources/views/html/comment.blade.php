@@ -123,7 +123,7 @@
                             @elseif ($comment->doctor_id != NUll)
                                 <h5 class="mb-1 "> Dr {{ $comment->doctor->name}}</h5>
                             @else
-                                <h5 class="mb-1 "> {{ $comment->secretary->name}}</h5>
+                                <h5 class="mb-1 "> Admin</h5>
                             @endif
 
                         <span class="date-comm"> {{ $comment->comment_added_at }}</span>
