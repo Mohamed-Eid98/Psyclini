@@ -93,12 +93,7 @@
                             <li><a href="https://www.mayoclinic.org/diseases-conditions/schizophrenia/symptoms-causes/syc-20354443" target="_blank">Schizophrenia</a></li>
                           </ul>
                         </div>
-                        <div class="mt-5 clearfix">
-                          <ul class="float-left list-inline tag-option"> 
-                            <li class="list-inline-item"><a href="#">Schizophrenia</a></li>
-                            <li class="list-inline-item"><a href="#">Mental Disorders</a></li>
-                            <li class="list-inline-item"><a href="#">Hallucinations</a></li>
-                          </ul>        
+                        <div class="mt-5 clearfix">  
                           <ul class="float-right list-inline">
                             <li class="list-inline-item"> Share: </li>
                             <li class="list-inline-item"><a href="#" target="_blank"><i class="icofont-facebook" aria-hidden="true"></i></a></li>

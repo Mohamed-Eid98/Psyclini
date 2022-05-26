@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-    
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,10 +9,6 @@
 </head>
 <body id="bootstrap-overrides">
   
-  <!--nav bar begin-->
-
-  <!--nav bar End-->
-
   <section class="section blog-wrap">
     <div class="container">
       <div class="row">
@@ -29,8 +25,8 @@
                           <span class="text-color-2 text-capitalize mr-3"><i class="icofont-book-mark mr-2"></i>General Psychiatry</span>
                           <span class="text-black text-muted text-capitalize mr-3"><i class="icofont-calendar mr-2"></i> 06th February 2022</span>
                         </div> 
-                        <div lang="ar" dir="rtl" >
-                          <h2 class="mb-4 text-md"><a href="{{route('article3')}}">طرق دعم مصاب الرهاب الاجتماعي</a></h2>
+                        <div class="dir-rtl" >
+                          <h2 class="mb-4 text-md"><a href="{{ route('article3') }}">طرق دعم مصاب الرهاب الاجتماعي</a></h2>
 
                           <h3 class="article-subtitle" class="title-color">المحتوي</h3>
                           <ul class="list-unstyled article-parag" >
@@ -135,14 +131,14 @@
 
               <div class="col-lg-4"><!--Side Bar-->
                 <div class="sidebar-wrap pl-lg-4 mt-5 mt-lg-0">
-                  {{-- <div class="sidebar-widget search  mb-3 "><!--Search-->
+                  <div class="sidebar-widget search  mb-3 "><!--Search-->
                     <h4>Search Here</h4>
                     <form action="#" class="search-form">
                       <input type="text" class="form-control" placeholder="search">
                       <i class="ti-search"></i>
                     </form>
                   </div>
-       --}}
+      
                   <div class="sidebar-widget latest-post mb-3"><!--Popular Atricles-->
                     <h4>Popular Articles</h4>
                     <div class="py-2">
@@ -157,11 +153,11 @@
       
                     <div class="py-2">
                       <span class="text-sm text-muted">03 Mar 2018</span>
-                        <h6 class="my-2"><a href="{{route('article3')}}">طرق دعم مصاب الرهاب الاجتماعي</a></h6>
+                        <h6 class="my-2"><a href="{{ route('article3') }}">طرق دعم مصاب الرهاب الاجتماعي</a></h6>
                     </div>                       
                   </div>
       
-                  {{-- <div class="sidebar-widget category mb-3"><!--Department -->
+                  <div class="sidebar-widget category mb-3"><!--Department -->
                     <h4>Departments</h4>
                     <ul class="list-unstyled">
                       <li class="align-items-center">
@@ -197,8 +193,7 @@
                         <span>(0)</span>
                       </li>                
                     </ul>
-                  </div> --}}
-                  
+                  </div>                 
                    
                 </div>
               </div>
@@ -209,8 +204,8 @@
     </div>
   </section>
 
-  <!--footer begin-->
- <div class="container">
+   <!--footer begin-->
+  <div class="container">
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top my-footer">
       <div class="col-md-4 d-flex align-items-center">
         <span class="text-muted">&copy; 2022 Ain Shams Uni. , Faculty of Science,<br> Maths. Department. </span>
@@ -233,5 +228,5 @@
 </body>
 </html>
 
-
 @endsection
+
