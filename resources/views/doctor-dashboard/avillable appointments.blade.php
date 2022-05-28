@@ -109,16 +109,16 @@
                       <td>{{$appointment->day}}</td>
                       <td>{{$appointment->time}} </td>
 					  @if($appointment->doctor_status)
-					  <td>Availlable</td>
+					  <td>Available</td>
                       @else
-						  <td>Not Availlable</td>
+						  <td>Not Available</td>
 					  @endif
 					  
 					  <td >
-					<button  class="btn btn-outline-success"><a href="{{url('AApp/'.$appointment->id)}}">Availlable</a></button>
+					<button  class="btn btn-outline-success"><a href="{{url('AApp/'.$appointment->id)}}">Available</a></button>
 					</td>
                       <td >
-					<button  class="btn btn-outline-danger"><a href="{{url('NAApp/'.$appointment->id)}}">Not</a></button>
+					<button  class="btn btn-outline-danger"><a href="{{url('NAApp/'.$appointment->id)}}">Not Available</a></button>
 					</td>
                     </tr>
                     @endforeach

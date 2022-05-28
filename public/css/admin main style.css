@@ -155,3 +155,15 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+.btn-outline-danger a{
+    color: #dc3545;
+}
+.btn-outline-danger a:hover{
+color: #fff !important;
+}
+.btn-outline-success a{
+color: #198754;
+}
+.btn-outline-success a:hover{
+color: #fff !important;
+}
