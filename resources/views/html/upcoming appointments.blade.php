@@ -3,14 +3,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../css/home_style.css">
-    <link rel="stylesheet" href="../css/icofont.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/datatable_style.css">
-    <link rel="icon" href="../img/icon.png">
     <title>Upcoming Appointments - Psyclini</title>
-    
 </head>
 <body>
   
@@ -24,25 +18,23 @@
           <table class="table table1 p-2 text-center" id="table1">
             <thead> 
               <tr class="justify-content-between blue-title text-center">
-                
                 <th class="text-center">Date</th>
                 <th class="text-center">Time</th>
-				<th class="text-center">Massage</th>
+				        <th class="text-center">Massage</th>
                 <th class="text-center">Cancel</th>
               </tr>
             </thead>
             <tbody>
-			@foreach($appointment as $appointment)
+			      @foreach($appointment as $appointment)
               <tr>
-                
                 <td>{{$appointment->date}}</td>
                 <td>{{$appointment->time}}</td>
-				<td>{{$appointment->message}}</td>
+				        <td>{{$appointment->message}}</td>
                 <td >
-                  <button  class="btn btn-outline-danger"><a href="{{url('deleteApp/'.$appointment->id)}}">Cancel</a></button>
+                  <button class="btn btn-outline-danger"><a href="{{url('deleteApp/'.$appointment->id)}}">Cancel</a></button>
                 </td>
               </tr>
-              @endforeach
+            @endforeach
             </tbody>
           </table>
         </div>
@@ -70,10 +62,6 @@
 
 
 
-
-
-  <script src="../js/jquery.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
   <script src="../js/simple-datatables.js"></script>
   <script>
     // Simple Datatable

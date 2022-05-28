@@ -5,21 +5,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../css/home_style.css">
-    <link rel="stylesheet" href="../css/icofont.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/slick-theme.css">
-    <link rel="stylesheet" href="../css/slick.css">
-    <link rel="icon" href="../img/icon.png">
-    <title>Psyclini</title>
+  <title>اختبار إدمان الانترنت - Psyclini</title>
     
 </head>
 <body id="bootstrap-overrides top">
-  
-  <!--nav bar begin-->
-  
-  
 
   <section class="section test-wrap">
     <div class="container col-lg-6">
@@ -69,16 +58,6 @@
   </div>
   <!--footer end-->
 
-
-
-
-
-
-
-  <script src="../js/jquery.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-  <script src="../js/slick.min.js"></script>
-  <script src="../js/script.js"></script>
   <script>
   const quizData =[
     "اجلس امام الانترنت لفترات طويله في اليوم الواحد تصل الي عشر ساعات أو اكثر",

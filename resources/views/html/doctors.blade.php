@@ -5,7 +5,7 @@
 <html>
 <head>
 
-    <title>Psyclini</title>
+    <title>Doctors - Psyclini</title>
   
 </head>
 <body id="bootstrap-overrides top">

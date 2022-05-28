@@ -4,20 +4,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../css/home_style.css">
-    <link rel="stylesheet" href="../css/icofont.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/slick-theme.css">
-    <link rel="stylesheet" href="../css/slick.css">
-    <link rel="icon" href="../img/icon.png">
-    <title>Psyclini</title>
+    <title> اختبار الاكتئاب - Psyclini</title>
     
 </head>
 <body id="bootstrap-overrides top">
-  
-  
-
   <section class="section test-wrap">
     <div class="container col-lg-8">
       <div class="dir-rtl test-2">
@@ -71,17 +61,7 @@
     </footer>
   </div>
   <!--footer end-->
-
-
-
-
-
-
-
-  <script src="../js/jquery.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-  <script src="../js/slick.min.js"></script>
-  <script src="../js/script.js"></script>
+  
   <script>
       const quizData =[
     {

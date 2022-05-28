@@ -4,12 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../css/home_style.css">
-    <link rel="stylesheet" href="../css/icofont.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="icon" href="../img/icon.png">
-    <title>Psyclini</title>
+  <title>Matching Game - Psyclini</title>
 </head>
 <body id="bootstrap-overrides top">
 
@@ -42,11 +37,6 @@
     </footer>
   </div>
   <!--footer end-->
-
-
-    <script src="../js/jquery.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/script.js"></script> 
 
 </body>
 </html>

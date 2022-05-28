@@ -4,14 +4,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../css/home_style.css">
-    <link rel="stylesheet" href="../css/icofont.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/slick-theme.css">
-    <link rel="stylesheet" href="../css/slick.css">
-    <link rel="icon" href="../img/icon.png">
-    <title>Psyclini</title>
+
+    <title>Games - Psyclini</title>
     
 </head>
 <body id="bootstrap-overrides top">
@@ -51,7 +45,6 @@
   </section>
 
   <!--footer begin-->
-  <!--footer begin-->
   <div class="container">
     <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top my-footer">
       <div class="col-md-4 d-flex align-items-center">
@@ -70,14 +63,6 @@
     </footer>
   </div>
   <!--footer end-->
-  <!--footer end-->
-
-
-
-  <script src="../js/jquery.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-  <script src="../js/slick.min.js"></script>
-  <script src="../js/script.js"></script>
 </body>
 </html>
 

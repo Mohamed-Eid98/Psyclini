@@ -5,20 +5,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../css/home_style.css">
-    <link rel="stylesheet" href="../css/icofont.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="icon" href="../img/icon.png">
-    <title>Psyclini</title>
+  <title>Whac-a-Mole - Psyclini</title>
     
 </head>
 <body id="bootstrap-overrides top">
-  
-  <!--nav bar begin-->
-  <!--nav bar End-->
 
-  
 
   <section class="section game-wrap ">
     <div class="container col-lg-7 feature-item">
@@ -70,13 +61,6 @@
     </footer>
   </div>
   <!--footer end-->
-
-
-
-
-
-
-
 
   <script src="../js/game1.js"></script> 
 

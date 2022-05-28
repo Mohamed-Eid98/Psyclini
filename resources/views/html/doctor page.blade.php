@@ -7,7 +7,7 @@
 <head>
     <meta charset="utf-8">
 
-    <title>Psyclini</title>
+    <title>{{ $doctor->name}} - Psyclini</title>
     <link rel="stylesheet" href="../css/slick.css">
     <link rel="stylesheet" href="../css/slick-theme.css">    
 </head>
