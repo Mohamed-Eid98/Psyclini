@@ -4,12 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="../css/admin main style.css">
-    <link rel="stylesheet" href="../css/admin_bootstrap.css">
-    <link rel="stylesheet" href="../css/icofont.css">
-    <link rel="icon" href="../img/icon.png">
-    <title>Psyclini ADMIN/ Create Doctor's Account</title>
+  <title>Psyclini ADMIN/ Create Doctor's Account</title>
 
 </style>
 </head>

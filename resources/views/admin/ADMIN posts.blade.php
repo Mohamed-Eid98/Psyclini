@@ -5,28 +5,22 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Psyclini ADMIN/ Approve Posts</title>
-  
-  <link rel="stylesheet" href="../css/admin_bootstrap.css">
-  <link rel="stylesheet" href="../css/icofont.css">
-  <link rel="stylesheet" href="../css/admin main style.css">
   <link rel="stylesheet" href="../css/datatable_style.css">
-  <link rel="icon" href="../img/icon.png">
 </head>
 
 <body>
   <div id="app">
     <div id="sidebar" class="active ">
-      
     </div>
     
     <div id="main">
 
-      <header class="mb-4">
-        <button href="#" class="burger-btn d-block d-xl-none"><i class="icofont-navigation-menu fs-3"></i></a>
-      </header>
+      <div class="col-lg-1">
+        <header class=" ml-5 pt-4">
+          <a href="#" class="burger-btn d-block d-xl-none "><i class="icofont-navigation-menu fs-3 "></i></a>
+        </header>
+      </div>
 
       <div class=" admin-approve-posts">
         <div class="card shadow mb-4 mt-5 ">
@@ -129,10 +123,6 @@
     </div>
   </div>
 
-
-  
-
-  <script src="../js/admin main script.js"></script>
   <script src="../js/simple-datatables.js"></script>
   <script>
     // Simple Datatable
