@@ -35,18 +35,6 @@ Route::get('department' , function(){
     return view('html.department');
 })->name('department');
 
-Route::get('articles' , function(){
-    return view('html.articles');
-})->name('articles');
-Route::get('article1' , function(){
-    return view('html.article1');
-})->name('article1');
-Route::get('article2' , function(){
-    return view('html.article2');
-})->name('article2');
-Route::get('article3' , function(){
-    return view('html.article3');
-})->name('article3');
 Route::get('games' , function(){
     return view('html.games');
 })->name('games');
@@ -56,6 +44,7 @@ Route::get('game1' , function(){
 Route::get('game2' , function(){
     return view('html.game2');
 })->name('game2');
+
 Route::get('tests' , function(){
     return view('html.tests');
 })->name('tests');
@@ -72,15 +61,19 @@ Route::get('test4' , function(){
     return view('html.test4');
 })->name('test4');
 
+Route::get('articles' , function(){
+    return view('html.articles');
+})->name('articles');
 Route::get('article1' , function(){
     return view('html.article1');
 })->name('article1');
-Route::get('article3' , function(){
-    return view('html.article3');
-})->name('article3');
 Route::get('article2' , function(){
     return view('html.article2');
 })->name('article2');
+Route::get('article3' , function(){
+    return view('html.article3');
+})->name('article3');
+
 
 Route::get('test' , function(){
     return view('html.test');
@@ -97,8 +90,9 @@ Route::get('/signUp' , function(){
 Route::get('/pHistory' , function(){
     return view('html.patient history');
 })->name('pHistory');
-Route::post('contact', [ContactController::class, 'store'] )->name('contact.store');
 
+
+Route::post('contact', [ContactController::class, 'store'] )->name('contact.store');
 Route::get('blog', [PostController::class, 'index'] )->name('blog');
 Route::post('blog', [PostController::class, 'store'] )->middleware(['auth:doctor,patient,admin'])->name('posts.store');
 Route::get('blog/search', [PostController::class, 'search'] )->name('post.search');
