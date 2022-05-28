@@ -2759,6 +2759,12 @@ input[type=number] {
 .textarea.form-control{
   background-color: rgba(77, 119, 255, .05);
 }
+.btn-outline-danger a{
+  color: #dc3545;
+}
+.btn-outline-danger a:hover{
+  color: #fff !important;
+}
 /*.game-wrap{
   min-height: 20rem !important;
 }*/
