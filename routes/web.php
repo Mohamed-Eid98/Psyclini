@@ -94,7 +94,9 @@ Route::get('/signin doctor' , function(){
 Route::get('/signUp' , function(){
     return view('html.Sign UP');
 })->name('signUp');
-
+Route::get('/pHistory' , function(){
+    return view('html.patient history');
+})->name('pHistory');
 Route::post('contact', [ContactController::class, 'store'] )->name('contact.store');
 
 Route::get('blog', [PostController::class, 'index'] )->name('blog');

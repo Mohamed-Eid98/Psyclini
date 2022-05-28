@@ -87,7 +87,7 @@ public function Upcom()
 		return view('html.upcoming appointments', compact('appointment'));
     }
 	
-public function pHistory()
+	public function pHistory()
     {
 
         $s=Auth::guard('patient')->user()->id;
